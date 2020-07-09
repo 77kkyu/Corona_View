@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
 public class MainJson {
 	String jsonString = "";
 	MainJson() throws Exception {
