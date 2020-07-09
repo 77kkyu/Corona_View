@@ -8,5 +8,6 @@ public class MainBean {
 	String name1;
 	String dd1;
 	String zz1;
+	String zzzzzzzz;
 
 }
