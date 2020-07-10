@@ -13,12 +13,10 @@
    
    </context:component-scan>
    
-   <!-- <mvc:annotation-driven>
-   전송된 데이터를 commandMap으로 다 받을수 있음
-   		<mvc:argument-resolvers>
-   			<bean class="stu.common.resolver.CustomMapArgumentResolver"/>
-   		</mvc:argument-resolvers>
-   </mvc:annotation-driven> -->
+   <mvc:annotation-driven/>
+   
+   <!-- 이미지 경로설정 -->
+   <mvc:resources location="/resources/" mapping="/resources/**" />
    
    <!-- 모든 요청에 대해서 loggerInterceptor 동작되게 함 -->
    <mvc:interceptors>
@@ -45,7 +43,7 @@
    </bean>
    
    <!-- Tiles -->
-    <!-- <bean id="tilesConfigurer" 
+    <bean id="tilesConfigurer" 
                 class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
         <property name="definitions">
             <list>
@@ -58,6 +56,6 @@
         <property name="viewClass" 
                         value="org.springframework.web.servlet.view.tiles3.TilesView" />
         <property name="order" value="1" />
-    </bean> -->
+    </bean>
    
 </beans>
