@@ -93,11 +93,13 @@ p {
     font-size: 15px;
 }
 
+.home .top .dashboard .negative.diff, .home .top .dashboard .released.diff {
+    color: green;
+}
 
-
-
-
-
+.home .top .dashboard .diff.minus {
+    color: blue;
+}
 
 </style>
 
@@ -105,43 +107,71 @@ p {
 
 <div class="top container"> 
 
-	<h2>전 세계</h2>
-	
+	<h2>대한민국</h2>
 	<div class="row dashboard world">
 		<div class="col-4 col-sm-4 col-md-3 text-center" >
-		<p class="confirmed number">12,170,088</p>
-		<p class="confirmed diff">(+168,287)</p>
+		<p class="confirmed number">${TotalCase}</p>
+		<p class="confirmed diff">(+${newCase})</p>
 		<p>확진자</p>
 		</div>
 		
 		<div class="col-4 col-sm-4 col-md-2 text-center" >
-		<p class="death red number">552,075</p>
-		<p class="death diff">(+4,283)</p>
+		<p class="death red number">${TotalDeath}</p>
+		<p class="death diff">(+${TodayDeath})</p>
 		<p>사망자</p>
 		</div>
 		
 		<div class="col-4 col-sm-4 col-md-2 text-center" >
-		<p class="released number">7,065,361</p>
-		<p class="released diff">(+122,284)</p>
+		<p class="released number">${TotalRecovered}</p>
+		<p class="released diff">(+${TodayRecovered})</p>
 		<p>격리해제</p>
 		</div>
 		
 		<div class="col-6 col-sm-6 col-md-3 text-center" >
-		<p class="fatality number">4.54%</p>
+		<p class="fatality number">${deathPercentage}%</p>
 		<p>치사율</p>
 		</div>
 		
-		<div class="col-6 col-sm-6 col-md-2 text-center" >
-		<p class="country number">214</p>
-		<p class="country diff">(-)</p>
-		<p>발생국</p>
+		<div class="col-6 col-sm-6 col-md-1 text-center" >
+		<p class="testing number">${checkingCounter}</p>
+		<p>검사중</p>
+		</div>
+	</div><br>
+	
+	
+	<h2>지역별 확진자</h2>
+	<div class="row dashboard world">
+		<div class="col-4 col-sm-4 col-md-3 text-center" >
+		<p class="confirmed number">${seoulTotalCase}</p>
+		<p class="confirmed diff">(+${seoulNewCase})</p>
+		<p>서울</p>
+		</div>
+		
+		<div class="col-4 col-sm-4 col-md-2 text-center" >
+		<p class="death red number">${gyeonggiTotalCase}</p>
+		<p class="death diff">(+${gyeonggiNewCase})</p>
+		<p>경기</p>
+		</div>
+		
+		<div class="col-4 col-sm-4 col-md-2 text-center" >
+		<p class="death red number">${daeguTotalCase}</p>
+		<p class="death diff">(+${daeguNewCase})</p>
+		<p>대구</p>
+		</div>
+		
+		<div class="col-6 col-sm-6 col-md-3 text-center" >
+		<p class="death red number">${gyeongbukTotalCase}</p>
+		<p class="death diff">(+${gyeongbukNewCase})</p>
+		<p>경북</p>
+		</div>
+		
+		<div class="col-6 col-sm-6 col-md-1 text-center" >
+		<p class="death red number">${busanTotalCase}</p>
+		<p class="death diff">(+${busanNewCase})</p>
+		<p>부산</p>
 		</div>
 	</div>
 	
-	<h2>대한민국</h2>
-	
-	
-
 </div>
 
 </body>
