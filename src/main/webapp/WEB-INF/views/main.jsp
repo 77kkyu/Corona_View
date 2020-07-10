@@ -7,39 +7,10 @@
 <%@ page session="false" %>
 <html>
 <head>
-
 <title>Home</title>
-	
-<style type="text/css">
-
-#sample{
-	height:500px;
-	clear:both;
-	color:white;
-}
-
-</style>
-
-</head>
-<body>
-
-
-<div id="sample">
-	
-</div>
-
-<%-- <h1>
-	Hello world!  
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
- --%>
- 
-
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<title>Main</title>
 </head>
 
 <style>
