@@ -7,10 +7,10 @@
 <%@ page session="false" %>
 <html>
 <head>
-<title>Home</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<title>Main</title>
 </head>
 
 <style>
@@ -173,6 +173,8 @@ p {
 	</div>
 	
 </div>
+
+<br><br><br><br><br><br>
 
 </body>
 </html>

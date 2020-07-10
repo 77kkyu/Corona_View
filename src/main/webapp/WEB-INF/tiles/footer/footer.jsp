@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <title>CoronaView</title>
@@ -30,12 +30,12 @@
 <div id="footer" class="container">
 
 <br><br><br>
-ÀÌ¸ÞÀÏ·Î Àß¸øµÈ Á¤º¸ Á¤Á¤ ¿äÃ» ¹Þ½À´Ï´Ù<br>
+ì´ë©”ì¼ë¡œ ìž˜ëª»ëœ ì •ë³´ ì •ì • ìš”ì²­ ë°›ìŠµë‹ˆë‹¤<br>
 sohasarah75@gmail.com<br>
 <br><br>
-º» »çÀÌÆ®¿¡¼­ Á¦°øÇÏ´Â Åë°è ¼öÄ¡´Â ´ëÇÑ¹Î±¹ Áúº´°ü¸® º»ºÎ ¹× ¼¼°è °¢±¹ °ü·Ã ºÎÃ³ º¸µµÀÚ·á, ±¹³»¿Ü ¾ð·Ð ±â»ç µîÀ» Åä´ë·Î ¾÷µ¥ÀÌÆ® µÇÁö¸¸,<br>
- °³ÀÎÀÌ ÃëÇÕÇÑ ³»¿ëÀÌ¹Ç·Î ¼öÄ¡ÀÇ Á¤È®¼º¿¡ ´ëÇØ Ã¥ÀÓÁú ¼ö ¾øÀ¸¸ç, °ø½ÄÀûÀÎ ±Ù°Å ÀÚ·á·Î È°¿ëµÉ ¼ö ¾ø½À´Ï´Ù.<br>
-  º» »çÀÌÆ®¿¡¼­ Á¦°øÇÏ´Â ³»¿ëÀÇ ÀÎ¿ë°ú »ç¿ë¿¡ ´ëÇÑ Ã¥ÀÓÀº ÀüÀûÀ¸·Î »ç¿ëÀÚ¿¡°Ô ÀÖÀ½À» ¾Ë¸³´Ï´Ù.
+ë³¸ ì‚¬ì´íŠ¸ì—ì„œ ì œê³µí•˜ëŠ” í†µê³„ ìˆ˜ì¹˜ëŠ” ëŒ€í•œë¯¼êµ­ ì§ˆë³‘ê´€ë¦¬ ë³¸ë¶€ ë° ì„¸ê³„ ê°êµ­ ê´€ë ¨ ë¶€ì²˜ ë³´ë„ìžë£Œ, êµ­ë‚´ì™¸ ì–¸ë¡  ê¸°ì‚¬ ë“±ì„ í† ëŒ€ë¡œ ì—…ë°ì´íŠ¸ ë˜ì§€ë§Œ,<br>
+ ê°œì¸ì´ ì·¨í•©í•œ ë‚´ìš©ì´ë¯€ë¡œ ìˆ˜ì¹˜ì˜ ì •í™•ì„±ì— ëŒ€í•´ ì±…ìž„ì§ˆ ìˆ˜ ì—†ìœ¼ë©°, ê³µì‹ì ì¸ ê·¼ê±° ìžë£Œë¡œ í™œìš©ë  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.<br>
+  ë³¸ ì‚¬ì´íŠ¸ì—ì„œ ì œê³µí•˜ëŠ” ë‚´ìš©ì˜ ì¸ìš©ê³¼ ì‚¬ìš©ì— ëŒ€í•œ ì±…ìž„ì€ ì „ì ìœ¼ë¡œ ì‚¬ìš©ìžì—ê²Œ ìžˆìŒì„ ì•Œë¦½ë‹ˆë‹¤.
 
 </div>
 
