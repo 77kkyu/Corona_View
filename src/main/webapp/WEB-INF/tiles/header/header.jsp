@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <title>CoronaView</title>
@@ -13,13 +13,13 @@
 
 #header{
 	width:100%;
-	height:300px;
+	height:250px;
 	background:black;
 	clear:both;
 }
 
 
-p{
+.p1{
 	color:white;
 	font-family:'Segoe UI';
 	font-size:30px;
@@ -37,7 +37,7 @@ p{
 
 	<img style="width:200px; height:60px; margin-left:350px;" src="<c:url value="/resources/images/logo2.png"/>"/>
 
-	<p>�ڷγ� 19 ��Ȳ</p>
+	<p class="p1">코로나 19 현황</p>
 
 </div>
 
