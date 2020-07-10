@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+       
+<tiles-definitions>
+
+   <!-- 템플릿 -->
+   <definition name="template" template="/WEB-INF/tiles/layout.jsp">
+      <put-attribute name="header" value="/WEB-INF/tiles/header/header.jsp" />
+      <put-attribute name="body" value="" />
+      <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
+   </definition>
+   
+   <!-- 메인페이지 -->
+   <definition name="main" extends="template">
+        <put-attribute name="body" value="/WEB-INF/views/main.jsp" />
+   </definition>
+   
+   
+</tiles-definitions>
