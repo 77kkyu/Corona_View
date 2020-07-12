@@ -140,37 +140,52 @@ p {
 	
 	
 	<h2>지역별 확진자</h2>
-	<div class="row dashboard world">
+	<%-- <div class="row dashboard world">
 		<div class="col-4 col-sm-4 col-md-3 text-center" >
 		<p class="confirmed number">${seoulTotalCase}</p>
 		<p class="confirmed diff">(+${seoulNewCase})</p>
-		<p>서울</p>
+		<p>${seoulCountryName}</p>
 		</div>
 		
 		<div class="col-4 col-sm-4 col-md-2 text-center" >
 		<p class="death red number">${gyeonggiTotalCase}</p>
 		<p class="death diff">(+${gyeonggiNewCase})</p>
-		<p>경기</p>
+		<p>${gyeonggiCountryName}</p>
 		</div>
 		
 		<div class="col-4 col-sm-4 col-md-2 text-center" >
 		<p class="death red number">${daeguTotalCase}</p>
 		<p class="death diff">(+${daeguNewCase})</p>
-		<p>대구</p>
+		<p>${daeguCountryName}</p>
 		</div>
 		
 		<div class="col-6 col-sm-6 col-md-3 text-center" >
 		<p class="death red number">${gyeongbukTotalCase}</p>
 		<p class="death diff">(+${gyeongbukNewCase})</p>
-		<p>경북</p>
+		<p>${gyeongbukCountryName}</p>
 		</div>
 		
 		<div class="col-6 col-sm-6 col-md-1 text-center" >
 		<p class="death red number">${busanTotalCase}</p>
 		<p class="death diff">(+${busanNewCase})</p>
-		<p>부산</p>
+		<p>${busanCountryName}</p>
 		</div>
+	</div> --%>
+	
+	
+	<div class="row dashboard world">
+	<c:forEach items="${locationList}" var="list"  varStatus="status" >
+		<div class="col-4 col-sm-4 col-md-3 text-center" >
+		<p class="confirmed number">${list.totalCase}</p>
+		<p class="confirmed diff">(+${list.newCase})</p>
+		<p>${list.countryName}</p>
+		<br>
+		</div>
+		</c:forEach>
+		
 	</div>
+	
+	
 	
 </div>
 
