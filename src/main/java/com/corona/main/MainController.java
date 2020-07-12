@@ -90,7 +90,7 @@ public class MainController {
 		
 		
 		
-		ArrayList<Location> sortedLocations = sortedLocations(locations); // api 재정렬
+		ArrayList<Location> sortedLocations = sortedLocations(locations); // api 재정렬완료
 		
 		mv.addObject("locationList", sortedLocations );
 		mv.addObject("newCase", newCase); // 새로운 확진자
