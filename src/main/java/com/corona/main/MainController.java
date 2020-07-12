@@ -74,22 +74,6 @@ public class MainController {
 			}
 		}
 		
-//		for(int i=0; i<=locations.size()-1; i++) {
-//			Location location = locations.get(i);
-//			String name = location.getLocationName();
-//			String newCase1 = location.getNewCase();
-//			String totalCase = location.getTotalCase();
-//			String countryName = location.getCountryName();
-//
-//			mv.addObject(name+"CountryName", countryName);
-//			mv.addObject(name+"NewCase",newCase1);
-//			mv.addObject(name+"TotalCase",totalCase);
-//			
-//		}
-		
-		
-		
-		
 		ArrayList<Location> sortedLocations = sortedLocations(locations); // api 재정렬
 		
 		mv.addObject("locationList", sortedLocations );
@@ -106,7 +90,7 @@ public class MainController {
 		
 	}
 	
-	public Map<String, Object> getMapFromJsonObject( JSONObject jsonObj ) {
+	public Map<String, Object> getMapFromJsonObject( JSONObject jsonObj ) {// 제이슨객체 스트링으로 변환
         Map<String, Object> map = null;
         
         try {
@@ -125,7 +109,7 @@ public class MainController {
     }
 	
 	
-	private ArrayList<Location> sortedLocations(ArrayList<Location> locations) {
+	private ArrayList<Location> sortedLocations(ArrayList<Location> locations) { // 제이슨데이터 재정렬
 		
 		ArrayList<Location> result = new ArrayList<Location>();
 		
@@ -146,7 +130,7 @@ public class MainController {
 	}
 	
 	
-	private HashMap<String, ArrayList<Location>> makeHashMap(ArrayList<Location> locations) {
+	private HashMap<String, ArrayList<Location>> makeHashMap(ArrayList<Location> locations) { // 해쉬맵에 키값 정렬
 		
 		HashMap<String, ArrayList<Location>> locationMap = new HashMap<String, ArrayList<Location>>();
 
@@ -166,7 +150,7 @@ public class MainController {
 	}
 	
 	
-	private ArrayList<String> makeSortedKeys(HashMap<String, ArrayList<Location>> locationMap) {
+	private ArrayList<String> makeSortedKeys(HashMap<String, ArrayList<Location>> locationMap) { // 정렬 비교 
 		
 		ArrayList<String> keys = new ArrayList<String>();
 		
