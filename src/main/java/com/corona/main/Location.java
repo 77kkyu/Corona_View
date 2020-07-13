@@ -104,7 +104,7 @@ public class Location implements Comparable<Location> {
 		this.newCcase = newCcase;
 	}
 	
-	static Location JsonToLocation(Map<String, String> map, String locationName) {
+	static Location JsonToLocation(Map<String, String> map, String locationName) { // 받은 json데이터를 꺼내와서 생성자에 반환함
 		
 		String newCase = map.get("newCase"); 
 		String totalCase = map.get("totalCase");
@@ -121,7 +121,7 @@ public class Location implements Comparable<Location> {
 	}
 
 	@Override
-	public int compareTo(Location o) {
+	public int compareTo(Location o) { // NewCase 재정렬
 		return stringToInt(o.newCase) - stringToInt(newCase);
 	}
 	
@@ -130,7 +130,7 @@ public class Location implements Comparable<Location> {
 		
 	}
 	
-	public static Comparator<Location> totalCaseComparator = new Comparator<Location>() {
+	public static Comparator<Location> totalCaseComparator = new Comparator<Location>() { // TotalCase 재정렬
 		
 		@Override
 		public int compare(Location o1, Location o2) {

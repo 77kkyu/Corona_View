@@ -61,20 +61,22 @@ public class MainController {
 	    JSONObject korea = (JSONObject) jsonResult1.get("korea");
 		String newCase = (String) korea.get("newCase"); // 신규확진자 수
 			
-		Map<String, Object> locationMap = getMapFromJsonObject(jsonResult1);
-		ArrayList<Location> locations = new ArrayList<Location>();
+		Map<String, Object> locationMap = getMapFromJsonObject(jsonResult1); // 제이슨을 객체로 변환
+		ArrayList<Location> locations = new ArrayList<Location>(); // 자바빈 리스트 선언 
 		
-		for(Map.Entry<String, Object> entry : locationMap.entrySet()) {
+		for(Map.Entry<String, Object> entry : locationMap.entrySet()) { // entrySet() 메서드는 key와 value의 값이 모두 필요한 경우 사용
 			
-			if(!entry.getKey().equals("resultCode") && !entry.getKey().equals("resultMessage") && !entry.getKey().equals("korea") && !entry.getKey().equals("quarantine") ) {
-				Map<String, String> map = (Map<String, String>) entry.getValue();
-				Location location = Location.JsonToLocation(map, entry.getKey());
-				locations.add(location);
+			if(!entry.getKey().equals("resultCode") && !entry.getKey().equals("resultMessage") 
+					&& !entry.getKey().equals("korea") && !entry.getKey().equals("quarantine") ) { // 필요없는 데이터를 빼는 조건
+				
+				Map<String, String> map = (Map<String, String>) entry.getValue(); // 맵에 json으로 받은 데이터의 value값을 담아줌  
+				Location location = Location.JsonToLocation(map, entry.getKey()); // Location Bean에 저장하는 메소드
+				locations.add(location); // value값을 리스트에 담아줌 
 				
 			}
 		}
 		
-		ArrayList<Location> sortedLocations = sortedLocations(locations); // api 재정렬
+		ArrayList<Location> sortedLocations = sortedLocations(locations); // API 데이터 재정렬
 		
 		mv.addObject("locationList", sortedLocations );
 		mv.addObject("newCase", newCase); // 새로운 확진자
@@ -90,12 +92,12 @@ public class MainController {
 		
 	}
 	
-	public Map<String, Object> getMapFromJsonObject( JSONObject jsonObj ) {// 제이슨객체 스트링으로 변환
+	public Map<String, Object> getMapFromJsonObject( JSONObject jsonObj ) {// Json -> Object로 변환
         Map<String, Object> map = null;
         
         try {
             
-            map = new ObjectMapper().readValue(jsonObj.toJSONString(), Map.class) ;
+            map = new ObjectMapper().readValue(jsonObj.toJSONString(), Map.class);
             
         } catch (JsonParseException e) {
             e.printStackTrace();
@@ -113,13 +115,13 @@ public class MainController {
 		
 		ArrayList<Location> result = new ArrayList<Location>();
 		
-		HashMap<String, ArrayList<Location>> locationMap = makeHashMap(locations);
+		HashMap<String, ArrayList<Location>> locationMap = makeHashMap(locations); // 호출시 들어오는 데이터의 키값을 재정렬한다 
 		
-		ArrayList<String> keys = makeSortedKeys(locationMap);
+		ArrayList<String> keys = makeSortedKeys(locationMap); // value 안에 데이터들을 비교해서 재정렬하는 메소드
 		
 		for (int i = 0; i < keys.size(); i++) {
-			ArrayList<Location> locationArray = locationMap.get(keys.get(i));
-			locationArray.sort(Location.totalCaseComparator);
+			ArrayList<Location> locationArray = locationMap.get(keys.get(i)); //키를 하나씩 꺼냄 
+			locationArray.sort(Location.totalCaseComparator); // TotalCase 재정렬
 			
 			for (int j = 0; j < locationArray.size(); j++) {
 				result.add(locationArray.get(j));
@@ -130,9 +132,9 @@ public class MainController {
 	}
 	
 	
-	private HashMap<String, ArrayList<Location>> makeHashMap(ArrayList<Location> locations) { // 해쉬맵에 키값 정렬
+	private HashMap<String, ArrayList<Location>> makeHashMap(ArrayList<Location> locations) { // 해쉬맵에 newCase 정렬
 		
-		HashMap<String, ArrayList<Location>> locationMap = new HashMap<String, ArrayList<Location>>();
+		HashMap<String, ArrayList<Location>> locationMap = new HashMap<String, ArrayList<Location>>(); // 해쉬맵 선언
 
 		for (int i=0; i<locations.size(); i++) {
 			Location location = locations.get(i);

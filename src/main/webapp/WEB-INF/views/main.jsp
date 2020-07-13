@@ -10,7 +10,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-	<title>Main</title>
+<title>Main</title>
+<script src="/media/jquery-3.3.1.min.js"></script>
 </head>
 
 <style>
@@ -104,6 +105,13 @@ p {
 }
 
 
+
+
+
+
+
+
+
 </style>
 
 <body id="top" class="home">
@@ -188,9 +196,26 @@ p {
 		
 	</div>
 	
-	
-	
 </div>
+
+
+
+
+<div id="map" style="width:1000px;height:1000px;align:center;"></div>
+
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c5c08d7664bc1f1677e82a267f0462f8"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(37.56682, 126.97865),
+			level: 11
+		};
+
+		var map = new kakao.maps.Map(container, options);
+
+
+
+	</script>
 
 <br><br><br><br><br><br>
 
@@ -214,6 +239,12 @@ complete: function() {
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+
+
+
+
+
 
 </script>
 
