@@ -35,7 +35,7 @@
 
 <div id="header" class="container">
 
-	<img style="width:270px; height:55px; margin-left:10%;" src="<c:url value="/resources/images/logo2.JPG"/>"/>
+	<img style="width:270px; height:55px; margin-left:18%;" src="<c:url value="/resources/images/logo2.JPG"/>"/>
 
 	<p class="p1">실시간<br>코로나 19 (COVID-19)</p>
 
