@@ -64,6 +64,7 @@ p {
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+    
 }
 
 .text-center {
@@ -73,6 +74,7 @@ p {
 p {
     margin-top: 0;
     margin-bottom: 1rem;
+    padding: 4px
 }
 
 .home .top .dashboard p.number {
@@ -100,6 +102,7 @@ p {
 .home .top .dashboard .diff.minus {
     color: blue;
 }
+
 
 </style>
 
