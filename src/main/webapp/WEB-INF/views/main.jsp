@@ -105,7 +105,7 @@ p {
 
 <body id="top" class="home">
 
-<div class="top container"> 
+<div class="top container memberCountCon"> 
 
 	<h2>대한민국</h2>
 	<div class="row dashboard world">
@@ -175,6 +175,29 @@ p {
 </div>
 
 <br><br><br><br><br><br>
+
+
+<script type="text/javascript">
+
+var memberCountConTxt= ${TotalCase};
+
+$({ val : 0 }).animate({ val : memberCountConTxt }, {
+ duration: 2000,
+step: function() {
+  var num = numberWithCommas(Math.floor(this.val));
+  $(".memberCountCon").text(num);
+},
+complete: function() {
+  var num = numberWithCommas(Math.floor(this.val));
+  $(".memberCountCon").text(num);
+}
+});
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+</script>
 
 </body>
 </html>
