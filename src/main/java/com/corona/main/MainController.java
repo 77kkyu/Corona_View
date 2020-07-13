@@ -1,10 +1,27 @@
 package com.corona.main;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.aspectj.org.eclipse.jdt.internal.core.util.Util.Comparable;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.util.PrimitiveArrayBuilder;
 
 @Controller
 public class MainController {
@@ -43,28 +60,23 @@ public class MainController {
 		
 	    JSONObject korea = (JSONObject) jsonResult1.get("korea");
 		String newCase = (String) korea.get("newCase"); // 신규확진자 수
+			
+		Map<String, Object> locationMap = getMapFromJsonObject(jsonResult1);
+		ArrayList<Location> locations = new ArrayList<Location>();
 		
-		JSONObject seoul = (JSONObject) jsonResult1.get("seoul");
-		String seoulTotalCase = (String) seoul.get("totalCase");
-		String seoulNewCase = (String) seoul.get("newCase");
+		for(Map.Entry<String, Object> entry : locationMap.entrySet()) {
+			
+			if(!entry.getKey().equals("resultCode") && !entry.getKey().equals("resultMessage") && !entry.getKey().equals("korea") && !entry.getKey().equals("quarantine") ) {
+				Map<String, String> map = (Map<String, String>) entry.getValue();
+				Location location = Location.JsonToLocation(map, entry.getKey());
+				locations.add(location);
+				
+			}
+		}
 		
-		JSONObject gyeonggi = (JSONObject) jsonResult1.get("gyeonggi");
-		String gyeonggiTotalCase = (String) gyeonggi.get("totalCase");
-		String gyeonggiNewCase = (String) gyeonggi.get("newCase");
+		ArrayList<Location> sortedLocations = sortedLocations(locations); // api 재정렬
 		
-		JSONObject daegu = (JSONObject) jsonResult1.get("daegu");
-		String daeguTotalCase = (String) daegu.get("totalCase");
-		String daeguNewCase = (String) daegu.get("newCase");
-		
-		JSONObject gyeongbuk = (JSONObject) jsonResult1.get("gyeongbuk");
-		String gyeongbukTotalCase = (String) gyeongbuk.get("totalCase");
-		String gyeongbukNewCase = (String) gyeongbuk.get("newCase");
-		
-		JSONObject busan = (JSONObject) jsonResult1.get("busan");
-		String busanTotalCase = (String) busan.get("totalCase");
-		String busanNewCase = (String) busan.get("newCase");
-		
-
+		mv.addObject("locationList", sortedLocations );
 		mv.addObject("newCase", newCase); // 새로운 확진자
 		mv.addObject("TotalCase", TotalCase); // 전체 확진자
 		mv.addObject("TotalDeath", TotalDeath); // 전체 사망자
@@ -74,21 +86,92 @@ public class MainController {
 		mv.addObject("TodayRecovered", TodayRecovered); // 금일 격리해제
 		mv.addObject("checkingCounter", checkingCounter); // 검사중
 		
-		mv.addObject("seoulTotalCase", seoulTotalCase);
-		mv.addObject("seoulNewCase", seoulNewCase);
-		
-		mv.addObject("gyeonggiTotalCase", gyeonggiTotalCase);
-		mv.addObject("gyeonggiNewCase", gyeonggiNewCase);
-		
-		mv.addObject("daeguTotalCase", daeguTotalCase);
-		mv.addObject("daeguNewCase", daeguNewCase);
-		
-		mv.addObject("gyeongbukTotalCase", gyeongbukTotalCase);
-		mv.addObject("gyeongbukNewCase", gyeongbukNewCase);
-		
-		mv.addObject("busanTotalCase", busanTotalCase);
-		mv.addObject("busanNewCase", busanNewCase);
 		return mv;
-	
+		
 	}
+	
+	public Map<String, Object> getMapFromJsonObject( JSONObject jsonObj ) {// 제이슨객체 스트링으로 변환
+        Map<String, Object> map = null;
+        
+        try {
+            
+            map = new ObjectMapper().readValue(jsonObj.toJSONString(), Map.class) ;
+            
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+ 
+        return map;
+    }
+	
+	
+	private ArrayList<Location> sortedLocations(ArrayList<Location> locations) { // 제이슨데이터 재정렬
+		
+		ArrayList<Location> result = new ArrayList<Location>();
+		
+		HashMap<String, ArrayList<Location>> locationMap = makeHashMap(locations);
+		
+		ArrayList<String> keys = makeSortedKeys(locationMap);
+		
+		for (int i = 0; i < keys.size(); i++) {
+			ArrayList<Location> locationArray = locationMap.get(keys.get(i));
+			locationArray.sort(Location.totalCaseComparator);
+			
+			for (int j = 0; j < locationArray.size(); j++) {
+				result.add(locationArray.get(j));
+			}
+		}
+		
+		return result;		
+	}
+	
+	
+	private HashMap<String, ArrayList<Location>> makeHashMap(ArrayList<Location> locations) { // 해쉬맵에 키값 정렬
+		
+		HashMap<String, ArrayList<Location>> locationMap = new HashMap<String, ArrayList<Location>>();
+
+		for (int i=0; i<locations.size(); i++) {
+			Location location = locations.get(i);
+			ArrayList<Location> value = locationMap.get(location.getNewCase());
+			if (value != null) {
+				value.add(location);	
+			} else {
+				ArrayList<Location> newArray = new ArrayList<Location>();
+				newArray.add(location);
+				locationMap.put(location.getNewCase(), newArray);
+			}
+			
+		}
+		return locationMap;
+	}
+	
+	
+	private ArrayList<String> makeSortedKeys(HashMap<String, ArrayList<Location>> locationMap) { // 정렬 비교 
+		
+		ArrayList<String> keys = new ArrayList<String>();
+		
+		for(Entry<String, ArrayList<Location>> entry : locationMap.entrySet()) {
+			keys.add(entry.getKey());
+		}
+		
+		Comparator<String> comp = new Comparator<String>() {
+
+			@Override
+			public int compare(String o1, String o2) {
+				int n1 = Location.stringToInt(o1);
+				int n2 = Location.stringToInt(o2);			
+				return n2 - n1;
+			}
+			
+		};
+		
+		keys.sort(comp);
+		return keys;
+	}
+	
+	
 }

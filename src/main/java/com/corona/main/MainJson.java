@@ -26,6 +26,7 @@ public class MainJson {
 		}
 		
 		
+		
 		String address1 = "http://api.corona-19.kr/korea/country/new/?serviceKey=2f3458c475483f2337f8f4ff7a5af3c66";
 		BufferedReader br1;
 		URL url1;
