@@ -32,6 +32,7 @@ public class MainController {
 			
 		MainJson CoronaJsonResult = new MainJson();
 		
+		//            국내 현황 
 		JSONParser parser = new JSONParser();
 		System.out.println(CoronaJsonResult.jsonString);
 	    JSONObject jsonResult = (JSONObject) parser.parse(CoronaJsonResult.jsonString);
@@ -77,6 +78,11 @@ public class MainController {
 		}
 		
 		ArrayList<Location> sortedLocations = sortedLocations(locations); // API 데이터 재정렬
+		
+		
+		
+		// 세계 현황
+		
 		
 		mv.addObject("locationList", sortedLocations );
 		mv.addObject("newCase", newCase); // 새로운 확진자
