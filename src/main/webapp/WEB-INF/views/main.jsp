@@ -181,21 +181,35 @@ p {
 	
 	
 	<div class="row dashboard world">
-	
+		
 		<c:forEach items="${locationList}" var="list"  varStatus="status" >
-			<div class="col-4 col-sm-4 col-md-3 text-center" >
-				<p class="confirmed number">${list.totalCase}</p>
-				<p class="confirmed diff">(+${list.newCase})</p>
-				<p>${list.countryName}</p><br>
- 				<c:if test="${status.index eq 3}">
-					<div id="more_btn_div" class="atag" align="center">
-						<a id="more_btn_a" href="javascript:moreContent('more_list',10);">더보기(More)</a>
-					</div>
-				</c:if>
-			</div>
+			
+			 <c:if test="${status.index <= 3}">
+	         	<div class="col-4 col-sm-4 col-md-3 text-center">
+	         		<p class="confirmed number">${list.totalCase}</p>
+					<p class="confirmed diff">(+${list.newCase})</p>
+					<p>${list.countryName}</p><br>
+				</div>
+	         </c:if>
+	         
+	         <c:if test="${status.index eq 3}">
+		         <div align="center">
+						<input type="button" id="but" class="btn btn-primary" value="더보기" onclick="fsubmit();">
+				 </div>
+			 </c:if>
+
+	         <c:if test="${status.index > 3}">
+	         	<div name="view" class="col-4 col-sm-4 col-md-3 text-center" style="display:none">
+	         		<p class="confirmed number">${list.totalCase}</p>
+					<p class="confirmed diff">(+${list.newCase})</p>
+					<p>${list.countryName}</p><br>
+				</div>
+	         </c:if>
+	         
 		</c:forEach>
 		
 	</div>
+	
 	
 	
 	
@@ -203,81 +217,31 @@ p {
 
 <br><br><br><br><br><br>
 
-<script>
 
-function moreContent(id, cnt){
-
-	var list_length = $("#"+id+" tr").length-1;  //tr갯수 구하기, 1을 빼는 이유는 제목, 
-	var aname = id+"_btn";
-	var callLength = list_length;
-
-	$('#startCount').val(callLength);
-	$('#viewCount').val(cnt);
-
-	$.ajax({
-		type   : "post",
-		url    : "/getMoreContents_ajax.do",
-		data   : $('#searchTxtForm').serialize(),
-		dataType : "json",
-		success  : function(result){
-                    if(result.resultCnt > 0){
-						var list = result.resultList;
-							if(resultVO.title != ''){
-								$('#'+aname).attr('href',"javascript:moreContent('
-										getMoreList(list);
-							}else{
-								$("#"+id+"_div").remove();
-							}
-						}
-                     }else{
-                     }
-		           },
-		error    : function(request,status,error){
-					alert("code = "+request.status+"message = "+request.responseText+"error = "+error); //실패 시 처리
-					}
-		});
-
-		function getMoreList(list){
-
-			var content = "";
-			var length = list.length;
-			for(i=0; i<list.length; i++){
-				var resultVO = list[i];
-				if(resultVO.title != ''){
-					content += "<tr>";
-					content += "<td>"+resultVO.title+"</td>";
-					content += "<td>+resultVO.reg_date+"</td>";
-					content += "</tr>";
-				}
+<script type="text/javascript">
+	
+	    function fsubmit(){
+    
+		var obj = document.getElementsByName("view").length;
+		
+		if(document.getElementById("but").value == "숨기기"){
+			document.getElementById("but").value = "더보기";
+			for(var i=0; i<obj; i++){
+				document.getElementsByName("view")[i].style.display="none";	
 			}
-
-			$("#more_list tr:last").after(content);
-			// id가 more_list인 tr의 마지막에 content 값을 추가함
-}
-
+		}
+		
+		else if(document.getElementById("but").value == "더보기"){
+			document.getElementById("but").value = "숨기기";
+			for(var i=0; i<obj; i++){
+				document.getElementsByName("view")[i].style.display="block";	
+			}
+		}
+		
+	}
+	
 </script>
 
-<!-- <script type="text/javascript">
-
-var memberCountConTxt= ${TotalCase};
-
-$({ val : 0 }).animate({ val : memberCountConTxt }, {
- duration: 2000,
-step: function() {
-  var num = numberWithCommas(Math.floor(this.val));
-  $(".memberCountCon").text(num);
-},
-complete: function() {
-  var num = numberWithCommas(Math.floor(this.val));
-  $(".memberCountCon").text(num);
-}
-});
-
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-</script> -->
 
 </body>
 </html>
