@@ -116,6 +116,10 @@ p {
     color: blue;
 }
 
+.atag{
+	text-align:center;
+}
+
 
 
 
@@ -200,13 +204,31 @@ p {
 	
 	
 	<div class="row dashboard world">
-	<c:forEach items="${locationList}" var="list"  varStatus="status" >
-		<div class="col-4 col-sm-4 col-md-3 text-center" >
-		<p class="confirmed number">${list.totalCase}</p>
-		<p class="confirmed diff">(+${list.newCase})</p>
-		<p>${list.countryName}</p>
-		<br>
-		</div>
+		
+		<c:forEach items="${locationList}" var="list"  varStatus="status" >
+			
+			 <c:if test="${status.index <= 3}">
+	         	<div class="col-4 col-sm-4 col-md-3 text-center">
+	         		<p class="confirmed number">${list.totalCase}</p>
+					<p class="confirmed diff">(+${list.newCase})</p>
+					<p>${list.countryName}</p><br>
+				</div>
+	         </c:if>
+	         
+	         <c:if test="${status.index eq 3}">
+		         <div align="center">
+						<input type="button" id="but" class="btn btn-primary" value="더보기" onclick="fsubmit();">
+				 </div>
+			 </c:if>
+
+	         <c:if test="${status.index > 3}">
+	         	<div name="view" class="col-4 col-sm-4 col-md-3 text-center" style="display:none">
+	         		<p class="confirmed number">${list.totalCase}</p>
+					<p class="confirmed diff">(+${list.newCase})</p>
+					<p>${list.countryName}</p><br>
+				</div>
+	         </c:if>
+	         
 		</c:forEach>
 		
 	</div>
@@ -282,6 +304,7 @@ p {
 		<path id="KR-50" title="Sejong" class="land" d="M180.84,395.146L182.397,397.326L182.086,400.128L179.906,400.751L182.709,404.176L182.709,406.979L183.159,408.328L186.491,408.523L186.398,409.979L185.573,411.799L186.651,412.939L184.789,419.024L185.367,418.243L185.766,417.918L186.472,418.063L187.087,418.922L187.396,418.957L187.068,422.235L186.134,425.039L182.709,426.596L181.798,426.639L179.283,427.218L179.596,435.937L177.416,438.428L175.713,436.376L173.965,435.031L172.754,431.937L172.888,427.902L172.619,425.077L171.274,421.176L168.583,419.697L166.7,417.141L166.566,415.123L167.642,412.702L167.642,409.608L167.507,406.11L167.239,402.747L167.911,400.326L167.642,397.231L167.104,395.215L166.028,393.197L166.431,391.447L169.122,390.371L171.677,391.178L173.157,392.793L175.848,394.407L178.403,395.348z"/>
 	</g>
 </svg>
+
 </div>
 
 
@@ -290,6 +313,29 @@ p {
 
 
 <script type="text/javascript">
+
+	
+	    function fsubmit(){
+    
+		var obj = document.getElementsByName("view").length;
+		
+		if(document.getElementById("but").value == "숨기기"){
+			document.getElementById("but").value = "더보기";
+			for(var i=0; i<obj; i++){
+				document.getElementsByName("view")[i].style.display="none";	
+			}
+		}
+		
+		else if(document.getElementById("but").value == "더보기"){
+			document.getElementById("but").value = "숨기기";
+			for(var i=0; i<obj; i++){
+				document.getElementsByName("view")[i].style.display="block";	
+			}
+		}
+		
+	}
+	
+
 
 var memberCountConTxt= ${TotalCase};
 
@@ -316,6 +362,7 @@ function numberWithCommas(x) {
 
 
 </script>
+
 
 </body>
 </html>
