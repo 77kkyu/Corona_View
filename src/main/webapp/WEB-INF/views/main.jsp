@@ -23,6 +23,11 @@
 <script src="https://www.amcharts.com/lib/4/geodata/germanyLow.js"></script>
 <script src="https://www.amcharts.com/lib/4/fonts/notosans-sc.js"></script>
 
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
 
 </head>
 
@@ -122,10 +127,13 @@ p {
 
 
 
-
-
-
-
+#area-chart,
+#line-chart,
+#bar-chart,
+#stacked,
+#pie-chart{
+  min-height: 250px;
+}
 
 
 </style>
@@ -308,6 +316,39 @@ p {
 </div>
 
 
+<div class="container">
+<h3 class="text-primary text-center">
+    국내차트🌏
+  </h3><br>
+  <div class"row">
+    <div class="col-sm-6 text-center">
+      <label class="label label-success">Area Chart</label>
+      <div id="area-chart" ></div>
+    </div>
+    
+    <div class="col-sm-6 text-center">
+       <label class="label label-success">Line Chart</label>
+      <div id="line-chart"></div>
+    </div>
+    <br>
+    <div  class="col-sm-6 text-center">
+       <label class="label label-success">Bar Chart</label>
+      <div id="bar-chart" ></div>
+    </div>
+    <br>
+    <div class="col-sm-6 text-center">
+       <label class="label label-success">Bar stacked</label>
+      <div id="stacked" ></div>
+    </div>
+    
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+       <label class="label label-success">Pie Chart</label>
+      <div id="pie-chart" ></div>
+    </div>
+    <br>
+    
+  </div>
+</div>
 
 <br><br><br><br><br><br>
 
@@ -340,3 +381,102 @@ p {
 
 </body>
 </html>
+<script type="text/javascript">
+var data = [
+    { y: '2020-02', a: 3150,  b: 27, c: 17},
+    { y: '2020-03', a: 9786,  b: 5408, c: 162},
+    { y: '2020-04', a: 10765,  b: 9059, c: 247},
+    { y: '2020-05', a: 11468,  b: 10405, c: 270},
+    { y: '2020-06', a: 12800,  b: 11537, c: 282}
+  ],
+  config = {
+    data: data,
+    xkey: 'y',
+    ykeys: ['a', 'b', 'c'],
+    labels: ['확진자', '격리해제', '사망자'],
+    fillOpacity: 0.6,
+    hideHover: 'auto',
+    behaveLikeLine: true,
+    resize: true,
+    pointFillColors:['#ffffff'],
+    pointStrokeColors: ['black'],
+    lineColors:['gray', 'blue','red']
+};
+
+
+//var myArray1 = new Array();
+//myArray1 = ${locationList[0].totalCase};
+// 도시이름, 확진자 , 사망자 꺼내기
+
+/* for(var i=0; i<${locationList}.size(); i++) {
+	alert(myArray1[i].totalCase);
+} */
+
+//var day_data = [{y: '서울', a: ${TotalCase}, b: ${TotalCase}}]
+
+var day_data = [
+    { y: '서울', a: 50,  b: 90 , c:10},
+    { y: '경기', a: 65,  b: 75},
+    { y: '인천', a: 50,  b: 50},
+    { y: '대구', a: 75,  b: 60},
+    { y: '경북', a: 80,  b: 65},
+    { y: '경남', a: 90,  b: 70},
+    { y: '전북', a: 100, b: 75},
+    { y: '전남', a: 115, b: 75},
+    { y: '충남', a: 120, b: 85},
+    { y: '세종', a: 145, b: 85},
+    { y: '제주', a: 160, b: 95}
+  ]   
+Morris.Bar({
+	  element: 'bar-chart',
+	  data: day_data,
+	  xkey: 'y',
+	  ykeys: ['a', 'b', 'c'],
+	  labels: ['Licensed', 'SORN', 'ㅋㅋ'],
+	  xLabelAngle: 60,
+	  fillOpacity: 0.6,
+	    hideHover: 'auto',
+	    behaveLikeLine: true,
+	    resize: true
+	});
+
+
+Morris.Bar({
+	  element: 'stacked',
+	  data: day_data,
+	  xkey: 'y',
+	  ykeys: ['a'],
+	  labels: ['사망자'],
+	  xLabelAngle: 60,
+	  fillOpacity: 0.6,
+	    hideHover: 'auto',
+	    behaveLikeLine: true,
+	    resize: true,
+	  barColors: function (row, series, type) {
+	    if (type === 'bar') {
+	      var red = Math.ceil(255 * row.y / this.ymax);
+	      return 'rgb(' + red + ',0,0)';
+	    }
+	    else {return '#000';}
+	  }
+	});
+config.element = 'area-chart';
+Morris.Area(config);
+config.element = 'line-chart';
+Morris.Line(config);
+/* config.element = 'bar-chart';
+Morris.Bar(config);   */
+/* config.element = 'stacked';
+config.stacked = true;
+Morris.Bar(config); */
+Morris.Donut({
+element: 'pie-chart',
+data: [
+  {label: "서울", value: 30},
+  {label: "제주", value: 15},
+  {label: "대구", value: 45},
+  {label: "전북", value: 10},
+  {label: "전남", value: 5}
+]
+});
+</script>

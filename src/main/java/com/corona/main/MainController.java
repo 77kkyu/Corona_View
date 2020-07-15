@@ -78,7 +78,7 @@ public class MainController {
 		}
 		
 		ArrayList<Location> sortedLocations = sortedLocations(locations); // API 데이터 재정렬
-		
+		System.out.println("sortedLocations="+sortedLocations.get(0).getCountryName());
 		
 		
 		// 세계 현황
