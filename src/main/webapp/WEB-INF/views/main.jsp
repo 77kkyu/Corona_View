@@ -15,7 +15,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <title>Main</title>
-<script src="/media/jquery-3.3.1.min.js"></script>
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
@@ -408,13 +407,15 @@ var data = [
 //myArray1 = ${locationList[0].totalCase};
 // 도시이름, 확진자 , 사망자 꺼내기
 
-/* for(var i=0; i<${locationList}.size(); i++) {
-	alert(myArray1[i].totalCase);
-} */
 
+ 
 //var day_data = [{y: '서울', a: ${TotalCase}, b: ${TotalCase}}]
 
-var day_data = [
+//var day_data = [{countryName: "+${locationList[0].countryName}+", newCase: ${locationList[0].newCase}}];
+
+var day_data = ${chartList};
+
+/* var day_data = [
     { y: '서울', a: 50,  b: 90 , c:10},
     { y: '경기', a: 65,  b: 75},
     { y: '인천', a: 50,  b: 50},
@@ -426,13 +427,13 @@ var day_data = [
     { y: '충남', a: 120, b: 85},
     { y: '세종', a: 145, b: 85},
     { y: '제주', a: 160, b: 95}
-  ]   
+  ]     */
 Morris.Bar({
 	  element: 'bar-chart',
 	  data: day_data,
-	  xkey: 'y',
-	  ykeys: ['a', 'b', 'c'],
-	  labels: ['Licensed', 'SORN', 'ㅋㅋ'],
+	  xkey: 'countryName',
+	  ykeys: ['totalCase', 'death'],
+	  labels: ['Licensed', 'SORN'],
 	  xLabelAngle: 60,
 	  fillOpacity: 0.6,
 	    hideHover: 'auto',
@@ -441,7 +442,7 @@ Morris.Bar({
 	});
 
 
-Morris.Bar({
+/* Morris.Bar({
 	  element: 'stacked',
 	  data: day_data,
 	  xkey: 'y',
@@ -459,7 +460,7 @@ Morris.Bar({
 	    }
 	    else {return '#000';}
 	  }
-	});
+	}); */
 config.element = 'area-chart';
 Morris.Area(config);
 config.element = 'line-chart';

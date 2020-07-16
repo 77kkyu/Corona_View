@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -14,6 +15,7 @@ import org.aspectj.org.eclipse.jdt.internal.core.util.Util.Comparable;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
@@ -77,13 +79,35 @@ public class MainController {
 			}
 		}
 		
+		
 		ArrayList<Location> sortedLocations = sortedLocations(locations); // API 데이터 재정렬
-		System.out.println("sortedLocations="+sortedLocations.get(0).getCountryName());
+		//chartsList.add("countryName", sortedLocations.get(i).getCountryName().replace(",", ""));
+		//sortedLocations.get(i).getTotalCase().replace(",", "")
+		List<Map<String, Object>> chartsList = new ArrayList<Map<String, Object>>(); 
+		Map<String, Object> chartMaps = new HashMap<String, Object>();
+		JSONArray list = null;
+		
+		for(int i=0; i<locations.size(); i++) {
+			
+			chartMaps.put("countryName", locations.get(i).getCountryName());
+			chartMaps.put("totalCase", Integer.parseInt(locations.get(i).getTotalCase().replace(",", "")));
+			chartMaps.put("death", Integer.parseInt(locations.get(i).getDeath().replace(",", "")));
+			//System.out.println("차트맵="+chartMaps);
+			//chartsList.add(chartMaps);
+			chartsList.add(chartMaps);
+			//list =  getJsonArrayFromList(chartsList);
+			System.out.println(chartsList.get(i));
+			//System.out.println(list.get(i));
+			//System.out.println(locations.get(i).getCountryName());
+		
+		}
 		
 		
-		// 세계 현황
+		System.out.println(chartsList);
 		
 		
+	
+		mv.addObject("chartList", chartsList);
 		mv.addObject("locationList", sortedLocations );
 		mv.addObject("newCase", newCase); // 새로운 확진자
 		mv.addObject("TotalCase", TotalCase); // 전체 확진자
@@ -180,6 +204,37 @@ public class MainController {
 		keys.sort(comp);
 		return keys;
 	}
+	
+	
+	
+	public static JSONArray getJsonArrayFromList(List<Map<String, Object>> list) {
+		
+		JSONArray jsonArray = new JSONArray();
+		for( Map<String, Object> map : list ) {
+			//System.out.println("list="+list);
+			jsonArray.add(getJsonStringFromMap(map));
+			//System.out.println("map="+map);
+		}
+		
+		return jsonArray;
+		
+	}
+
+	private static Object getJsonStringFromMap(Map<String, Object> map) {
+		
+		JSONObject jsonObject = new JSONObject();
+		for( Map.Entry<String, Object> entry : map.entrySet() ) {
+			String key = entry.getKey();
+			Object value = entry.getValue();
+			//System.out.println("key="+ key);
+			jsonObject.put(key, value);
+			//System.out.println("제이슨 스트링:"+jsonObject.toJSONString());
+		}
+		
+		return jsonObject;
+		
+	}
+	
 	
 	
 }
