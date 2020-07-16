@@ -256,27 +256,10 @@ p {
 
 
 
-<!-- <div id="map" style="width:1000px;height:1000px;align:center;"></div>
-
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c5c08d7664bc1f1677e82a267f0462f8"></script>
-	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(37.56682, 126.97865),
-			level: 11
-		};
-
-		var map = new kakao.maps.Map(container, options);
-
-		
-
-
-	</script> -->
-	
-
-<div class="container">
-<svg width="1000" height="1000" xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+ <div class="container">
+<svg width="1000" height="1000" id="fmap" xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 	<defs>
+	
 		<style type="text/css">
 			.land
 			{
@@ -305,20 +288,25 @@ p {
 				for(var i=0; i < kmap.length; i++){
 					kmap[i].onmouseover = function(){
 
-
+						fkmap.innerText = "서울입니다";
 						
 					}
 				}
+
 			}
+
+
 			
 		</script>
+		
 
 		<amcharts:ammap projection="mercator" leftLongitude="125.384458" topLatitude="38.612296" rightLongitude="131.873029" bottomLatitude="33.194027"></amcharts:ammap>
 
-		<!-- All areas are listed in the line below. You can use this list in your script. -->
-		<!--{id:"KR-11"},{id:"KR-26"},{id:"KR-27"},{id:"KR-28"},{id:"KR-29"},{id:"KR-30"},{id:"KR-31"},{id:"KR-41"},{id:"KR-42"},{id:"KR-43"},{id:"KR-44"},{id:"KR-45"},{id:"KR-46"},{id:"KR-47"},{id:"KR-48"},{id:"KR-49"},{id:"KR-50"}-->
+		All areas are listed in the line below. You can use this list in your script.
+		{id:"KR-11"},{id:"KR-26"},{id:"KR-27"},{id:"KR-28"},{id:"KR-29"},{id:"KR-30"},{id:"KR-31"},{id:"KR-41"},{id:"KR-42"},{id:"KR-43"},{id:"KR-44"},{id:"KR-45"},{id:"KR-46"},{id:"KR-47"},{id:"KR-48"},{id:"KR-49"},{id:"KR-50"}
 
 	</defs>
+
 	<g id="fkmap">
 		<path id="KR-11" name="kmap" title="Seoul"  class="land SeoulLand" d="M132.666,290.394L133.241,290.724L133.241,290.724L137.041,294.54L136.937,296.315L137.487,296.841L137.801,299.933L138.377,300.458L138.927,300.36L141.337,299.11L143.906,304.796L144.43,304.928L146.236,304.206L147.442,304.698L149.828,304.599L153.994,302.298L157.059,302.003L157.059,303.712L157.74,304.928L161.382,302.856L164.369,302.595L166.047,301.018L165.599,300.458L166.02,299.868L166.649,300.032L167.278,299.57L168.562,297.861L168.562,297.268L167.383,296.775L167.776,294.277L168.771,293.289L170.527,292.664L170.971,292.138L170.316,289.735L169.531,288.583L168.376,289.407L165.917,290L164.736,290.756L163.558,290.92L163.19,290.329L163.165,289.144L164.605,284.995L163.504,283.283L163.426,281.438L162.535,280.286L162.429,275.77L161.512,274.683L160.334,274.485L157.713,274.814L155.382,274.288L154.465,275.276L153.208,275.804L152.656,276.331L152.684,277.517L151.583,278.572L151.505,281.57L150.403,282.361L145.268,282.756L144.43,283.81L144.272,286.904L143.645,287.268L140.027,288.879L137.618,287.728L136.229,286.016L134.97,285.687L133.949,288.156L132.796,289.144z"/>
 		<path id="KR-26" name="kmap" title="Busan" class="land" d="M361.126,544.718l0.044,0.762h3.965l1.338,1.338l0,0l1.002,1.671l-0.167,1.506l-0.898,0.319l-0.603,0.768l-0.367,1.022l0.262,1.663l-0.732,2.332l-0.866,-0.063l-0.104,0.924l-0.89,0.129l0.575,0.544l1.024,-0.352l0.313,1.628l-1.415,3.034l-0.629,-0.032l-0.341,-0.479l-0.603,1.406l0.786,1.372l-0.078,0.479h-0.446l-0.026,1.244l-0.498,0.256l-0.313,-0.448l-0.525,0.735l-0.996,0.127l-0.575,2.203l-0.76,0.159l-0.367,0.543l-1.651,-0.607l-0.604,0.096l-0.681,0.829l-1.651,-1.083l0.105,0.797l-1.624,0.224l-0.235,0.541l0.288,0.862l-0.655,0.67l1.021,0.158l0.523,1.501l-0.13,2.614l-1.179,-0.638h-0.708l-0.287,0.509l-0.918,-0.19l-0.104,-1.021l-0.21,0.638l-1.938,-0.255l0.209,-1.977l-0.707,-0.447l-0.576,0.797l-1.207,0.511l-0.313,0.573l0.235,0.383l-1.625,1.722l-0.21,1.785l-0.813,0.098l0.681,1.433l-0.706,1.146l-0.917,-2.038l-0.184,-1.531l-1.074,0.191l0.916,3.855l-0.34,0.542l-0.603,-0.127l-0.158,-1.467l-0.968,-0.349l-0.289,0.668l0.629,0.16l-0.131,0.828l-1.154,-0.128l0.683,0.924h-0.445l-0.733,0.828l0.104,-1.752l-0.733,-0.382l-0.813,-3.314l0.551,-3.028l-0.577,-0.064l-0.341,1.722l-1.153,0.766l-0.131,-1.18l0.472,-1.594l-0.418,-0.097l-0.682,2.009l-1.258,0.734l-0.027,0.859h-1.648l0.497,-3.793l0.524,-0.733l-1.05,-0.383l-0.97,4.909l-1.493,-0.51h-2.935l-1.493,-1.626l-0.236,0.701l-1.545,0.16l-1.152,1.308l-0.523,-0.064l-0.236,-0.828l0.76,-1.053l0.862,0.159l0.211,-0.637l-1.259,0.191l0.315,-2.32l0,0l0.2,-0.464l2.428,-1.001l4.286,-1.144l0.429,-4.998l2.286,-0.287l3.856,-2.428l4.143,-0.143l1.429,-1.572l0.857,-1.999l0.791,-0.198l0.977,-1.162l3.943,-2.476l1.832,0.316l1.029,-1.339l0.856,-2.714l1.714,-2.571l4.857,-0.571l0.572,-1.857l2.943,-2.706l0,0L361.126,544.718zM346.653,575.535l1.86,1.594l-0.289,1.626l1.939,1.626l-0.499,1.083h-0.891l-0.471,-1.18l-0.629,0.256l-0.498,-0.479l-0.078,-0.795l-1.311,-0.415l-1.808,-1.881l0.025,-0.477l0.813,-0.512L346.653,575.535z"/>
@@ -340,9 +328,47 @@ p {
 	</g>
 </svg>
 
+
+<h1>확진자 상세 정보</h1>
+
+<br><br>
+
+<ul>
+	<li>확진자 동선을 더이상 업데이트 하지 않습니다.
+	<li>지역을 클릭하면 확진자 동선을 확인 할 수 있는 지자체 홈페이지가 새창으로 열립니다.
+</ul>
+<br>
+
+<div id="location-tag" class="d-flex flex-wrap align-content-center">
+	<button type="button" class="btn btn-primary" onclick="location.href='https://www.seoul.go.kr/coronaV/coronaStatus.do' " style="width: 60px; margin: 1px">서울</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='http://www.busan.go.kr/corona19/index#travelhist' " style="width: 60px; margin: 1px">부산</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='http://www.daegu.go.kr/dgcontent/index.do?menu_id=00936598' " style="width: 60px; margin: 1px">대구</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='https://www.incheon.go.kr/health/HE020409' " style="width: 60px; margin: 1px">인천</button>
+	
+	<button type="button" class="btn btn-primary" onclick="location.href='https://www.gwangju.go.kr/c19/c19/contentsView.do?pageId=coronagj2' " style="width: 60px; margin: 1px">광주</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='https://www.daejeon.go.kr/corona19/index.do?menuId=0002' " style="width: 60px; margin: 1px">대전</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='https://www.ulsan.go.kr/corona.jsp' " style="width: 60px; margin: 1px">울산</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='https://www.sejong.go.kr/bbs/R3391/list.do' " style="width: 60px; margin: 1px">세종</button>
+	
+	<button type="button" class="btn btn-primary" onclick="location.href='https://www.gg.go.kr/bbs/board.do?bsIdx=722&amp;menuId=2903#page=1' " style="width: 60px; margin: 1px">경기</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='https://www.provin.gangwon.kr/covid-19.html' " style="width: 60px; margin: 1px">강원</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='http://www1.chungbuk.go.kr/covid-19/index.do' " style="width: 60px; margin: 1px">충북</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='http://www.chungnam.go.kr/coronaStatus.do' " style="width: 60px; margin: 1px">충남</button>
+	
+	<button type="button" class="btn btn-primary" onclick="location.href='http://www.jeonbuk.go.kr/board/list.jeonbuk?boardId=BBS_0000107&amp;menuCd=DOM_000000110006000000&amp;contentsSid=1224&amp;cpath=' " style="width: 60px; margin: 1px">전북</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='https://www.jeonnam.go.kr/coronaMainPage.do' " style="width: 60px; margin: 1px">전남</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='http://gb.go.kr/corona_main.htm' " style="width: 60px; margin: 1px">경북</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='http://xn--19-q81ii1knc140d892b.kr/main/main.do#close' " style="width: 60px; margin: 1px">경남</button>
+	<button type="button" class="btn btn-primary" onclick="location.href='https://www.jeju.go.kr/wel/healthCare/corona/coronaNotice.htm' " style="width: 60px; margin: 1px">제주</button>
 </div>
+<br><br><br><br>
 
+<h1>예방 행동 수칙</h1>
 
+<br>
+<img style="width:80%; height:1600px; margin-left:10%" src="<c:url value="/resources/images/corona_1.jpeg"/>"/>
+<img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_2.jpeg"/>"/>
+<img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_3.jpeg"/>"/>
 
 <br><br><br><br><br><br>
 
