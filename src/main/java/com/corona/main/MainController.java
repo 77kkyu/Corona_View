@@ -84,31 +84,34 @@ public class MainController {
 		//chartsList.add("countryName", sortedLocations.get(i).getCountryName().replace(",", ""));
 		//sortedLocations.get(i).getTotalCase().replace(",", "")
 		List<Map<String, Object>> chartsList = new ArrayList<Map<String, Object>>(); 
-		Map<String, Object> chartMaps = new HashMap<String, Object>();
+		Map<String, Object> chartMaps = null;
 		JSONArray list = null;
 		
 		for(int i=0; i<locations.size(); i++) {
-			
+			chartMaps = new HashMap<String, Object>();
 			chartMaps.put("countryName", locations.get(i).getCountryName());
 			chartMaps.put("totalCase", Integer.parseInt(locations.get(i).getTotalCase().replace(",", "")));
 			chartMaps.put("death", Integer.parseInt(locations.get(i).getDeath().replace(",", "")));
-			//System.out.println("차트맵="+chartMaps);
-			//chartsList.add(chartMaps);
 			chartsList.add(chartMaps);
-			//list =  getJsonArrayFromList(chartsList);
-			System.out.println(chartsList.get(i));
-			//System.out.println(list.get(i));
-			//System.out.println(locations.get(i).getCountryName());
-		
+		}
+
+		list =  getJsonArrayFromList(chartsList); // 차트 데이터
+
+		List<Map<String, Object>> dChartsList = new ArrayList<Map<String, Object>>(); 
+		Map<String, Object> dChartMaps = null;
+		JSONArray dountChartList = null;
+		for(int i=0; i<locations.size(); i++) {
+			dChartMaps = new HashMap<String, Object>();
+			dChartMaps.put("label", locations.get(i).getCountryName());
+			dChartMaps.put("value", Integer.parseInt(locations.get(i).getTotalCase().replace(",", "")));
+			dChartsList.add(dChartMaps);
 		}
 		
+		dountChartList = getJsonArrayFromList(dChartsList);
 		
-		System.out.println(chartsList);
-		
-		
-	
-		mv.addObject("chartList", chartsList);
-		mv.addObject("locationList", sortedLocations );
+		mv.addObject("dountChartList", dountChartList);
+		mv.addObject("chartList", list); // 차트
+		mv.addObject("locationList", sortedLocations ); // 지역별 현황판
 		mv.addObject("newCase", newCase); // 새로운 확진자
 		mv.addObject("TotalCase", TotalCase); // 전체 확진자
 		mv.addObject("TotalDeath", TotalDeath); // 전체 사망자

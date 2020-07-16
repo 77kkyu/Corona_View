@@ -433,7 +433,7 @@ Morris.Bar({
 	  data: day_data,
 	  xkey: 'countryName',
 	  ykeys: ['totalCase', 'death'],
-	  labels: ['Licensed', 'SORN'],
+	  labels: ['확진자', '사망자'],
 	  xLabelAngle: 60,
 	  fillOpacity: 0.6,
 	    hideHover: 'auto',
@@ -442,12 +442,12 @@ Morris.Bar({
 	});
 
 
-/* Morris.Bar({
+Morris.Bar({
 	  element: 'stacked',
 	  data: day_data,
-	  xkey: 'y',
-	  ykeys: ['a'],
-	  labels: ['사망자'],
+	  xkey: 'countryName',
+	  ykeys: ['totalCase'],
+	  labels: ['확진자'],
 	  xLabelAngle: 60,
 	  fillOpacity: 0.6,
 	    hideHover: 'auto',
@@ -460,7 +460,7 @@ Morris.Bar({
 	    }
 	    else {return '#000';}
 	  }
-	}); */
+	}); 
 config.element = 'area-chart';
 Morris.Area(config);
 config.element = 'line-chart';
@@ -472,12 +472,6 @@ config.stacked = true;
 Morris.Bar(config); */
 Morris.Donut({
 element: 'pie-chart',
-data: [
-  {label: "서울", value: 30},
-  {label: "제주", value: 15},
-  {label: "대구", value: 45},
-  {label: "전북", value: 10},
-  {label: "전남", value: 5}
-]
+data: ${dountChartList}
 });
 </script>
