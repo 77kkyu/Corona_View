@@ -12,32 +12,13 @@
 <html>
 <head>
 <meta charset="utf-8">
-
-<meta name="viewport"
-	content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <title>Main</title>
-<!-- <script src="https://www.amcharts.com/lib/4/core.js"></script>
 
-<script src="https://www.amcharts.com/lib/4/charts.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
-<script src="https://www.amcharts.com/lib/4/lang/de_DE.js"></script>
-<script src="https://www.amcharts.com/lib/4/geodata/germanyLow.js"></script>
-
-<script src="https://www.amcharts.com/lib/4/fonts/notosans-sc.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-<script src="https://www.amcharts.com/lib/4/fonts/notosans-sc.js"></script> -->
-
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/maps.js"></script>
-<script src="https://www.amcharts.com/lib/4/geodata/data/countries2.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-
 
 <!-- 차트  -->
 <link rel="stylesheet"
@@ -154,36 +135,6 @@ p {
 </style>
 
 
-<script type="text/javascript">
-
-	
-	    function fsubmit(){      //더보기 버튼
-    
-		var obj = document.getElementsByName("view").length;
-		
-		if(document.getElementById("but").value == "숨기기"){
-			document.getElementById("but").value = "더보기";
-			for(var i=0; i<obj; i++){
-				document.getElementsByName("view")[i].style.display="none";	
-			}
-		}
-		
-		else if(document.getElementById("but").value == "더보기"){
-			document.getElementById("but").value = "숨기기";
-			for(var i=0; i<obj; i++){
-				document.getElementsByName("view")[i].style.display="block";	
-			}
-		}
-		
-	}
-	
-</script>
-
-
-
-
-
-
 <body id="top" class="home">
 
 	<div class="top container memberCountCon">
@@ -259,10 +210,6 @@ p {
 
 			<c:forEach items="${locationList}" var="list" varStatus="status">
 
-
- <div class="container">
-<svg width="1000" height="1000" id="fmap" xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-
 				<c:if test="${status.index <= 3}">
 					<div class="col-4 col-sm-4 col-md-3 text-center">
 						<p class="confirmed number">${list.totalCase}</p>
@@ -297,7 +244,7 @@ p {
 
 
 
-
+<div class="container">
 
 <h1>확진자 상세 정보</h1>
 
@@ -461,7 +408,7 @@ p {
   
 </div>
 
-
+</div>
 
 
 <div id="map" style="width:700px;height:700px;align:center;"></div>
@@ -677,13 +624,31 @@ p {
 	<br>
 
 
-	<script type="text/javascript">
-
-
-
-
 </body>
 </html>
+
+<script type="text/javascript">
+		function fsubmit(){      //더보기 버튼
+    
+		var obj = document.getElementsByName("view").length;
+		
+		if(document.getElementById("but").value == "숨기기"){
+			document.getElementById("but").value = "더보기";
+			for(var i=0; i<obj; i++){
+				document.getElementsByName("view")[i].style.display="none";	
+			}
+		}
+		
+		else if(document.getElementById("but").value == "더보기"){
+			document.getElementById("but").value = "숨기기";
+			for(var i=0; i<obj; i++){
+				document.getElementsByName("view")[i].style.display="block";	
+			}
+		}
+		
+	}
+</script>
+
 <script type="text/javascript">
 var data = [
     { y: '2020-02', a: 3150,  b: 27, c: 17},
