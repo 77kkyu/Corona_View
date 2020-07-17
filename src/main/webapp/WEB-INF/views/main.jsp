@@ -12,36 +12,14 @@
 <html>
 <head>
 <meta charset="utf-8">
-
-<meta name="viewport"
-	content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <title>Main</title>
-<!-- <script src="https://www.amcharts.com/lib/4/core.js"></script>
-
-<script src="https://www.amcharts.com/lib/4/charts.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
-<script src="https://www.amcharts.com/lib/4/lang/de_DE.js"></script>
-<script src="https://www.amcharts.com/lib/4/geodata/germanyLow.js"></script>
-
-<script src="https://www.amcharts.com/lib/4/fonts/notosans-sc.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-<script src="https://www.amcharts.com/lib/4/fonts/notosans-sc.js"></script> -->
-
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/maps.js"></script>
-<script src="https://www.amcharts.com/lib/4/geodata/data/countries2.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-
 
 <!-- 차트  -->
-<link rel="stylesheet"
-	href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -154,30 +132,7 @@ p {
 </style>
 
 
-<script type="text/javascript">
 
-	
-	    function fsubmit(){      //더보기 버튼
-    
-		var obj = document.getElementsByName("view").length;
-		
-		if(document.getElementById("but").value == "숨기기"){
-			document.getElementById("but").value = "더보기";
-			for(var i=0; i<obj; i++){
-				document.getElementsByName("view")[i].style.display="none";	
-			}
-		}
-		
-		else if(document.getElementById("but").value == "더보기"){
-			document.getElementById("but").value = "숨기기";
-			for(var i=0; i<obj; i++){
-				document.getElementsByName("view")[i].style.display="block";	
-			}
-		}
-		
-	}
-	
-</script>
 
 
 
@@ -675,16 +630,36 @@ p {
 	<br>
 	<br>
 	<br>
-
-
-	<script type="text/javascript">
-
-
-
-
 </body>
 </html>
+
 <script type="text/javascript">
+
+	
+	    function fsubmit(){      //더보기 버튼
+    
+		var obj = document.getElementsByName("view").length;
+		
+		if(document.getElementById("but").value == "숨기기"){
+			document.getElementById("but").value = "더보기";
+			for(var i=0; i<obj; i++){
+				document.getElementsByName("view")[i].style.display="none";	
+			}
+		}
+		
+		else if(document.getElementById("but").value == "더보기"){
+			document.getElementById("but").value = "숨기기";
+			for(var i=0; i<obj; i++){
+				document.getElementsByName("view")[i].style.display="block";	
+			}
+		}
+		
+	}
+	
+</script>
+
+<script type="text/javascript">
+
 var data = [
     { y: '2020-02', a: 3150,  b: 27, c: 17},
     { y: '2020-03', a: 9786,  b: 5408, c: 162},
