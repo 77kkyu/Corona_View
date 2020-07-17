@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -14,6 +15,7 @@ import org.aspectj.org.eclipse.jdt.internal.core.util.Util.Comparable;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Controller;
@@ -32,6 +34,7 @@ public class MainController {
 			
 		MainJson CoronaJsonResult = new MainJson();
 		
+		//            국내 현황 
 		JSONParser parser = new JSONParser();
 		System.out.println(CoronaJsonResult.jsonString);
 	    JSONObject jsonResult = (JSONObject) parser.parse(CoronaJsonResult.jsonString);
@@ -76,9 +79,39 @@ public class MainController {
 			}
 		}
 		
-		ArrayList<Location> sortedLocations = sortedLocations(locations); // API 데이터 재정렬
 		
-		mv.addObject("locationList", sortedLocations );
+		ArrayList<Location> sortedLocations = sortedLocations(locations); // API 데이터 재정렬
+		//chartsList.add("countryName", sortedLocations.get(i).getCountryName().replace(",", ""));
+		//sortedLocations.get(i).getTotalCase().replace(",", "")
+		List<Map<String, Object>> chartsList = new ArrayList<Map<String, Object>>(); 
+		Map<String, Object> chartMaps = null;
+		JSONArray list = null;
+		
+		for(int i=0; i<locations.size(); i++) {
+			chartMaps = new HashMap<String, Object>();
+			chartMaps.put("countryName", locations.get(i).getCountryName());
+			chartMaps.put("totalCase", Integer.parseInt(locations.get(i).getTotalCase().replace(",", "")));
+			chartMaps.put("death", Integer.parseInt(locations.get(i).getDeath().replace(",", "")));
+			chartsList.add(chartMaps);
+		}
+
+		list =  getJsonArrayFromList(chartsList); // 차트 데이터
+
+		List<Map<String, Object>> dChartsList = new ArrayList<Map<String, Object>>(); 
+		Map<String, Object> dChartMaps = null;
+		JSONArray dountChartList = null;
+		for(int i=0; i<locations.size(); i++) {
+			dChartMaps = new HashMap<String, Object>();
+			dChartMaps.put("label", locations.get(i).getCountryName());
+			dChartMaps.put("value", Integer.parseInt(locations.get(i).getTotalCase().replace(",", "")));
+			dChartsList.add(dChartMaps);
+		}
+		
+		dountChartList = getJsonArrayFromList(dChartsList);
+		
+		mv.addObject("dountChartList", dountChartList);
+		mv.addObject("chartList", list); // 차트
+		mv.addObject("locationList", sortedLocations ); // 지역별 현황판
 		mv.addObject("newCase", newCase); // 새로운 확진자
 		mv.addObject("TotalCase", TotalCase); // 전체 확진자
 		mv.addObject("TotalDeath", TotalDeath); // 전체 사망자
@@ -174,6 +207,37 @@ public class MainController {
 		keys.sort(comp);
 		return keys;
 	}
+	
+	
+	
+	public static JSONArray getJsonArrayFromList(List<Map<String, Object>> list) {
+		
+		JSONArray jsonArray = new JSONArray();
+		for( Map<String, Object> map : list ) {
+			//System.out.println("list="+list);
+			jsonArray.add(getJsonStringFromMap(map));
+			//System.out.println("map="+map);
+		}
+		
+		return jsonArray;
+		
+	}
+
+	private static Object getJsonStringFromMap(Map<String, Object> map) {
+		
+		JSONObject jsonObject = new JSONObject();
+		for( Map.Entry<String, Object> entry : map.entrySet() ) {
+			String key = entry.getKey();
+			Object value = entry.getValue();
+			//System.out.println("key="+ key);
+			jsonObject.put(key, value);
+			//System.out.println("제이슨 스트링:"+jsonObject.toJSONString());
+		}
+		
+		return jsonObject;
+		
+	}
+	
 	
 	
 }
