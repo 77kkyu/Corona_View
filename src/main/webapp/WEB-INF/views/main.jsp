@@ -13,16 +13,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <title>Main</title>
-<script src="/media/jquery-3.3.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://www.amcharts.com/lib/4/core.js"></script>
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/material.js"></script>
 <script src="https://www.amcharts.com/lib/4/lang/de_DE.js"></script>
 <script src="https://www.amcharts.com/lib/4/geodata/germanyLow.js"></script>
 <script src="https://www.amcharts.com/lib/4/fonts/notosans-sc.js"></script>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -118,6 +117,12 @@ p {
 
 .atag{
 	text-align:center;
+}
+
+.source {
+    text-align: center;
+    font-size: 15px;
+    padding-bottom: 5px;
 }
 
 </style>
@@ -369,6 +374,128 @@ p {
 <img style="width:80%; height:1600px; margin-left:10%" src="<c:url value="/resources/images/corona_1.jpeg"/>"/>
 <img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_2.jpeg"/>"/>
 <img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_3.jpeg"/>"/>
+<br><br><br><br>
+
+<h1>입국제한조치 현황</h1>
+
+<br><br>
+
+<div class="source"><span>(7/8 17시 기준 자료)</span><br>
+<a target="_blank" href="http://www.0404.go.kr/dev/newest_list.mofa">출처: [외교부 해외안전여행]</a>
+</div>
+
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          입국제한 해제 (15개국)
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        ※방문하시려는 국가.지역 관할 우리 공관(대사관.총영사관.출장소.분관 등) 홈페이지, 해당 정부 공식 홈페이지 등을 사전에 필수적으로 참고하시기 바랍니다<br><br><br>
+
+✔️미주<br>
+아이티(6/30), 앤티가바부다(6/1)<br><br>
+
+✔️유럽<br>
+네덜란드(7/1), 라트비아(7/1), 룩셈부르크(7/1), 몬테네그로(5/30), 벨라루스(6/25), 북마케도니아(6/26), 사이프러스(4/20), 세르비아(5/22), 터키(6/11), 포르투갈(7/1), 폴란드(7/3), 프랑스(7/3)<br><br>
+
+✔️중동<br>
+튀니지(7/2)<br><br>
+
+✔️아프리카<br>
+탄자니아(5/20)<br>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          입국금지 조치 (115개국)
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        ✔️아시아태평양<br>
+나우루, 네팔, 뉴질랜드, 니우에, 대만, 동티모르, 라오스, 마셜제도, 마이크로네시아, 마카오, 말레이시아, 몰디브, 몽골, 미얀마, 바누아투, 베트남, 부탄, 사모아, 사모아(미국령), 솔로몬제도, 스리랑카, 싱가포르, 인도네시아, 일본, 쿡제도, 키리바시, 투발루, 통가, 파푸아뉴기니, 피지, 필리핀, 호주, 홍콩, 중국(지역별상이)
+<br><br>
+✔️미주<br>
+과테말라, 그레나다, 니카라과, 벨리즈, 볼리비아, 브라질, 수리남, 아르헨티나, 엘살바도르, 온두라스, 우루과이, 칠레, 캐나다, 코스타리카, 콜롬비아, 쿠바, 트리니다드토바고, 파나마, 파라과이, 페루
+<br><br>
+✔️유럽<br>
+노르웨이, 독일, 러시아, 루마니아, 리투아니아, 리히텐슈타인, 몰도바, 벨기에, 보스니아헤르체고비나, 불가리아, 스위스, 아르메니아, 아이슬란드, 아제르바이잔, 에스토니아, 오스트리아, 조지아, 체코, 키르기즈스탄, 타지키스탄, 투르크메니스탄, 핀란드
+<br><br>
+✔️중동<br>
+리비아, 모로코, 바레인, 사우디, 아랍에미리트, 알제리, 오만, 요르단, 이라크, 이스라엘, 카타르, 쿠웨이트, 팔레스타인
+<br><br>
+✔️아프리카<br>
+가나, 가봉, 감비아, 나미비아, 남아프리카공화국, 니제르, 르완다, 마다가스카르, 말라위, 모리셔스, 민주콩고, 보츠와나, 부르키나파소, 상투메프린시페, 세이셸, 수단, 에리트레아, 에스와티니, 우간다, 차드, 카메룬, 케냐, 코모로, 코트디부아르, 콩고공화국, 토고<br>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          격리 조치 (7개국)
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        ✔️미주<br>
+미국, 세인트키츠네비스<br><br>
+
+✔️중동<br>
+모리타니아<br><br>
+
+✔️아프리카<br>
+부룬디, 베냉, 세네갈, 시에라리온<br>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          검역 강화 (48개국)
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+✔️아시아태평양<br>
+방글라데시, 브루나이, 인도, 캄보디아, 태국, 파키스탄, 폴리네시아(프랑스령)<br><br>
+
+✔️미주<br>
+가이아나, 도미니카공화국, 멕시코, 바베이도스, 바하마, 베네수엘라, 세인트루시아, 세인트빈센트그레나딘, 에콰도르, 자메이카<br><br>
+
+✔️유럽<br>
+그리스, 덴마크, 몰타, 스웨덴, 슬로바키아, 슬로베니아, 아일랜드, 알바니아, 영국, 우즈베키스탄, 우크라이나, 이탈리아, 카자흐스탄, 크로아티아, 헝가리<br><br>
+
+✔️중동<br>
+레바논, 이란, 이집트<br><br>
+
+✔️아프리카<br>
+기니, 기니비사우, 나이지리아, 남수단, 라이베리아, 말리, 모잠비크, 앙골라, 에티오피아, 잠비아, 적도기니, 짐바브웨, 중앙아프리카공화국<br>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
 
 <br><br><br><br><br><br>
 
