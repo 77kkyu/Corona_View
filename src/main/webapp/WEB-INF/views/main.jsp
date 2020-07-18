@@ -566,7 +566,7 @@ h1 {
   
   
   <div id="wrapper">
-  <h1>Sortable Table of Search Queries</h1>
+  <h1>국내 코로나 현황 리스트</h1>
   
   <table id="keywords" cellspacing="0" cellpadding="0">
     <thead>
