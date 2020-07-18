@@ -580,7 +580,7 @@ h1 {
     </thead>
     <tbody>
     
-    	<c:forEach items="${locationList}" var="list" varStatus="status">
+    <c:forEach items="${locationList}" var="list" varStatus="status">
     	<tr>
 	        <td class="lalign">${list.countryName}</td>
 	        <td>${list.totalCase}</td>
@@ -588,7 +588,7 @@ h1 {
 	        <td>1.8%</td>
 	        <td>22.2</td>
       	</tr>
-    	</c:forEach>
+    </c:forEach>
       
     </tbody>
   </table>
