@@ -239,7 +239,7 @@ h1 {
   padding: 15px 10px;
 }
 #keywords tbody tr td.lalign {
-  text-align: left;
+  text-align: center;
 }
 
 
