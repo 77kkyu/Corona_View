@@ -567,7 +567,7 @@ h1 {
   
   <div id="wrapper">
   <h1>국내 코로나 현황 리스트</h1>
-  
+  <br>
   <table id="keywords" cellspacing="0" cellpadding="0">
     <thead>
       <tr>
@@ -585,7 +585,7 @@ h1 {
 	        <td class="lalign">${list.countryName}</td>
 	        <td>${list.totalCase}</td>
 	        <td>${list.newCase}</td>
-	        <td>1.8%</td>
+	        <td>${list.death}</td>
 	        <td>22.2</td>
       	</tr>
     </c:forEach>
