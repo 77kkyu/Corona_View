@@ -524,7 +524,7 @@ h1 {
 
 <!-- 카카오맵 -->
 <div class="container">
-<div id="map" style="width:700px;height:700px;align:center;"></div>
+<div id="map" class="container" style="width:700px;height:700px;align:center;"></div>
 </div>
 
 
@@ -565,7 +565,8 @@ h1 {
   <br><br>
   
   
-  <div id="wrapper">
+  <div class="container">
+  <div id="wrapper" style="position: relative; z-index: 0; max-width: 100%; max-height: 100%; width: 100%; height: 100%;">
   <h1>국내 코로나 현황 리스트</h1>
   <br>
   <table id="keywords" cellspacing="0" cellpadding="0">
@@ -583,9 +584,9 @@ h1 {
     <c:forEach items="${locationList}" var="list" varStatus="status">
     	<tr>
 	        <td class="lalign">${list.countryName}</td>
-	        <td>${list.totalCase} (+${list.newCase})</td>
-	        <td>${list.recovered}</td>
-	        <td>${list.death}</td>
+	        <td>${list.totalCase} <br><font color="blue">(+${list.newCase})</font></td>
+	        <td><font color="green">${list.recovered}</font></td>
+	        <td><font color="red">${list.death}</font></td>
 	        <td>${list.percentage}%</td>
       	</tr>
     </c:forEach>
@@ -593,7 +594,7 @@ h1 {
     </tbody>
   </table>
  </div> 
- 
+ </div>
 
 
 	<br>
