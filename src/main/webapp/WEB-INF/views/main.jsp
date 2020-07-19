@@ -571,11 +571,11 @@ h1 {
   <table id="keywords" cellspacing="0" cellpadding="0">
     <thead>
       <tr>
-        <th><span>국가</span></th>
-        <th><span>확진자</span></th>
-        <th><span>치료중</span></th>
-        <th><span>사망자</span></th>
-        <th><span>완치</span></th>
+        <th><span>&nbsp;&nbsp;지역</span></th>
+        <th><span>&nbsp;&nbsp;확진자</span></th>
+        <th><span>&nbsp;&nbsp;완치자</span></th>
+        <th><span>&nbsp;&nbsp;사망자</span></th>
+        <th><span>&nbsp;&nbsp;발생률%</span></th>
       </tr>
     </thead>
     <tbody>
@@ -583,10 +583,10 @@ h1 {
     <c:forEach items="${locationList}" var="list" varStatus="status">
     	<tr>
 	        <td class="lalign">${list.countryName}</td>
-	        <td>${list.totalCase}</td>
-	        <td>${list.newCase}</td>
+	        <td>${list.totalCase} (+${list.newCase})</td>
+	        <td>${list.recovered}</td>
 	        <td>${list.death}</td>
-	        <td>22.2</td>
+	        <td>${list.percentage}%</td>
       	</tr>
     </c:forEach>
       
