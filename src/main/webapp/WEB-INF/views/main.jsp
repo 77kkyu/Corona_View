@@ -21,13 +21,10 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <!-- 차트  -->
-<link rel="stylesheet"
-	href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
 
 </head>
@@ -35,7 +32,7 @@
 <style>
 .home .top {
 	background-color: white;
-	border-radius: 10px;
+	border-radius: 20px;
 	margin-top: 0;
 	margin-bottom: 10px;
 	padding-top: 10px;
@@ -87,7 +84,7 @@ p {
 p {
 	margin-top: 0;
 	margin-bottom: 1rem;
-	padding: 4px
+	padding: 4px;
 }
 
 .home .top .dashboard p.number {
@@ -246,14 +243,19 @@ p {
 
 <div class="container">
 
-<h1>확진자 상세 정보</h1>
+<div id="area">
+<br><br><br><br>
 
-<br><br>
+	<h1>확진자 상세 정보</h1>
+	
+	<br><br>
+	
+	<ul>
+		<li>확진자 동선을 더이상 업데이트 하지 않습니다.
+		<li>지역을 클릭하면 확진자 동선을 확인 할 수 있는 지자체 홈페이지가 새창으로 열립니다.
+	</ul>
+</div>
 
-<ul>
-	<li>확진자 동선을 더이상 업데이트 하지 않습니다.
-	<li>지역을 클릭하면 확진자 동선을 확인 할 수 있는 지자체 홈페이지가 새창으로 열립니다.
-</ul>
 <br>
 
 <div id="location-tag" class="d-flex flex-wrap align-content-center">
@@ -278,7 +280,10 @@ p {
 	<button type="button" class="btn btn-primary" onclick="location.href='http://xn--19-q81ii1knc140d892b.kr/main/main.do#close' " style="width: 60px; margin: 1px">경남</button>
 	<button type="button" class="btn btn-primary" onclick="location.href='https://www.jeju.go.kr/wel/healthCare/corona/coronaNotice.htm' " style="width: 60px; margin: 1px">제주</button>
 </div>
+
+<div id="prevent">
 <br><br><br><br>
+
 
 <h1>예방 행동 수칙</h1>
 
@@ -286,9 +291,15 @@ p {
 <img style="width:80%; height:1600px; margin-left:10%" src="<c:url value="/resources/images/corona_1.jpeg"/>"/>
 <img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_2.jpeg"/>"/>
 <img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_3.jpeg"/>"/>
-<br><br><br><br>
 
+</div>
+
+
+<div id="city">
+<br><br><br><br>
 <h1>입국제한조치 현황</h1>
+</div>
+
 
 <br><br>
 
@@ -581,6 +592,8 @@ p {
 
 </script> 
 
+<div id="status">
+<br><br><br><br>
 
 	<!-- 차트 -->
 	<div class="container">
@@ -614,6 +627,7 @@ p {
     <br>
     
   </div>
+</div>
 
 
 	<br>

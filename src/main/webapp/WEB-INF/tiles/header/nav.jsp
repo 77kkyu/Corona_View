@@ -1,0 +1,60 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<title>CoronaView</title>
+
+<style type="text/css">
+
+#nav{
+	background:black;
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div id="nav" class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>            
+<a href="/Corona_View/main"><img style="width:270px; height:55px; margin-left:18%;" src="<c:url value="/resources/images/logo.JPG"/>"/></a>
+            
+        </div>
+		
+		
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="#area">지역별 상세정보</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#prevent">예방 행동수칙</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#city">입국제한 조치</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#status">국내 현황</a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+</body>
+</html>

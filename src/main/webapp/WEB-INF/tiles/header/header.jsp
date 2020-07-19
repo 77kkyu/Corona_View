@@ -13,7 +13,7 @@
 
 #header{
 	width:100%;
-	height:250px;
+	height:300px;
 	background:black;
 	clear:both;
 }
@@ -25,6 +25,7 @@
 	font-size:30px;
 	font-weight: 500;
 	text-align:center;
+	margin-top:100px;
 }
 
 </style>
@@ -33,9 +34,7 @@
 <body>
 
 
-<div id="header" class="container">
-
-	<img style="width:270px; height:55px; margin-left:18%;" src="<c:url value="/resources/images/logo.JPG"/>"/>
+<div id="header" class="container">	
 
 	<p class="p1">실시간<br>코로나 19 (COVID-19)</p>
 
