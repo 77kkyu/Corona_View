@@ -421,6 +421,8 @@ p {
 
 </div>
 
+<br><br><br><br>
+
 
 <div id="map" style="width:700px;height:700px;align:center;"></div>
 
@@ -598,29 +600,38 @@ p {
 	<!-- 차트 -->
 	<div class="container">
 		<h3 class="text-primary text-center">국내차트🌏</h3>
-		<br>
+		<br><br><br>
 		<divclass"row">
-    <div class="col-sm-6 text-center">
+		
+    <div class="text-center">
       <label class="label label-success">Area Chart</label>
       <div id="area-chart" ></div>
     </div>
     
-    <div class="col-sm-6 text-center">
+    <br><br><br><br><br>
+    
+    <div class="text-center">
        <label class="label label-success">Line Chart</label>
       <div id="line-chart"></div>
     </div>
-    <br>
-    <div  class="col-sm-6 text-center">
+    
+    <br><br><br><br><br>
+    
+    <div  class="text-center">
        <label class="label label-success">Bar Chart</label>
       <div id="bar-chart" ></div>
     </div>
-    <br>
-    <div class="col-sm-6 text-center">
-       <label class="label label-success">Bar stacked</label>
+    
+    <br><br><br><br><br>
+    
+    <div class="text-center">
+       <label class="">Bar stacked</label>
       <div id="stacked" ></div>
     </div>
     
-    <div class="col-sm-6 col-sm-offset-3 text-center">
+    <br><br><br><br><br>
+    
+    <div class="text-center">
        <label class="label label-success">Pie Chart</label>
       <div id="pie-chart" ></div>
     </div>

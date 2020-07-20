@@ -14,8 +14,17 @@
 	background:black;
 }
 
-
 </style>
+
+<script type="text/javascript">
+
+function animation(){
+	var div = document.getElementById('prevent');
+	$('prevent').animate({
+		scrollTop: div.scrollHeight-div.clientHeight}, 500);
+}
+
+</script>
 
 </head>
 <body>
@@ -30,7 +39,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>            
-<a href="/Corona_View/main"><img style="width:270px; height:55px; margin-left:18%;" src="<c:url value="/resources/images/logo.JPG"/>"/></a>
+<a href="/Corona_View/main"><img style="width:270px; height:55px; margin-left:30%;" src="<c:url value="/resources/images/logo.JPG"/>"/></a>
             
         </div>
 		
