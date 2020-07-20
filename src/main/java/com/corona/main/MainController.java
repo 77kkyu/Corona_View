@@ -118,6 +118,8 @@ public class MainController {
 		
 		//mv.addObject("dountChartList", dountChartList); // dount 차트 데이터
 		
+		System.out.println("뉴스API="+CoronaJsonResult.response.toString());
+		
 		mv.addObject("locationsMap", locations);
 		mv.addObject("chartList", list); // 차트
 		mv.addObject("locationList", sortedLocations ); // 지역별 현황판
