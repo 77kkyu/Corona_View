@@ -21,16 +21,13 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <!-- 차트  -->
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-
-
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.9.1/jquery.tablesorter.min.js"></script>
-
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
 
 </head>
@@ -38,7 +35,7 @@
 <style>
 .home .top {
 	background-color: white;
-	border-radius: 20px;
+	border-radius: 10px;
 	margin-top: 0;
 	margin-bottom: 10px;
 	padding-top: 10px;
@@ -90,7 +87,7 @@ p {
 p {
 	margin-top: 0;
 	margin-bottom: 1rem;
-	padding: 4px;
+	padding: 4px
 }
 
 .home .top .dashboard p.number {
@@ -134,111 +131,6 @@ p {
 #area-chart, #line-chart, #bar-chart, #stacked, #pie-chart {
 	min-height: 250px;
 }
-
-
-
-
-
-
-
-/* tablesorter */
-@import url('https://fonts.googleapis.com/css?family=Amarante');
-
-
-html { overflow-y: scroll; }
-
-
-::selection { background: #5f74a0; color: #fff; }
-::-moz-selection { background: #5f74a0; color: #fff; }
-::-webkit-selection { background: #5f74a0; color: #fff; }
-
-br { display: block; line-height: 1.6em; } 
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-ol, ul { list-style: none; }
-
-input, textarea { 
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  outline: none; 
-}
-
-blockquote, q { quotes: none; }
-blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
-strong, b { font-weight: bold; } 
-
-table { border-collapse: collapse; border-spacing: 0; }
-img { border: 0; max-width: 100%; }
-
-h1 { 
-  font-family: 'Amarante', Tahoma, sans-serif;
-  font-weight: bold;
-  font-size: 3.6em;
-  line-height: 1.7em;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-
-/** page structure **/
-#wrapper {
-  display: block;
-  width: 850px;
-  background: #fff;
-  margin: 0 auto;
-  padding: 10px 17px;
-  -webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
-}
-
-#keywords {
-  margin: 0 auto;
-  font-size: 1.2em;
-  margin-bottom: 15px;
-}
-
-
-#keywords thead {
-  cursor: pointer;
-  background: #c9dff0;
-}
-#keywords thead tr th { 
-  font-weight: bold;
-  padding: 12px 30px;
-  padding-left: 42px;
-}
-#keywords thead tr th span { 
-  padding-right: 20px;
-  background-repeat: no-repeat;
-  background-position: 100% 100%;
-}
-
-#keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
-  background: #acc8dd;
-}
-
-#keywords thead tr th.headerSortUp span {
-  background-image: url('https://i.imgur.com/SP99ZPJ.png');
-}
-#keywords thead tr th.headerSortDown span {
-  background-image: url('https://i.imgur.com/RkA9MBo.png');
-}
-
-
-#keywords tbody tr { 
-  color: #555;
-}
-#keywords tbody tr td {
-  text-align: center;
-  padding: 15px 10px;
-}
-#keywords tbody tr td.lalign {
-  text-align: center;
-}
-
 
 </style>
 
@@ -332,7 +224,6 @@ h1 {
 						<input type="button" id="but" class="btn btn-primary" value="더보기"
 							onclick="fsubmit();">
 					</div>
-					<br>
 				</c:if>
 
 				<c:if test="${status.index > 3}">
@@ -355,19 +246,14 @@ h1 {
 
 <div class="container">
 
-<div id="area">
-<br><br><br><br>
+<h1>확진자 상세 정보</h1>
 
-	<h1>확진자 상세 정보</h1>
-	
-	<br><br>
-	
-	<ul>
-		<li>확진자 동선을 더이상 업데이트 하지 않습니다.
-		<li>지역을 클릭하면 확진자 동선을 확인 할 수 있는 지자체 홈페이지가 새창으로 열립니다.
-	</ul>
-</div>
+<br><br>
 
+<ul>
+	<li>확진자 동선을 더이상 업데이트 하지 않습니다.
+	<li>지역을 클릭하면 확진자 동선을 확인 할 수 있는 지자체 홈페이지가 새창으로 열립니다.
+</ul>
 <br>
 
 <div id="location-tag" class="d-flex flex-wrap align-content-center">
@@ -392,10 +278,7 @@ h1 {
 	<button type="button" class="btn btn-primary" onclick="location.href='http://xn--19-q81ii1knc140d892b.kr/main/main.do#close' " style="width: 60px; margin: 1px">경남</button>
 	<button type="button" class="btn btn-primary" onclick="location.href='https://www.jeju.go.kr/wel/healthCare/corona/coronaNotice.htm' " style="width: 60px; margin: 1px">제주</button>
 </div>
-
-<div id="prevent">
 <br><br><br><br>
-
 
 <h1>예방 행동 수칙</h1>
 
@@ -403,15 +286,9 @@ h1 {
 <img style="width:80%; height:1600px; margin-left:10%" src="<c:url value="/resources/images/corona_1.jpeg"/>"/>
 <img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_2.jpeg"/>"/>
 <img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_3.jpeg"/>"/>
-
-</div>
-
-
-<div id="city">
 <br><br><br><br>
-<h1>입국제한조치 현황</h1>
-</div>
 
+<h1>입국제한조치 현황</h1>
 
 <br><br>
 
@@ -534,98 +411,209 @@ h1 {
 </div>
 
 
-<br><br><br><br>
+<div id="map" style="width:700px;height:700px;align:center;"></div>
 
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c5c08d7664bc1f1677e82a267f0462f8"></script>
+<script>
+	    var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(37.56682, 126.97865),
+			level: 13
+		};
 
-<!-- 카카오맵 -->
-<div class="container">
-<div id="map" class="container" style="width:700px;height:700px;align:center;"></div>
-</div>
+		var map = new kakao.maps.Map(container, options);
 
+		// 마커를 표시할 위치와 title 객체 배열입니다 
+		var positions = [
+		    {
+		        title: '서울', 
+		        latlng: new kakao.maps.LatLng(37.56682420267543, 126.978652258823
+)
+		    },
+		    {
+		        title: '부산', 
+		        latlng: new kakao.maps.LatLng(35.17971036598665, 129.07507262974576)
+		    },
+		    {
+		        title: '대구', 
+		        latlng: new kakao.maps.LatLng(35.8713631918401, 128.60180182588218)
+		    },
+		    {
+		        title: '인천',
+		        latlng: new kakao.maps.LatLng(37.456063072990744 , 126.70527479352269)
+		    },
+		    {
+		        title: '광주',
+		        latlng: new kakao.maps.LatLng(35.16010646005846 , 126.85162446297755)
+		    },
+		    {
+		        title: '대전',
+		        latlng: new kakao.maps.LatLng(36.3505388634306 , 127.38484598695104)
+		    },
+		    {
+		        title: '울산',
+		        latlng: new kakao.maps.LatLng(35.539511817217985 , 129.31145772815375)
+		    },
+		    {
+		        title: '세종',
+		        latlng: new kakao.maps.LatLng(36.48005401646766 , 127.28922876097302)
+		    },
+		    {
+		        title: '경기',
+		        latlng: new kakao.maps.LatLng(37.37784270504621 , 127.45610487710596)
+		    },
+		    {
+		        title: '강원',
+		        latlng: new kakao.maps.LatLng(37.652257380893325 , 128.25842795777797)
+		    },
+		    {
+		        title: '충북',
+		        latlng: new kakao.maps.LatLng(36.875749878396626 , 127.7574612999741)
+		    },
+		    {
+		        title: '충남',
+		        latlng: new kakao.maps.LatLng(36.54119465952566 , 126.80216357465115)
+		    },
+		    {
+		        title: '전북',
+		        latlng: new kakao.maps.LatLng(35.72687957312509 , 127.1303032346507)
+		    },
+		    {
+		        title: '전남',
+		        latlng: new kakao.maps.LatLng(34.958581776499166 , 126.98823003163007)
+		    },
+		    {
+		        title: '경북',
+		        latlng: new kakao.maps.LatLng(36.495608352900796 , 128.713000311704)
+		    },
+		    {
+		        title: '경남',
+		        latlng: new kakao.maps.LatLng(35.4703113787759 , 128.2326878492813)
+		    },
+		    {
+		        title: '제주',
+		        latlng: new kakao.maps.LatLng(33.4889044233285 , 126.49823997905348)
+		    }
+		];
 
+		// 마커 이미지의 이미지 주소입니다
+		var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/2018/pc/img/marker_spot.png"; 
+		    
+		for (var i = 0; i < positions.length; i ++) {
+		    
+		    // 마커 이미지의 이미지 크기 입니다
+		    var imageSize = new kakao.maps.Size(24, 35); 
+		    
+		    // 마커 이미지를 생성합니다    
+		    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
 
-<div id="status">
-<br><br><br><br>
+		    var iwContent = '<div style="padding:5px;">Hello World!</div>';
+		    // 마커를 생성합니다
+		    var marker = new kakao.maps.Marker({
+		        map: map, // 마커를 표시할 지도
+		        position: positions[i].latlng, // 마커를 표시할 위치
+		        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+		        image : markerImage // 마커 이미지
+		         
+		    });
+
+		    /* var iwContent = '<div style="padding:5px;">Hello World!</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+
+		 // 인포윈도우를 생성합니다
+			var infowindow = new kakao.maps.InfoWindow({
+			    content : iwContent
+			});
+
+			// 마커에 마우스오버 이벤트를 등록합니다
+			kakao.maps.event.addListener(marker, 'mouseover', function() {
+			  // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+			    infowindow.open(map, marker);
+			});
+
+			// 마커에 마우스아웃 이벤트를 등록합니다
+			kakao.maps.event.addListener(marker, 'mouseout', function() {
+			    // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
+			    infowindow.close();
+			}); */
+		    
+		} 
+
+		/* var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	    mapOption = { 
+	        center: new kakao.maps.LatLng(37.56682, 126.97865), // 지도의 중심좌표
+	        level: 13 // 지도의 확대 레벨
+	    };
+
+	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+	// 마커를 표시할 위치입니다 
+	var position =  new kakao.maps.LatLng(33.450701, 126.570667);
+
+	// 마커를 생성합니다
+	var marker = new kakao.maps.Marker({
+	  position: position
+	});
+
+	// 마커를 지도에 표시합니다.
+	marker.setMap(map);
+
+	// 마커에 커서가 오버됐을 때 마커 위에 표시할 인포윈도우를 생성합니다
+	var iwContent = '<div style="padding:5px;">Hello World!</div>'; // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+
+	// 인포윈도우를 생성합니다
+	var infowindow = new kakao.maps.InfoWindow({
+	    content : iwContent
+	});
+
+	// 마커에 마우스오버 이벤트를 등록합니다
+	kakao.maps.event.addListener(marker, 'mouseover', function() {
+	  // 마커에 마우스오버 이벤트가 발생하면 인포윈도우를 마커위에 표시합니다
+	    infowindow.open(map, marker);
+	});
+
+	// 마커에 마우스아웃 이벤트를 등록합니다
+	kakao.maps.event.addListener(marker, 'mouseout', function() {
+	    // 마커에 마우스아웃 이벤트가 발생하면 인포윈도우를 제거합니다
+	    infowindow.close();
+	}); */
+
+		
+
+</script> 
+
 
 	<!-- 차트 -->
 	<div class="container">
 		<h3 class="text-primary text-center">국내차트🌏</h3>
-		<br><br><br>
+		<br>
 		<divclass"row">
-		
-    <div class="text-center">
+    <div class="col-sm-6 text-center">
       <label class="label label-success">Area Chart</label>
       <div id="area-chart" ></div>
     </div>
     
-    <br><br><br><br><br>
-    
-    <div class="text-center">
+    <div class="col-sm-6 text-center">
        <label class="label label-success">Line Chart</label>
       <div id="line-chart"></div>
     </div>
-    
-    <br><br><br><br><br>
-    
-    <div  class="text-center">
+    <br>
+    <div  class="col-sm-6 text-center">
        <label class="label label-success">Bar Chart</label>
       <div id="bar-chart" ></div>
     </div>
-    
-    <br><br><br><br><br>
-    
-    <div class="text-center">
-       <label class="">Bar stacked</label>
+    <br>
+    <div class="col-sm-6 text-center">
+       <label class="label label-success">Bar stacked</label>
       <div id="stacked" ></div>
     </div>
     
-    <br><br><br><br><br>
-    
-    <div class="text-center">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
        <label class="label label-success">Pie Chart</label>
       <div id="pie-chart" ></div>
     </div>
     <br>
     
   </div>
-
-</div>
-
-  
-  <br><br>
-  
-  
-  <div class="container">
-  <div id="wrapper" style="position: relative; z-index: 0; max-width: 100%; max-height: 100%; width: 100%; height: 100%;">
-  <h1>국내 코로나 현황 리스트</h1>
-  <br>
-  <table id="keywords" cellspacing="0" cellpadding="0">
-    <thead>
-      <tr>
-        <th><span>&nbsp;&nbsp;지역</span></th>
-        <th><span>&nbsp;&nbsp;확진자</span></th>
-        <th><span>&nbsp;&nbsp;완치자</span></th>
-        <th><span>&nbsp;&nbsp;사망자</span></th>
-        <th><span>&nbsp;&nbsp;발생률%</span></th>
-      </tr>
-    </thead>
-    <tbody>
-    
-    <c:forEach items="${locationList}" var="list" varStatus="status">
-    	<tr>
-	        <td class="lalign">${list.countryName}</td>
-	        <td>${list.totalCase} <br><font color="blue">(+${list.newCase})</font></td>
-	        <td><font color="green">${list.recovered}</font></td>
-	        <td><font color="red">${list.death}</font></td>
-	        <td>${list.percentage}%</td>
-      	</tr>
-    </c:forEach>
-      
-    </tbody>
-  </table>
- </div> 
- </div>
-
 
 
 	<br>
@@ -640,11 +628,6 @@ h1 {
 </html>
 
 <script type="text/javascript">
-
-$(function(){
-	  $('#keywords').tablesorter(); 
-	});
-
 		function fsubmit(){      //더보기 버튼
     
 		var obj = document.getElementsByName("view").length;
@@ -756,212 +739,11 @@ Morris.Bar(config);   */
 /* config.element = 'stacked';
 config.stacked = true;
 Morris.Bar(config); */
-
 Morris.Donut({
 element: 'pie-chart',
-data: ${chartList}
-}); // value, label 데이터만 받음
+data: ${dountChartList}
+});
 </script>
 
-
-<!-- 카카오맵 -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c5c08d7664bc1f1677e82a267f0462f8"></script>
-<script>
-	    var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(36.1284249157748, 127.89893833794618),
-			level: 13
-		};
-
-		var map = new kakao.maps.Map(container, options);
-
-		// 마커를 표시할 위치와 title 객체 배열입니다 
-		var positions = [
-		    {
-		        title: '서울', 
-		        latlng: new kakao.maps.LatLng(37.56682420267543, 126.978652258823),
-		        content:'<div>지역이름 : ${locationsMap[7].countryName}</div>'+
-		        		'<div>확진자수 : ${locationsMap[7].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[7].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[7].death}</div>'
-		    },
-		    {
-		        title: '부산', 
-		        latlng: new kakao.maps.LatLng(35.17971036598665, 129.07507262974576),
-		        content:'<div>지역이름 : ${locationsMap[11].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[11].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[11].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[11].death}</div>'
-		    },
-		    {
-		        title: '대구', 
-		        latlng: new kakao.maps.LatLng(35.8713631918401, 128.60180182588218),
-		        content:'<div>지역이름 : ${locationsMap[14].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[14].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[14].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[14].death}</div>'
-		    },
-		    {
-		        title: '인천',
-		        latlng: new kakao.maps.LatLng(37.456063072990744 , 126.70527479352269),
-		        content:'<div>지역이름 : ${locationsMap[15].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[15].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[15].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[15].death}</div>'
-		    },
-		    {
-		        title: '광주',
-		        latlng: new kakao.maps.LatLng(35.16010646005846 , 126.85162446297755),
-		        content:'<div>지역이름 : ${locationsMap[3].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[3].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[3].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[3].death}</div>'
-		    },
-		    {
-		        title: '대전',
-		        latlng: new kakao.maps.LatLng(36.3505388634306 , 127.38484598695104),
-		        content:'<div>지역이름 : ${locationsMap[10].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[10].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[10].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[10].death}</div>'
-		    },
-		    {
-		        title: '울산',
-		        latlng: new kakao.maps.LatLng(35.539511817217985 , 129.31145772815375),
-		        content:'<div>지역이름 : ${locationsMap[4].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[4].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[4].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[4].death}</div>'
-		    },
-		    {
-		        title: '세종',
-		        latlng: new kakao.maps.LatLng(36.48005401646766 , 127.28922876097302),
-		        content:'<div>지역이름 : ${locationsMap[5].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[5].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[5].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[5].death}</div>'
-		    },
-		    {
-		        title: '경기',
-		        latlng: new kakao.maps.LatLng(37.37784270504621 , 127.45610487710596),
-		        content:'<div>지역이름 : ${locationsMap[0].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[0].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[0].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[0].death}</div>'
-		    },
-		    {
-		        title: '강원',
-		        latlng: new kakao.maps.LatLng(37.652257380893325 , 128.25842795777797),
-		        content:'<div>지역이름 : ${locationsMap[2].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[2].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[2].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[2].death}</div>'
-		    },
-		    {
-		        title: '충북',
-		        latlng: new kakao.maps.LatLng(36.875749878396626 , 127.7574612999741),
-		        content:'<div>지역이름 : ${locationsMap[6].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[6].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[6].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[6].death}</div>'
-		        
-		    },
-		    {
-		        title: '충남',
-		        latlng: new kakao.maps.LatLng(36.54119465952566 , 126.80216357465115),
-		        content:'<div>지역이름 : ${locationsMap[9].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[9].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[9].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[9].death}</div>'
-		    },
-		    {
-		        title: '전북',
-		        latlng: new kakao.maps.LatLng(35.72687957312509 , 127.1303032346507),
-		        content:'<div>지역이름 : ${locationsMap[1].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[1].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[1].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[1].death}</div>'
-		    },
-		    {
-		        title: '전남',
-		        latlng: new kakao.maps.LatLng(34.958581776499166 , 126.98823003163007),
-		        content:'<div>지역이름 : ${locationsMap[16].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[16].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[16].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[16].death}</div>'
-		    },
-		    {
-		        title: '경북',
-		        latlng: new kakao.maps.LatLng(36.495608352900796 , 128.713000311704),
-		        content:'<div>지역이름 : ${locationsMap[12].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[12].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[12].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[12].death}</div>'
-		    },
-		    {
-		        title: '경남',
-		        latlng: new kakao.maps.LatLng(35.4703113787759 , 128.2326878492813),
-		        content:'<div>지역이름 : ${locationsMap[8].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[8].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[8].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[8].death}</div>'
-		    },
-		    {
-		        title: '제주',
-		        latlng: new kakao.maps.LatLng(33.4889044233285 , 126.49823997905348),
-		        content:'<div>지역이름 : ${locationsMap[13].countryName}</div>'+
-				        '<div>확진자수 : ${locationsMap[13].totalCase}</div>'+
-		        		'<div>완치자수 : ${locationsMap[13].recovered}</div>'+
-		        		'<div>사망자수 : ${locationsMap[13].death}</div>'
-		    }
-		];
-
-		// 마커 이미지의 이미지 주소입니다
-		var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/2018/pc/img/marker_spot.png"; 
-		    
-		for (var i = 0; i < positions.length; i ++) {
-		    
-		    // 마커 이미지의 이미지 크기 입니다
-		    var imageSize = new kakao.maps.Size(24, 35); 
-		    
-		    // 마커 이미지를 생성합니다    
-		    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
-
-		    // 마커를 생성합니다
-		    var marker = new kakao.maps.Marker({
-		        map: map, // 마커를 표시할 지도
-		        position: positions[i].latlng, // 마커를 표시할 위치
-		        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-		        image : markerImage // 마커 이미지
-		         
-		    });   
-
-		    var infowindow = new kakao.maps.InfoWindow({
-		        content: positions[i].content // 인포윈도우에 표시할 내용    
-		    });
-
-		    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-		    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-		    
-		}
-
-
-		function makeOverListener(map, marker, infowindow) {
-		    return function() {
-		        infowindow.open(map, marker);
-		    };
-		}
-
-		// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-		function makeOutListener(infowindow) {
-		    return function() {
-		        infowindow.close();
-		    };
-		} 
-
-		
-
-
-</script> 
 
 
