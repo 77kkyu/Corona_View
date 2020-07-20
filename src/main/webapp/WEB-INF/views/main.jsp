@@ -928,6 +928,8 @@ data: ${chartList}
 		    };
 		} 
 
+		
+
 
 </script> 
 
