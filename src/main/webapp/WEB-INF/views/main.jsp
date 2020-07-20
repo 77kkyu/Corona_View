@@ -548,57 +548,59 @@ h1 {
 <br><br><br><br>
 
 	<!-- 차트 -->
+	
 	<div class="container">
 		<h3 class="text-primary text-center">국내차트🌏</h3>
 		<br><br><br>
 		<div class="row">
 		
     <div class="text-center">
-      <label class="label label-success">Area Chart</label>
-      <div id="area-chart" ></div>
+      <label>차트1</label> <br><br><br>
+      <div id="area-chart" style="width:80%; height:370px; margin-left:10%;"></div>
     </div>
     
     <br><br><br><br><br>
     
     <div class="text-center">
-       <label class="label label-success">Line Chart</label>
-      <div id="line-chart"></div>
+       <label>차트2</label> <br><br><br>
+      <div id="line-chart" style="width:80%; height:370px; margin-left:10%;"></div>
     </div>
     
     <br><br><br><br><br>
     
     <div  class="text-center">
-       <label class="label label-success">Bar Chart</label>
-      <div id="bar-chart" ></div>
+       <label>차트3</label> <br><br><br>
+      <div id="bar-chart" style="width:80%; height:370px; margin-left:10%;"></div>
     </div>
     
     <br><br><br><br><br>
     
     <div class="text-center">
-       <label class="">Bar stacked</label>
-      <div id="stacked" ></div>
+       <label>차트4</label> <br><br><br>
+      <div id="stacked" style="width:80%; height:370px; margin-left:10%;"></div>
     </div>
     
     <br><br><br><br><br>
     
     <div class="text-center">
-       <label class="label label-success">Pie Chart</label>
-      <div id="pie-chart" ></div>
+       <label>차트5</label> <br><br><br>
+      <div id="pie-chart" style="width:350px; height:350px; margin-left:35%"></div>
     </div>
     <br>
     
-  </div>
-
+	  </div>
+	
+	</div>
 </div>
 
   
-  <br><br>
+  <br><br><br><br>
   
   
   <div class="container">
   <div id="wrapper" style="position: relative; z-index: 0; max-width: 100%; max-height: 100%; width: 100%; height: 100%;">
   <h1>국내 코로나 현황 리스트</h1>
-  <br>
+  <br><br><br>
   <table id="keywords" cellspacing="0" cellpadding="0">
     <thead>
       <tr>

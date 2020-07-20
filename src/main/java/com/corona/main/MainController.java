@@ -38,7 +38,9 @@ public class MainController {
 		JSONParser parser = new JSONParser();
 		System.out.println(CoronaJsonResult.jsonString);
 	    JSONObject jsonResult = (JSONObject) parser.parse(CoronaJsonResult.jsonString);
-	
+	    System.out.println("데이터:"+jsonResult);
+	    
+	    
 	    String caseCount = (String)jsonResult.get("caseCount"); // 국내 검사 결과 양성
 	    String updateTime = (String)jsonResult.get("updateTime"); //업데이트 시간
 	    String notcaseCount = (String)jsonResult.get("notcaseCount"); // 국내 검사결과 음성
@@ -98,7 +100,6 @@ public class MainController {
 		}
 
 		list =  getJsonArrayFromList(chartsList); // 차트 데이터
-		
 
 //		List<Map<String, Object>> dChartsList = new ArrayList<Map<String, Object>>(); 
 //		Map<String, Object> dChartMaps = null;
@@ -111,6 +112,24 @@ public class MainController {
 //		}
 		
 		//dountChartList = getJsonArrayFromList(dChartsList); // dount 차트 데이터
+		
+		
+		JSONParser parser2 = new JSONParser();
+		//parser2에 json데이터를 넣어 파싱한 다음 JSONObject로 변환한다.
+		JSONObject jArray = (JSONObject) parser2.parse(CoronaJsonResult.response.toString());
+		System.out.println("데이터222:"+jArray);
+		JSONArray personArray = (JSONArray) jArray.get("");
+		
+		for(int i=0; i<jArray.size(); i++) {
+			JSONObject personObject = (JSONObject) personArray.get(i);
+			String total = obj.getString("total");
+			String lastBuildDate = obj.getString("lastBuildDate");
+			
+			System.out.println("title("+i+"): "+total);
+			System.out.println("title("+i+"): "+lastBuildDate);
+			
+			
+		}
 		
 		
 		
