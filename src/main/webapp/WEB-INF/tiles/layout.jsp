@@ -9,13 +9,17 @@
 </head>
 <body>
 
+<!-- nav --> 
+<div id="container" style="margin:auto; display:block">
+      <tiles:insertAttribute name="nav"/>
+</div>
 
 <!-- header --> 
 <div id="container" style="width:100%; height:200px; margin:auto; display:block">
       <tiles:insertAttribute name="header"/>
 </div>
        
-<!-- container --> 
+<!-- body --> 
 <div id="container">
       <tiles:insertAttribute name="body"/>
 </div>
@@ -24,9 +28,6 @@
 <div style="width:100%; margin:auto; display:block">
       <tiles:insertAttribute name="footer"/>
 </div>
-
-
-
 
 
 </body>

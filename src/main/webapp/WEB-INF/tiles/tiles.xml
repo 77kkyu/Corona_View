@@ -8,6 +8,7 @@
 
    <!-- 템플릿 -->
    <definition name="template" template="/WEB-INF/tiles/layout.jsp">
+	  <put-attribute name="nav" value="/WEB-INF/tiles/header/nav.jsp" />
       <put-attribute name="header" value="/WEB-INF/tiles/header/header.jsp" />
       <put-attribute name="body" value="" />
       <put-attribute name="footer" value="/WEB-INF/tiles/footer/footer.jsp" />
