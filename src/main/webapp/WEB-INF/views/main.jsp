@@ -551,7 +551,7 @@ h1 {
 	<div class="container">
 		<h3 class="text-primary text-center">국내차트🌏</h3>
 		<br><br><br>
-		<divclass"row">
+		<div class="row">
 		
     <div class="text-center">
       <label class="label label-success">Area Chart</label>
