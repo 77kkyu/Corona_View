@@ -81,8 +81,7 @@ public class MainController {
 		
 		
 		ArrayList<Location> sortedLocations = sortedLocations(locations); // API 데이터 재정렬
-		//chartsList.add("countryName", sortedLocations.get(i).getCountryName().replace(",", ""));
-		//sortedLocations.get(i).getTotalCase().replace(",", "")
+	
 		List<Map<String, Object>> chartsList = new ArrayList<Map<String, Object>>(); 
 		Map<String, Object> chartMaps = null;
 		JSONArray list = null;
@@ -92,24 +91,34 @@ public class MainController {
 			chartMaps.put("countryName", locations.get(i).getCountryName());
 			chartMaps.put("totalCase", Integer.parseInt(locations.get(i).getTotalCase().replace(",", "")));
 			chartMaps.put("death", Integer.parseInt(locations.get(i).getDeath().replace(",", "")));
+			chartMaps.put("label", locations.get(i).getCountryName());
+			chartMaps.put("value", Integer.parseInt(locations.get(i).getTotalCase().replace(",", "")));
 			chartsList.add(chartMaps);
+			// Dount 차트 label , value 넣어서 수정
 		}
 
 		list =  getJsonArrayFromList(chartsList); // 차트 데이터
+		
 
-		List<Map<String, Object>> dChartsList = new ArrayList<Map<String, Object>>(); 
-		Map<String, Object> dChartMaps = null;
-		JSONArray dountChartList = null;
-		for(int i=0; i<locations.size(); i++) {
-			dChartMaps = new HashMap<String, Object>();
-			dChartMaps.put("label", locations.get(i).getCountryName());
-			dChartMaps.put("value", Integer.parseInt(locations.get(i).getTotalCase().replace(",", "")));
-			dChartsList.add(dChartMaps);
-		}
+//		List<Map<String, Object>> dChartsList = new ArrayList<Map<String, Object>>(); 
+//		Map<String, Object> dChartMaps = null;
+//		JSONArray dountChartList = null;
+//		for(int i=0; i<locations.size(); i++) {
+//			dChartMaps = new HashMap<String, Object>();
+//			dChartMaps.put("label", locations.get(i).getCountryName());
+//			dChartMaps.put("value", Integer.parseInt(locations.get(i).getTotalCase().replace(",", "")));
+//			dChartsList.add(dChartMaps);
+//		}
 		
-		dountChartList = getJsonArrayFromList(dChartsList);
+		//dountChartList = getJsonArrayFromList(dChartsList); // dount 차트 데이터
 		
-		mv.addObject("dountChartList", dountChartList);
+		
+		
+		
+		
+		//mv.addObject("dountChartList", dountChartList); // dount 차트 데이터
+		
+		mv.addObject("locationsMap", locations);
 		mv.addObject("chartList", list); // 차트
 		mv.addObject("locationList", sortedLocations ); // 지역별 현황판
 		mv.addObject("newCase", newCase); // 새로운 확진자
