@@ -112,31 +112,48 @@ public class MainController {
 //		}
 		
 		//dountChartList = getJsonArrayFromList(dChartsList); // dount 차트 데이터
+	
 		
 		
-		JSONParser parser2 = new JSONParser();
-		//parser2에 json데이터를 넣어 파싱한 다음 JSONObject로 변환한다.
-		JSONObject jArray = (JSONObject) parser2.parse(CoronaJsonResult.response.toString());
-		System.out.println("데이터222:"+jArray);
-		JSONArray personArray = (JSONArray) jArray.get("");
+		//            네이버 지도
 		
-		for(int i=0; i<jArray.size(); i++) {
-			JSONObject personObject = (JSONObject) personArray.get(i);
-			String total = obj.getString("total");
-			String lastBuildDate = obj.getString("lastBuildDate");
+//		JSONParser parser2 = new JSONParser();
+//		//parser2에 json데이터를 넣어 파싱한 다음 JSONObject로 변환한다.
+//		JSONObject jArray = (JSONObject) parser2.parse(CoronaJsonResult.response.toString());
+//		System.out.println("데이터2:"+jArray);
+//	
+//		String lastBuildDate = (String)jArray.get("lastBuildDate");
+//		String items = jArray.get("items").toString();
+//		System.out.println("items:"+items);
+		
+		
+		Map<String, List< Map<String, Object>>> locationMap3 = getMapFromJsonObject3(CoronaJsonResult.response.toString());
+		//System.out.println(locationMap3.get("items").get(0));
+		//System.out.println(locationMap3.get("items").get(0).get("title"));
+		
+		List<Map<String, Object>> newsList = new ArrayList<Map<String, Object>>();
+		
+		for(int i=0; i<locationMap3.get("items").size(); i++)
+		{
+			Map<String, Object> map = new HashMap<String, Object>();
 			
-			System.out.println("title("+i+"): "+total);
-			System.out.println("title("+i+"): "+lastBuildDate);
-			
-			
+			map.put("title", locationMap3.get("items").get(i).get("title") );
+			map.put("link", locationMap3.get("items").get(i).get("link") );
+			map.put("description", locationMap3.get("items").get(i).get("description") );
+			map.put("pubDate", locationMap3.get("items").get(i).get("pubDate") );
+
+			newsList.add(map);
+		
 		}
 		
 		
 		
 		
 		
-		//mv.addObject("dountChartList", dountChartList); // dount 차트 데이터
 		
+		
+		//mv.addObject("dountChartList", dountChartList); // dount 차트 데이터
+		mv.addObject("newsList", newsList);
 		mv.addObject("locationsMap", locations);
 		mv.addObject("chartList", list); // 차트
 		mv.addObject("locationList", sortedLocations ); // 지역별 현황판
@@ -267,5 +284,23 @@ public class MainController {
 	}
 	
 	
+    public static Map<String, List<Map<String, Object>>> getMapFromJsonObject3( String jsonObj )
+    {
+    	Map<String, List<Map<String, Object>>> map = null;
+        
+        try {
+            
+            map = new ObjectMapper().readValue(jsonObj.toString(), Map.class) ;
+            
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+ 
+        return map;
+    }
 	
 }

@@ -351,6 +351,18 @@ h1 {
 
 	</div>
 
+<div class="container">
+
+<c:forEach items="${newsList}" var="list" varStatus="status">
+	<div name="view">
+		<a href="${list.link}">${list.title}<br>
+		${list.description}<br>
+		${list.pubDate}</a>
+		<br><br>
+	</div>
+</c:forEach>
+
+</div>
 
 
 <div class="container">
@@ -628,14 +640,13 @@ h1 {
  </div> 
  </div>
 
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 
 
 </body>
