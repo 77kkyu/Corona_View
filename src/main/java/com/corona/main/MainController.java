@@ -108,9 +108,11 @@ public class MainController {
 		String youtubeApiResult = youtubeAPI.search("코로나"); // 유튜브 api 함수호출 
 		System.out.println("유튜브API="+youtubeApiResult);
 		
-		Map<String, List<Object>> locationMap1 = getStringMapFromJsonObject(youtubeApiResult);
+		Map<String, List<Map<String, Map<String, Object>>>> locationMap1 = getStringMapFromJsonObject(youtubeApiResult);
 		
-		System.out.println("items="+locationMap1.get("items").get(0));
+		System.out.println("items="+locationMap1.get("items").get(0).get("snippet").get("thumbnails"));
+		System.out.println(locationMap1.get("items").get(0));
+		System.out.println(locationMap1.get("items").get(1));
 		
 		
 		
@@ -152,8 +154,8 @@ public class MainController {
 		
 	}
 	
-	public Map<String, List<Object>> getStringMapFromJsonObject( String youtubeApiResult ) {// Json -> Object로 변환
-		Map<String, List<Object>> map = null;
+	public Map<String, List<Map<String, Map<String, Object>>>> getStringMapFromJsonObject( String youtubeApiResult ) {// Json -> Object로 변환
+		Map<String, List<Map<String, Map<String, Object>>>> map = null;
         
         try {
             
