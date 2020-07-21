@@ -307,7 +307,7 @@
 			<version>2.6.4</version>
 		</dependency>
 		
-		<!-- YouTube Data V3 support -->
+		<!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-sheets -->
 		<dependency>
 		    <groupId>com.google.apis</groupId>
 		    <artifactId>google-api-services-sheets</artifactId>
