@@ -99,26 +99,42 @@ public class MainController {
 
 		list =  getJsonArrayFromList(chartsList); // 차트 데이터
 		
-
-//		List<Map<String, Object>> dChartsList = new ArrayList<Map<String, Object>>(); 
-//		Map<String, Object> dChartMaps = null;
-//		JSONArray dountChartList = null;
-//		for(int i=0; i<locations.size(); i++) {
-//			dChartMaps = new HashMap<String, Object>();
-//			dChartMaps.put("label", locations.get(i).getCountryName());
-//			dChartMaps.put("value", Integer.parseInt(locations.get(i).getTotalCase().replace(",", "")));
-//			dChartsList.add(dChartMaps);
-//		}
 		
-		//dountChartList = getJsonArrayFromList(dChartsList); // dount 차트 데이터
+		//System.out.println("뉴스API="+CoronaJsonResult.response.toString());
 		
+		YoutubeBean youtubeAPI = new YoutubeBean(); // 유튜브 객체선언
 		
+		//System.out.println("유튜브API="+youtubeAPI.search("코로나"));
+		String youtubeApiResult = youtubeAPI.search("코로나"); // 유튜브 api 함수호출 
+		System.out.println("유튜브API="+youtubeApiResult);
+		
+		Map<String, List<Object>> locationMap1 = getStringMapFromJsonObject(youtubeApiResult);
+		
+		System.out.println("items="+locationMap1.get("items").get(0));
 		
 		
 		
-		//mv.addObject("dountChartList", dountChartList); // dount 차트 데이터
 		
-		System.out.println("뉴스API="+CoronaJsonResult.response.toString());
+		
+		
+		
+		/*
+		 * ArrayList<Location> locations1 = new ArrayList<Location>(); // 자바빈 리스트 선언
+		 * 
+		 * for(Map.Entry<String, Object> entry : locationMap.entrySet()) { // entrySet()
+		 * 메서드는 key와 value의 값이 모두 필요한 경우 사용
+		 * 
+		 * if(!entry.getKey().equals("resultCode") &&
+		 * !entry.getKey().equals("resultMessage") && !entry.getKey().equals("korea") &&
+		 * !entry.getKey().equals("quarantine") ) { // 필요없는 데이터를 빼는 조건
+		 * 
+		 * Map<String, String> map = (Map<String, String>) entry.getValue(); // 맵에
+		 * json으로 받은 데이터의 value값을 담아줌 Location location = Location.JsonToLocation(map,
+		 * entry.getKey()); // Location Bean에 저장하는 메소드 locations.add(location); //
+		 * value값을 리스트에 담아줌
+		 * 
+		 * } }
+		 */
 		
 		mv.addObject("locationsMap", locations);
 		mv.addObject("chartList", list); // 차트
@@ -135,6 +151,25 @@ public class MainController {
 		return mv;
 		
 	}
+	
+	public Map<String, List<Object>> getStringMapFromJsonObject( String youtubeApiResult ) {// Json -> Object로 변환
+		Map<String, List<Object>> map = null;
+        
+        try {
+            
+            map = new ObjectMapper().readValue(youtubeApiResult.toString(), Map.class);
+            
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+ 
+        return map;
+    }
+	
 	
 	public Map<String, Object> getMapFromJsonObject( JSONObject jsonObj ) {// Json -> Object로 변환
         Map<String, Object> map = null;
@@ -153,7 +188,6 @@ public class MainController {
  
         return map;
     }
-	
 	
 	private ArrayList<Location> sortedLocations(ArrayList<Location> locations) { // 제이슨데이터 재정렬
 		
@@ -248,7 +282,6 @@ public class MainController {
 		return jsonObject;
 		
 	}
-	
 	
 	
 }
