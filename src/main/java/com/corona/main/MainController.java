@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import org.apache.ibatis.ognl.ParseException;
 import org.aspectj.org.eclipse.jdt.internal.core.util.Util.Comparable;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
@@ -115,45 +116,56 @@ public class MainController {
 	
 		
 		
-		//            네이버 지도
+		//                유튜브
+		YoutubeBean youtubeApi = new YoutubeBean(); // 유튜브 객체선언
 		
-//		JSONParser parser2 = new JSONParser();
-//		//parser2에 json데이터를 넣어 파싱한 다음 JSONObject로 변환한다.
-//		JSONObject jArray = (JSONObject) parser2.parse(CoronaJsonResult.response.toString());
-//		System.out.println("데이터2:"+jArray);
-//	
-//		String lastBuildDate = (String)jArray.get("lastBuildDate");
-//		String items = jArray.get("items").toString();
-//		System.out.println("items:"+items);
+		String youtubeApiResult = youtubeApi.search("코로나"); // 유튜브 api 함수호출 
+		System.out.println("유튜브API="+youtubeApiResult);
+		
+		Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> youtubeJsonResult = getStringMapFromJsonObject(youtubeApiResult);
+		
+		System.out.println("items="+youtubeJsonResult.get("items").get(0).get("snippet").get("thumbnails").get("medium"));
+		System.out.println(youtubeJsonResult.get("items").get(0));
+		System.out.println(youtubeJsonResult.get("items").get(1));
+		
+		List<Map<String, Object>> youtubeList = new ArrayList<Map<String, Object>>();
 		
 		
-		Map<String, List< Map<String, Object>>> locationMap3 = getMapFromJsonObject3(CoronaJsonResult.response.toString());
-		//System.out.println(locationMap3.get("items").get(0));
-		//System.out.println(locationMap3.get("items").get(0).get("title"));
+		for(int i=0; i<youtubeJsonResult.get("items").size(); i++)
+		{
+			Map<String, Object> youtubeMap = new HashMap<String, Object>();
+			youtubeMap.put("vedioId", youtubeJsonResult.get("items").get(i).get("id").get("videoId"));
+			youtubeMap.put("title", youtubeJsonResult.get("items").get(i).get("snippet").get("title"));
+			youtubeMap.put("content", youtubeJsonResult.get("items").get(i).get("snippet").get("description"));
+			youtubeMap.put("imgUrl", youtubeJsonResult.get("items").get(i).get("snippet").get("thumbnails").get("medium").get("url"));
+			youtubeMap.put("channelTitle", youtubeJsonResult.get("items").get(i).get("snippet").get("channelTitle"));
+			youtubeMap.put("publishTime", youtubeJsonResult.get("items").get(i).get("snippet").get("publishTime"));
+			
+			youtubeList.add(youtubeMap);		
+		}
 		
+		
+		
+		//              네이버 지도
+		Map<String, List< Map<String, Object>>> locationMap3 = getMapFromJsonObject3(CoronaJsonResult.response.toString());		
 		List<Map<String, Object>> newsList = new ArrayList<Map<String, Object>>();
 		
 		for(int i=0; i<locationMap3.get("items").size(); i++)
 		{
 			Map<String, Object> map = new HashMap<String, Object>();
 			
-			map.put("title", locationMap3.get("items").get(i).get("title") );
-			map.put("link", locationMap3.get("items").get(i).get("link") );
-			map.put("description", locationMap3.get("items").get(i).get("description") );
-			map.put("pubDate", locationMap3.get("items").get(i).get("pubDate") );
+			map.put("title", locationMap3.get("items").get(i).get("title") );  //제목
+			map.put("link", locationMap3.get("items").get(i).get("link") );    //링크
+			map.put("description", locationMap3.get("items").get(i).get("description") );  //내용
+			map.put("pubDate", locationMap3.get("items").get(i).get("pubDate") );   //시간
 
 			newsList.add(map);
-		
-		}
-		
+		}		
 		
 		
 		
-		
-		
-		
-		//mv.addObject("dountChartList", dountChartList); // dount 차트 데이터
-		mv.addObject("newsList", newsList);
+		mv.addObject("youtubeList", youtubeList);  // 유튜브
+		mv.addObject("newsList", newsList); // 네이버뉴스
 		mv.addObject("locationsMap", locations);
 		mv.addObject("chartList", list); // 차트
 		mv.addObject("locationList", sortedLocations ); // 지역별 현황판
@@ -169,6 +181,24 @@ public class MainController {
 		return mv;
 		
 	}
+	
+	public Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> getStringMapFromJsonObject( String youtubeApiResult ) {// Json -> Object로 변환
+		Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> map = null;
+        
+        try {
+            
+            map = new ObjectMapper().readValue(youtubeApiResult.toString(), Map.class);
+            
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+ 
+        return map;
+    }
 	
 	public Map<String, Object> getMapFromJsonObject( JSONObject jsonObj ) {// Json -> Object로 변환
         Map<String, Object> map = null;

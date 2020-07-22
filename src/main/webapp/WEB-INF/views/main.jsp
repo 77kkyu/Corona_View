@@ -134,11 +134,31 @@ p {
 #area-chart, #line-chart, #bar-chart, #stacked, #pie-chart {
 	min-height: 250px;
 }
-
-
-
-
-
+#first{
+	font-size: 18px;
+}
+#middle{
+	font-weight: 300;
+}
+#last{
+	border-bottom: 1px solid #cccccc;
+}
+a:link {
+	text-decoration:none;
+	color:black;
+}
+a:visited {
+	text-decoration:none;
+	color:black;
+}
+a:active {
+	text-decoration:none;
+	color:black;
+}
+a:hover {
+	text-decoration:none;
+	color:black;
+}
 
 
 /* tablesorter */
@@ -351,18 +371,60 @@ h1 {
 
 	</div>
 
+
 <div class="container">
 
+<br><br>
+<h1>대한민국 NEWS</h1>
+<br><br>
+
+
 <c:forEach items="${newsList}" var="list" varStatus="status">
-	<div name="view">
-		<a href="${list.link}">${list.title}<br>
-		${list.description}<br>
-		${list.pubDate}</a>
+
+	<div id="news">
+	
+	<%-- <fmt:parseDate value="${list.pubDate}" var="parseDate" pattern="yyyyMMdd"/>
+		<fmt:formatDate value="${parseDate}" pattern="yyyy.MM.dd"/> --%>
+		<a href="${list.link}" target="_blank"><div id="first"><B>${list.title}</B></div>
+		<div style="font-weight:600;">${list.description}</div><br>
+		<div id="last">${list.pubDate}</div></a>
 		<br><br>
+		
 	</div>
+	
 </c:forEach>
 
 </div>
+
+
+<div class="container">
+
+<br><br>
+<h1>YouTube</h1>
+<br><br>
+
+<c:forEach items="${youtubeList}" var="list" varStatus="status">   
+	
+	<a href="${list.vedioId}" target="_blank">
+	<div style="clear:both;">
+	
+	<div style="float:left; width:33%; display:inline;"><img src="${list.imgUrl}"></div>
+	<div style="float:right; width:67%; display:inline;">
+	<br><div>${list.title}</div>
+		<div>${list.content}</div>
+		<div>${list.channelTitle}</div>
+		<div>${list.publishTime}</div>
+	</div>
+	
+	</div>
+	
+	</a>
+	
+	<br>
+</c:forEach>
+
+</div>
+
 
 
 <div class="container">
