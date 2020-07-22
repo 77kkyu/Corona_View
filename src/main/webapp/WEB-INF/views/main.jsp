@@ -137,9 +137,6 @@ p {
 #first{
 	font-size: 18px;
 }
-#middle{
-	font-weight: 300;
-}
 #last{
 	border-bottom: 1px solid #cccccc;
 }
@@ -160,6 +157,24 @@ a:hover {
 	color:black;
 }
 
+#youtube{
+	clear:both;
+	border-bottom: 1px solid #cccccc;
+}
+#image{
+	float:left;
+	width:33%;
+	display:inline;
+}
+#details{
+	float:left;
+	width:66%;
+	display:inline;
+}
+#title{
+	font-size:20px;
+	font-weight:600;
+}
 
 /* tablesorter */
 @import url('https://fonts.googleapis.com/css?family=Amarante');
@@ -406,18 +421,17 @@ h1 {
 <c:forEach items="${youtubeList}" var="list" varStatus="status">   
 	
 	<a href="${list.vedioId}" target="_blank">
-	<div style="clear:both;">
+	<div id="youtube" class="d-flex flex-wrap flex-sm-nowrap align-items-stretch border-bottom">
 	
-	<div style="float:left; width:33%; display:inline;"><img src="${list.imgUrl}"></div>
-	<div style="float:right; width:67%; display:inline;">
-	<br><div>${list.title}</div>
-		<div>${list.content}</div>
-		<div>${list.channelTitle}</div>
-		<div>${list.publishTime}</div>
+		<div id="image"><img style="width:93%;" src="${list.imgUrl}"></div>
+		
+		<div id="details">
+		<br><br><div id="title">${list.title}</div><br>
+			<div>${list.content}<br>
+			${list.channelTitle}ㆍ${list.publishTime}</div>
+		</div>
+	
 	</div>
-	
-	</div>
-	
 	</a>
 	
 	<br>
