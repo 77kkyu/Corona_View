@@ -351,6 +351,31 @@ h1 {
 
 	</div>
 
+<div class="container">
+
+<c:forEach items="${youtubeList}" var="list" varStatus="status">
+	
+	
+	<a href="${list.vedioId}" target="_blank">
+	<div style="clear:both;">
+	
+	<div style="float:left; width:33%; display:inline;"><img src="${list.imgUrl}"></div>
+	<div style="float:right; width:67%; display:inline;">
+	<br><div>${list.title}</div>
+		<div>${list.content}</div>
+		<div>${list.channelTitle}</div>
+		<div>${list.publishTime}</div>
+	</div>
+	
+	</div>
+	
+	</a>
+	
+	<br>
+</c:forEach>
+
+</div>
+
 
 
 <div class="container">

@@ -102,42 +102,35 @@ public class MainController {
 		
 		//System.out.println("뉴스API="+CoronaJsonResult.response.toString());
 		
-		YoutubeBean youtubeAPI = new YoutubeBean(); // 유튜브 객체선언
+		YoutubeBean youtubeApi = new YoutubeBean(); // 유튜브 객체선언
 		
 		//System.out.println("유튜브API="+youtubeAPI.search("코로나"));
-		String youtubeApiResult = youtubeAPI.search("코로나"); // 유튜브 api 함수호출 
+		String youtubeApiResult = youtubeApi.search("코로나"); // 유튜브 api 함수호출 
 		System.out.println("유튜브API="+youtubeApiResult);
 		
-		Map<String, List<Map<String, Map<String, Map<String, Object>>>>> locationMap1 = getStringMapFromJsonObject(youtubeApiResult);
+		Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> youtubeJsonResult = getStringMapFromJsonObject(youtubeApiResult);
 		
-		System.out.println("items="+locationMap1.get("items").get(0).get("snippet").get("thumbnails").get("medium"));
-		System.out.println(locationMap1.get("items").get(0));
-		System.out.println(locationMap1.get("items").get(1));
+		System.out.println("items="+youtubeJsonResult.get("items").get(0).get("snippet").get("thumbnails").get("medium"));
+		System.out.println(youtubeJsonResult.get("items").get(0));
+		System.out.println(youtubeJsonResult.get("items").get(1));
 		
-		
-		
-		
+		List<Map<String, Object>> youtubeList = new ArrayList<Map<String, Object>>();
 		
 		
-		
-		/*
-		 * ArrayList<Location> locations1 = new ArrayList<Location>(); // 자바빈 리스트 선언
-		 * 
-		 * for(Map.Entry<String, Object> entry : locationMap.entrySet()) { // entrySet()
-		 * 메서드는 key와 value의 값이 모두 필요한 경우 사용
-		 * 
-		 * if(!entry.getKey().equals("resultCode") &&
-		 * !entry.getKey().equals("resultMessage") && !entry.getKey().equals("korea") &&
-		 * !entry.getKey().equals("quarantine") ) { // 필요없는 데이터를 빼는 조건
-		 * 
-		 * Map<String, String> map = (Map<String, String>) entry.getValue(); // 맵에
-		 * json으로 받은 데이터의 value값을 담아줌 Location location = Location.JsonToLocation(map,
-		 * entry.getKey()); // Location Bean에 저장하는 메소드 locations.add(location); //
-		 * value값을 리스트에 담아줌
-		 * 
-		 * } }
-		 */
-		
+		for(int i=0; i<youtubeJsonResult.get("items").size(); i++)
+		{
+			Map<String, Object> youtubeMap = new HashMap<String, Object>();
+			youtubeMap.put("vedioId", youtubeJsonResult.get("items").get(i).get("id").get("videoId"));
+			youtubeMap.put("title", youtubeJsonResult.get("items").get(i).get("snippet").get("title"));
+			youtubeMap.put("content", youtubeJsonResult.get("items").get(i).get("snippet").get("description"));
+			youtubeMap.put("imgUrl", youtubeJsonResult.get("items").get(i).get("snippet").get("thumbnails").get("medium").get("url"));
+			youtubeMap.put("channelTitle", youtubeJsonResult.get("items").get(i).get("snippet").get("channelTitle"));
+			youtubeMap.put("publishTime", youtubeJsonResult.get("items").get(i).get("snippet").get("publishTime"));
+			
+			youtubeList.add(youtubeMap);		
+		}
+	
+		mv.addObject("youtubeList", youtubeList);
 		mv.addObject("locationsMap", locations);
 		mv.addObject("chartList", list); // 차트
 		mv.addObject("locationList", sortedLocations ); // 지역별 현황판
@@ -154,8 +147,8 @@ public class MainController {
 		
 	}
 	
-	public Map<String, List<Map<String, Map<String, Map<String, Object>>>>> getStringMapFromJsonObject( String youtubeApiResult ) {// Json -> Object로 변환
-		Map<String, List<Map<String, Map<String, Map<String, Object>>>>> map = null;
+	public Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> getStringMapFromJsonObject( String youtubeApiResult ) {// Json -> Object로 변환
+		Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> map = null;
         
         try {
             
