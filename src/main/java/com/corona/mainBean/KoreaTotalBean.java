@@ -15,10 +15,11 @@ public class KoreaTotalBean {
 	private String todayRecovered; // 오늘 하루 완치자 수
 	private String todayDeath; // 오늘 하루 사망자 수
 	private String checkingCounter; // 국내 검사중
+	private String deathPercentage; // 치사율
 	
 	public KoreaTotalBean(String caseCount, String updateTime, String notCaseCount, String totalChecking,
 			String nowCase, String totalCase, String totalRecovered, String totalDeath, String todayRecovered,
-			String todayDeath, String checkingCounter) {
+			String todayDeath, String checkingCounter, String deathPercentage) {
 		super();
 		this.caseCount = caseCount;
 		this.updateTime = updateTime;
@@ -31,6 +32,7 @@ public class KoreaTotalBean {
 		this.todayRecovered = todayRecovered;
 		this.todayDeath = todayDeath;
 		this.checkingCounter = checkingCounter;
+		this.deathPercentage = deathPercentage;
 	}
 
 	public String getCaseCount() {
@@ -120,6 +122,14 @@ public class KoreaTotalBean {
 	public void setCheckingCounter(String checkingCounter) {
 		this.checkingCounter = checkingCounter;
 	}
+	
+	public String getDeathPercentage() {
+		return deathPercentage;
+	}
+
+	public void setDeathPercentage(String deathPercentage) {
+		this.deathPercentage = deathPercentage;
+	}
 
 
 	public static KoreaTotalBean jsonToKoreaTotal(Map<String, String> map, String locationName) {
@@ -135,8 +145,9 @@ public class KoreaTotalBean {
 		String todayRecovered = map.get("TodayRecovered");
 		String todayDeath = map.get("TodayDeath");
 		String checkingCounter = map.get("checkingCounter");
+		String deathPercentage = map.get("dd");
 		
-		KoreaTotalBean KoreaTotal = new KoreaTotalBean(caseCount, updateTime, notCaseCount, totalChecking, nowCase, totalCase, totalRecovered, totalDeath, todayRecovered, todayDeath, checkingCounter);
+		KoreaTotalBean KoreaTotal = new KoreaTotalBean(caseCount, updateTime, notCaseCount, totalChecking, nowCase, totalCase, totalRecovered, totalDeath, todayRecovered, todayDeath, checkingCounter, deathPercentage);
 		
 		return KoreaTotal;
 		
