@@ -106,7 +106,7 @@ public class Location implements Comparable<Location> {
 	
 	static Location JsonToLocation(Map<String, String> map, String locationName) { // 받은 json데이터를 꺼내와서 생성자에 반환함
 		
-		String newCase = map.get("newCase"); 
+		String newCase = map.get("newCase");
 		String totalCase = map.get("totalCase");
 		String recovered = map.get("recovered");
 		String percentage = map.get("percentage");

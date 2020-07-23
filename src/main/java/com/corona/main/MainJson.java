@@ -9,7 +9,6 @@ import java.net.URLEncoder;
 public class MainJson {
 	String jsonString = "";
 	String jsonString1 = "";
-	String jsonString2 = "";
 	StringBuffer response = null;
 	MainJson() throws Exception {
 		String address ="http://api.corona-19.kr/korea/?serviceKey=2f3458c475483f2337f8f4ff7a5af3c66";
