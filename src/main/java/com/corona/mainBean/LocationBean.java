@@ -104,7 +104,7 @@ public class LocationBean implements Comparable<LocationBean> {
 		this.newCcase = newCcase;
 	}
 	
-    public static LocationBean JsonToLocation(Map<String, String> map, String locationName) { // 받은 json데이터를 꺼내와서 생성자에 반환함
+    public static LocationBean jsonToLocation(Map<String, String> map, String locationName) { // 받은 json데이터를 꺼내와서 생성자에 반환함
 		
 		String newCase = map.get("newCase");
 		String totalCase = map.get("totalCase");
