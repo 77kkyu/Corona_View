@@ -29,6 +29,9 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.9.1/jquery.tablesorter.min.js"></script>
 
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="jquery.counterup.min.js"></script>
 </head>
 
 <style>
@@ -635,6 +638,24 @@ h1 {
 </html>
 
 <script type="text/javascript">
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+jQuery(document).ready(function($) {
+$('.confirmed, .death, .released, .testing').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 1300,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(numberWithCommas(Math.ceil(now)));
+        }
+    });
+});
+}); 
 
 $(function(){
 	  $('#keywords').tablesorter(); 

@@ -106,13 +106,13 @@ public class LocationBean implements Comparable<LocationBean> {
 	
     public static LocationBean jsonToLocation(Map<String, String> map, String locationName) { // 받은 json데이터를 꺼내와서 생성자에 반환함
 		
-		String newCase = map.get("newCase");
-		String totalCase = map.get("totalCase");
-		String recovered = map.get("recovered");
+		String newCase = map.get("newCase").toString().replaceAll(",","");
+		String totalCase = map.get("totalCase").toString().replaceAll(",","");
+		String recovered = map.get("recovered").toString().replaceAll(",","");
 		String percentage = map.get("percentage");
-		String death = map.get("death");
-		String newFcase = map.get("newFcase");
-		String newCcase = map.get("newCcase");
+		String death = map.get("death").toString().replaceAll(",","");
+		String newFcase = map.get("newFcase").toString().replaceAll(",","");
+		String newCcase = map.get("newCcase").toString().replaceAll(",","");
 		String countryName = map.get("countryName");
 		
 		LocationBean location = new LocationBean(newCase, totalCase, recovered, death, percentage, newFcase, newCcase, locationName, countryName);

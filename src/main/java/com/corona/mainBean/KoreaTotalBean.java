@@ -149,15 +149,14 @@ public class KoreaTotalBean {
 		String notCaseCount = (String) locationMap.get("notcaseCount");
 		String totalChecking = (String) locationMap.get("TotalChecking");
 		String nowCase = (String) locationMap.get("NowCase");
-		String totalCase = (String) locationMap.get("TotalCase");
-		String totalRecovered = (String) locationMap.get("TotalRecovered");
+		String totalCase = (String) locationMap.get("TotalCase").toString().replaceAll(",","");
+		String totalRecovered = (String) locationMap.get("TotalRecovered").toString().replaceAll(",","");
 		String totalDeath = (String) locationMap.get("TotalDeath");
 		String todayRecovered = (String) locationMap.get("TodayRecovered");
 		String todayDeath = (String) locationMap.get("TodayDeath");
-		String checkingCounter = (String) locationMap.get("checkingCounter");
+		String checkingCounter = (String) locationMap.get("checkingCounter").toString().replaceAll(",","");
 		String newCase = (String) locationMap.get("newCase");
-		
-		String TotalDeath = (String) locationMap.get("TotalDeath");
+		String TotalDeath = (String) locationMap.get("TotalDeath").toString().replaceAll(",","");
 		double Case = Integer.parseInt(locationMap.get("TotalCase").toString().replaceAll(",",""));
 		double Death = Integer.parseInt(TotalDeath);
 		String deathPercentage = String.format("%.2f", (Death/Case)*100);
