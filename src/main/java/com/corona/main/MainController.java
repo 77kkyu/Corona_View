@@ -137,9 +137,10 @@ public class MainController {
 			youtubeMap.put("imgUrl", youtubeJsonResult.get("items").get(i).get("snippet").get("thumbnails").get("medium").get("url"));
 			youtubeMap.put("channelTitle", youtubeJsonResult.get("items").get(i).get("snippet").get("channelTitle"));
 			
+			youtubeMap.put("publishTime", youtubeJsonResult.get("items").get(i).get("snippet").get("publishTime"));
+			
 			//요청시간 String
-			Map<String, Map<String, Object>> reqDateStr = youtubeJsonResult.get("items").get(i).get("snippet").get("publishTime");
-			System.out.println("reqDateStr:"+reqDateStr);
+			String reqDateStr = (String)youtubeMap.get("publishTime");
 			//현재시간 Date
 			Date curDate = new Date();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("YYYYMMddHHmm");
@@ -151,17 +152,12 @@ public class MainController {
 			long curDateTime = curDate.getTime();
 			//분으로 표현
 			long minute = (curDateTime - reqDateTime) / 60000;
-			System.out.println("요청시간 : " + reqDate);
-			System.out.println("현재시간 : " + curDate);
-			System.out.println(minute+"분 차이");
+			long hour = minute / 60;
 			
-			
-			youtubeMap.put("publishTime", youtubeJsonResult.get("items").get(i).get("snippet").get("publishTime"));
+			youtubeMap.put("publishTime", hour-9+"시간 전");
 			
 			youtubeList.add(youtubeMap);		
 		}
-		
-		
 		
 		
 		
@@ -181,12 +177,12 @@ public class MainController {
 			SimpleDateFormat format = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.US);
 			try{
 				Date date = format.parse(pubDate);
-				pubDate = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm").format(date);
+				pubDate = new SimpleDateFormat("yyyy년 MM월 dd일").format(date);
 			}catch (Exception e){
 				e.printStackTrace();
 			}
-			map.put("pubDate", pubDate );   //시간
-
+			map.put("pubDate", pubDate );   // 날짜
+			
 			newsList.add(map);
 		}		
 		

@@ -47,16 +47,16 @@ function animation(){
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" href="#area">지역별 상세정보</a>
+                    <a class="page-scroll" href="#section1">국내 현황</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#prevent">예방 행동수칙</a>
+                    <a class="page-scroll" href="#section2">입국 제한</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#city">입국제한 조치</a>
+                    <a class="page-scroll" href="#section3">예방 수칙</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#status">국내 현황</a>
+                    <a class="page-scroll" href="#section4">뉴스</a>
                 </li>
                 
             </ul>

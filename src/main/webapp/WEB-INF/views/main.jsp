@@ -280,8 +280,9 @@ h1 {
 
 <body id="top" class="home">
 
-	<div class="top container memberCountCon">
-
+	<div class="top container">
+		
+		                                                   	 	 <!-- 대한민국 코로나 -->
 		<h2>대한민국</h2>
 		<div class="row dashboard world">
 			<div class="col-4 col-sm-4 col-md-3 text-center">
@@ -314,43 +315,9 @@ h1 {
 		</div>
 		<br>
 
-
+																<!-- 지역별 확진자 -->
 		<h2>지역별 확진자</h2>
-		<%-- <div class="row dashboard world">
-		<div class="col-4 col-sm-4 col-md-3 text-center" >
-		<p class="confirmed number">${seoulTotalCase}</p>
-		<p class="confirmed diff">(+${seoulNewCase})</p>
-		<p>${seoulCountryName}</p>
-		</div>
-		
-		<div class="col-4 col-sm-4 col-md-2 text-center" >
-		<p class="death red number">${gyeonggiTotalCase}</p>
-		<p class="death diff">(+${gyeonggiNewCase})</p>
-		<p>${gyeonggiCountryName}</p>
-		</div>
-		
-		<div class="col-4 col-sm-4 col-md-2 text-center" >
-		<p class="death red number">${daeguTotalCase}</p>
-		<p class="death diff">(+${daeguNewCase})</p>
-		<p>${daeguCountryName}</p>
-		</div>
-		
-		<div class="col-6 col-sm-6 col-md-3 text-center" >
-		<p class="death red number">${gyeongbukTotalCase}</p>
-		<p class="death diff">(+${gyeongbukNewCase})</p>
-		<p>${gyeongbukCountryName}</p>
-		</div>
-		
-		<div class="col-6 col-sm-6 col-md-1 text-center" >
-		<p class="death red number">${busanTotalCase}</p>
-		<p class="death diff">(+${busanNewCase})</p>
-		<p>${busanCountryName}</p>
-		</div>
-	</div> --%>
-
-
 		<div class="row dashboard world">
-
 			<c:forEach items="${locationList}" var="list" varStatus="status">
 
 				<c:if test="${status.index <= 3}">
@@ -381,352 +348,326 @@ h1 {
 				</c:if>
 
 			</c:forEach>
-
 		</div>
-
 	</div>
 
-
-<div class="container">
-
-<br><br>
-<h1>대한민국 NEWS</h1>
-<br><br>
-
-
-<c:forEach items="${newsList}" var="list" varStatus="status">
-
-	<div id="news">
-	
-	<%-- <fmt:parseDate value="${list.pubDate}" var="parseDate" pattern="yyyyMMdd"/>
-		<fmt:formatDate value="${parseDate}" pattern="yyyy.MM.dd"/> --%>
-		<a href="${list.link}" target="_blank"><div id="first"><B>${list.title}</B></div>
-		<div style="font-weight:600;">${list.description}</div><br>
-		<div id="last">${list.pubDate}</div></a>
-		<br><br>
-		
+	<br><br><br><br>											<!-- 카카오맵 -->
+	<div class="container">
+		<div id="map" class="container" style="width:700px;height:700px;align:center;"></div>
 	</div>
 	
-</c:forEach>
+<section id=section1>
 
-</div>
-
-
-<div class="container">
-
-<br><br>
-<h1>YouTube</h1>
-<br><br>
-
-<c:forEach items="${youtubeList}" var="list" varStatus="status">   
+	  <br><br><br><br>                                              <!-- 국내 코로나 현황 리스트 -->
+	  <div class="container">
+	  <div id="wrapper" style="position: relative; z-index: 0; max-width: 100%; max-height: 100%; width: 100%; height: 100%;">
+	  <h1>국내 코로나 현황 리스트</h1>
+	  <br><br><br>
+	  <table id="keywords" cellspacing="0" cellpadding="0">
+	    <thead>
+	      <tr>
+	        <th><span>&nbsp;&nbsp;지역</span></th>
+	        <th><span>&nbsp;&nbsp;확진자</span></th>
+	        <th><span>&nbsp;&nbsp;완치자</span></th>
+	        <th><span>&nbsp;&nbsp;사망자</span></th>
+	        <th><span>&nbsp;&nbsp;발생률%</span></th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    
+	    <c:forEach items="${locationList}" var="list" varStatus="status">
+	    	<tr>
+		        <td class="lalign">${list.countryName}</td>
+		        <td>${list.totalCase} <br><font color="blue">(+${list.newCase})</font></td>
+		        <td><font color="green">${list.recovered}</font></td>
+		        <td><font color="red">${list.death}</font></td>
+		        <td>${list.percentage}%</td>
+	      	</tr>
+	    </c:forEach>
+	      
+	    </tbody>
+	  </table>
+	 </div> 
+	 </div>
+	 
+</section>
 	
-	<a href="${list.vedioId}" target="_blank">
-	<div id="youtube" class="d-flex flex-wrap flex-sm-nowrap align-items-stretch border-bottom">
 	
-		<div id="image"><img style="width:93%;" src="${list.imgUrl}"></div>
-		
-		<div id="details">
-		<br><br><div id="title">${list.title}</div><br>
-			<div>${list.channelTitle}ㆍ${list.publishTime}<br>
-				${list.content}</div>
-		</div>
-	
-	</div>
-	</a>
-	
-	<br>
-</c:forEach>
-
-</div>
-
-
-
-<div class="container">
-
-<div id="area">
-<br><br><br><br>
-
-	<h1>확진자 상세 정보</h1>
+<section id="section2">
+	<div class="container">	
+	<br><br><br><br>
+	<h1>입국제한조치 현황</h1>										<!-- 입국제한조치 현황 -->
 	
 	<br><br>
+	<div class="source"><span>(7/8 17시 기준 자료)</span><br>
+	<a target="_blank" href="http://www.0404.go.kr/dev/newest_list.mofa">출처: [외교부 해외안전여행]</a><br><br>
+	</div>
 	
-	<ul>
-		<li>확진자 동선을 더이상 업데이트 하지 않습니다.
-		<li>지역을 클릭하면 확진자 동선을 확인 할 수 있는 지자체 홈페이지가 새창으로 열립니다.
-	</ul>
-</div>
-
-<br>
-
-<div id="location-tag" class="d-flex flex-wrap align-content-center">
-	<button type="button" class="btn btn-primary" onclick="location.href='https://www.seoul.go.kr/coronaV/coronaStatus.do' " style="width: 60px; margin: 1px">서울</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='http://www.busan.go.kr/corona19/index#travelhist' " style="width: 60px; margin: 1px">부산</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='http://www.daegu.go.kr/dgcontent/index.do?menu_id=00936598' " style="width: 60px; margin: 1px">대구</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='https://www.incheon.go.kr/health/HE020409' " style="width: 60px; margin: 1px">인천</button>
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 	
-	<button type="button" class="btn btn-primary" onclick="location.href='https://www.gwangju.go.kr/c19/c19/contentsView.do?pageId=coronagj2' " style="width: 60px; margin: 1px">광주</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='https://www.daejeon.go.kr/corona19/index.do?menuId=0002' " style="width: 60px; margin: 1px">대전</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='https://www.ulsan.go.kr/corona.jsp' " style="width: 60px; margin: 1px">울산</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='https://www.sejong.go.kr/bbs/R3391/list.do' " style="width: 60px; margin: 1px">세종</button>
+	  <div class="panel panel-default">
+	    <div class="panel-heading" role="tab" id="headingOne">
+	      <h4 class="panel-title">
+	        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+	          입국제한 해제 (15개국)
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+	      <div class="panel-body">
+	        ※방문하시려는 국가.지역 관할 우리 공관(대사관.총영사관.출장소.분관 등) 홈페이지, 해당 정부 공식 홈페이지 등을 사전에 필수적으로 참고하시기 바랍니다<br><br><br>
 	
-	<button type="button" class="btn btn-primary" onclick="location.href='https://www.gg.go.kr/bbs/board.do?bsIdx=722&amp;menuId=2903#page=1' " style="width: 60px; margin: 1px">경기</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='https://www.provin.gangwon.kr/covid-19.html' " style="width: 60px; margin: 1px">강원</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='http://www1.chungbuk.go.kr/covid-19/index.do' " style="width: 60px; margin: 1px">충북</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='http://www.chungnam.go.kr/coronaStatus.do' " style="width: 60px; margin: 1px">충남</button>
+	✔️미주<br>
+	아이티(6/30), 앤티가바부다(6/1)<br><br>
 	
-	<button type="button" class="btn btn-primary" onclick="location.href='http://www.jeonbuk.go.kr/board/list.jeonbuk?boardId=BBS_0000107&amp;menuCd=DOM_000000110006000000&amp;contentsSid=1224&amp;cpath=' " style="width: 60px; margin: 1px">전북</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='https://www.jeonnam.go.kr/coronaMainPage.do' " style="width: 60px; margin: 1px">전남</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='http://gb.go.kr/corona_main.htm' " style="width: 60px; margin: 1px">경북</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='http://xn--19-q81ii1knc140d892b.kr/main/main.do#close' " style="width: 60px; margin: 1px">경남</button>
-	<button type="button" class="btn btn-primary" onclick="location.href='https://www.jeju.go.kr/wel/healthCare/corona/coronaNotice.htm' " style="width: 60px; margin: 1px">제주</button>
-</div>
-
-<div id="prevent">
-<br><br><br><br>
-
-
-<h1>예방 행동 수칙</h1>
-
-<br>
-<img style="width:80%; height:1600px; margin-left:10%" src="<c:url value="/resources/images/corona_1.jpeg"/>"/>
-<img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_2.jpeg"/>"/>
-<img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_3.jpeg"/>"/>
-
-</div>
-
-
-<div id="city">
-<br><br><br><br>
-<h1>입국제한조치 현황</h1>
-</div>
-
-
-<br><br>
-
-<div class="source"><span>(7/8 17시 기준 자료)</span><br>
-<a target="_blank" href="http://www.0404.go.kr/dev/newest_list.mofa">출처: [외교부 해외안전여행]</a>
-</div>
-
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          입국제한 해제 (15개국)
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-        ※방문하시려는 국가.지역 관할 우리 공관(대사관.총영사관.출장소.분관 등) 홈페이지, 해당 정부 공식 홈페이지 등을 사전에 필수적으로 참고하시기 바랍니다<br><br><br>
-
-✔️미주<br>
-아이티(6/30), 앤티가바부다(6/1)<br><br>
-
-✔️유럽<br>
-네덜란드(7/1), 라트비아(7/1), 룩셈부르크(7/1), 몬테네그로(5/30), 벨라루스(6/25), 북마케도니아(6/26), 사이프러스(4/20), 세르비아(5/22), 터키(6/11), 포르투갈(7/1), 폴란드(7/3), 프랑스(7/3)<br><br>
-
-✔️중동<br>
-튀니지(7/2)<br><br>
-
-✔️아프리카<br>
-탄자니아(5/20)<br>
-      </div>
-    </div>
-  </div>
-  
-  
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          입국금지 조치 (115개국)
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        ✔️아시아태평양<br>
-나우루, 네팔, 뉴질랜드, 니우에, 대만, 동티모르, 라오스, 마셜제도, 마이크로네시아, 마카오, 말레이시아, 몰디브, 몽골, 미얀마, 바누아투, 베트남, 부탄, 사모아, 사모아(미국령), 솔로몬제도, 스리랑카, 싱가포르, 인도네시아, 일본, 쿡제도, 키리바시, 투발루, 통가, 파푸아뉴기니, 피지, 필리핀, 호주, 홍콩, 중국(지역별상이)
-<br><br>
-✔️미주<br>
-과테말라, 그레나다, 니카라과, 벨리즈, 볼리비아, 브라질, 수리남, 아르헨티나, 엘살바도르, 온두라스, 우루과이, 칠레, 캐나다, 코스타리카, 콜롬비아, 쿠바, 트리니다드토바고, 파나마, 파라과이, 페루
-<br><br>
-✔️유럽<br>
-노르웨이, 독일, 러시아, 루마니아, 리투아니아, 리히텐슈타인, 몰도바, 벨기에, 보스니아헤르체고비나, 불가리아, 스위스, 아르메니아, 아이슬란드, 아제르바이잔, 에스토니아, 오스트리아, 조지아, 체코, 키르기즈스탄, 타지키스탄, 투르크메니스탄, 핀란드
-<br><br>
-✔️중동<br>
-리비아, 모로코, 바레인, 사우디, 아랍에미리트, 알제리, 오만, 요르단, 이라크, 이스라엘, 카타르, 쿠웨이트, 팔레스타인
-<br><br>
-✔️아프리카<br>
-가나, 가봉, 감비아, 나미비아, 남아프리카공화국, 니제르, 르완다, 마다가스카르, 말라위, 모리셔스, 민주콩고, 보츠와나, 부르키나파소, 상투메프린시페, 세이셸, 수단, 에리트레아, 에스와티니, 우간다, 차드, 카메룬, 케냐, 코모로, 코트디부아르, 콩고공화국, 토고<br>
-      </div>
-    </div>
-  </div>
-  
-  
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          격리 조치 (7개국)
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        ✔️미주<br>
-미국, 세인트키츠네비스<br><br>
-
-✔️중동<br>
-모리타니아<br><br>
-
-✔️아프리카<br>
-부룬디, 베냉, 세네갈, 시에라리온<br>
-      </div>
-    </div>
-  </div>
-  
-  
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingFour">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          검역 강화 (48개국)
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-      <div class="panel-body">
-✔️아시아태평양<br>
-방글라데시, 브루나이, 인도, 캄보디아, 태국, 파키스탄, 폴리네시아(프랑스령)<br><br>
-
-✔️미주<br>
-가이아나, 도미니카공화국, 멕시코, 바베이도스, 바하마, 베네수엘라, 세인트루시아, 세인트빈센트그레나딘, 에콰도르, 자메이카<br><br>
-
-✔️유럽<br>
-그리스, 덴마크, 몰타, 스웨덴, 슬로바키아, 슬로베니아, 아일랜드, 알바니아, 영국, 우즈베키스탄, 우크라이나, 이탈리아, 카자흐스탄, 크로아티아, 헝가리<br><br>
-
-✔️중동<br>
-레바논, 이란, 이집트<br><br>
-
-✔️아프리카<br>
-기니, 기니비사우, 나이지리아, 남수단, 라이베리아, 말리, 모잠비크, 앙골라, 에티오피아, 잠비아, 적도기니, 짐바브웨, 중앙아프리카공화국<br>
-      </div>
-    </div>
-  </div>
-  
-</div>
-
-</div>
-
-
-<br><br><br><br>
-
-
-<!-- 카카오맵 -->
-<div class="container">
-<div id="map" class="container" style="width:700px;height:700px;align:center;"></div>
-</div>
-
-
-
-<div id="status">
-<br><br><br><br>
-
-	<!-- 차트 -->
+	✔️유럽<br>
+	네덜란드(7/1), 라트비아(7/1), 룩셈부르크(7/1), 몬테네그로(5/30), 벨라루스(6/25), 북마케도니아(6/26), 사이프러스(4/20), 세르비아(5/22), 터키(6/11), 포르투갈(7/1), 폴란드(7/3), 프랑스(7/3)<br><br>
 	
+	✔️중동<br>
+	튀니지(7/2)<br><br>
+	
+	✔️아프리카<br>
+	탄자니아(5/20)<br>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  
+	  <div class="panel panel-default">
+	    <div class="panel-heading" role="tab" id="headingTwo">
+	      <h4 class="panel-title">
+	        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+	          입국금지 조치 (115개국)
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+	      <div class="panel-body">
+	        ✔️아시아태평양<br>
+	나우루, 네팔, 뉴질랜드, 니우에, 대만, 동티모르, 라오스, 마셜제도, 마이크로네시아, 마카오, 말레이시아, 몰디브, 몽골, 미얀마, 바누아투, 베트남, 부탄, 사모아, 사모아(미국령), 솔로몬제도, 스리랑카, 싱가포르, 인도네시아, 일본, 쿡제도, 키리바시, 투발루, 통가, 파푸아뉴기니, 피지, 필리핀, 호주, 홍콩, 중국(지역별상이)
+	<br><br>
+	✔️미주<br>
+	과테말라, 그레나다, 니카라과, 벨리즈, 볼리비아, 브라질, 수리남, 아르헨티나, 엘살바도르, 온두라스, 우루과이, 칠레, 캐나다, 코스타리카, 콜롬비아, 쿠바, 트리니다드토바고, 파나마, 파라과이, 페루
+	<br><br>
+	✔️유럽<br>
+	노르웨이, 독일, 러시아, 루마니아, 리투아니아, 리히텐슈타인, 몰도바, 벨기에, 보스니아헤르체고비나, 불가리아, 스위스, 아르메니아, 아이슬란드, 아제르바이잔, 에스토니아, 오스트리아, 조지아, 체코, 키르기즈스탄, 타지키스탄, 투르크메니스탄, 핀란드
+	<br><br>
+	✔️중동<br>
+	리비아, 모로코, 바레인, 사우디, 아랍에미리트, 알제리, 오만, 요르단, 이라크, 이스라엘, 카타르, 쿠웨이트, 팔레스타인
+	<br><br>
+	✔️아프리카<br>
+	가나, 가봉, 감비아, 나미비아, 남아프리카공화국, 니제르, 르완다, 마다가스카르, 말라위, 모리셔스, 민주콩고, 보츠와나, 부르키나파소, 상투메프린시페, 세이셸, 수단, 에리트레아, 에스와티니, 우간다, 차드, 카메룬, 케냐, 코모로, 코트디부아르, 콩고공화국, 토고<br>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  
+	  <div class="panel panel-default">
+	    <div class="panel-heading" role="tab" id="headingThree">
+	      <h4 class="panel-title">
+	        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+	          격리 조치 (7개국)
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+	      <div class="panel-body">
+	        ✔️미주<br>
+	미국, 세인트키츠네비스<br><br>
+	
+	✔️중동<br>
+	모리타니아<br><br>
+	
+	✔️아프리카<br>
+	부룬디, 베냉, 세네갈, 시에라리온<br>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  
+	  <div class="panel panel-default">
+	    <div class="panel-heading" role="tab" id="headingFour">
+	      <h4 class="panel-title">
+	        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+	          검역 강화 (48개국)
+	        </a>
+	      </h4>
+	    </div>
+	    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+	      <div class="panel-body">
+	✔️아시아태평양<br>
+	방글라데시, 브루나이, 인도, 캄보디아, 태국, 파키스탄, 폴리네시아(프랑스령)<br><br>
+	
+	✔️미주<br>
+	가이아나, 도미니카공화국, 멕시코, 바베이도스, 바하마, 베네수엘라, 세인트루시아, 세인트빈센트그레나딘, 에콰도르, 자메이카<br><br>
+	
+	✔️유럽<br>
+	그리스, 덴마크, 몰타, 스웨덴, 슬로바키아, 슬로베니아, 아일랜드, 알바니아, 영국, 우즈베키스탄, 우크라이나, 이탈리아, 카자흐스탄, 크로아티아, 헝가리<br><br>
+	
+	✔️중동<br>
+	레바논, 이란, 이집트<br><br>
+	
+	✔️아프리카<br>
+	기니, 기니비사우, 나이지리아, 남수단, 라이베리아, 말리, 모잠비크, 앙골라, 에티오피아, 잠비아, 적도기니, 짐바브웨, 중앙아프리카공화국<br>
+	      </div>
+	    </div>
+	  </div>
+	  
+	</div>
+	</div>
+</section>
+	
+	
+	<br><br><br>                                                        <!-- 차트 -->
 	<div class="container">
-		<h3 class="text-primary text-center">국내차트🌏</h3>
-		<br><br><br>
+		<h3 class="text-primary text-center">국내차트🌏</h3>        
+		<br><br>
 		<div class="row">
 		
     <div class="text-center">
-      <label>차트1</label> <br><br><br>
+      <label>차트1</label> <br>
       <div id="area-chart" style="width:80%; height:370px; margin-left:10%;"></div>
     </div>
     
-    <br><br><br><br><br>
+    <br><br><br>
     
     <div class="text-center">
-       <label>차트2</label> <br><br><br>
+       <label>차트2</label> <br><br>
       <div id="line-chart" style="width:80%; height:370px; margin-left:10%;"></div>
     </div>
     
-    <br><br><br><br><br>
+    <br><br><br>
     
     <div  class="text-center">
-       <label>차트3</label> <br><br><br>
+       <label>차트3</label> <br><br>
       <div id="bar-chart" style="width:80%; height:370px; margin-left:10%;"></div>
     </div>
     
-    <br><br><br><br><br>
+    <br><br><br>
     
     <div class="text-center">
-       <label>차트4</label> <br><br><br>
+       <label>차트4</label> <br><br>
       <div id="stacked" style="width:80%; height:370px; margin-left:10%;"></div>
     </div>
     
-    <br><br><br><br><br>
+    <br><br><br>
     
     <div class="text-center">
-       <label>차트5</label> <br><br><br>
+       <label>차트5</label> <br><br>
       <div id="pie-chart" style="width:350px; height:350px; margin-left:35%"></div>
     </div>
     <br>
     
-	  </div>
+	</div>
+	</div>
+	
+	
+<section id="section3">	
+	<div class="container">
+		<br><br><br>
+		<h1>예방 행동 수칙</h1>                                     	<!-- 예방 행동 수칙 -->
+		
+		<br>
+		<img style="width:80%; height:1600px; margin-left:10%" src="<c:url value="/resources/images/corona_1.jpeg"/>"/>
+		<img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_2.jpeg"/>"/>
+		<img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_3.jpeg"/>"/>
+	</div>
+</section>
+	
+	
+		
+	<div class="container">
+		<div id="area">                                         <!-- 확진자 상세 정보 -->
+		<br><br><br><br>
+		<h1>확진자 상세 정보</h1>									
+		<br><br>
+				
+			<ul>
+				<li>확진자 동선을 더이상 업데이트 하지 않습니다.
+				<li>지역을 클릭하면 확진자 동선을 확인 할 수 있는 지자체 홈페이지가 새창으로 열립니다.
+			</ul>
+		</div><br>
+		
+		<div id="location-tag" class="d-flex flex-wrap align-content-center">
+			<button type="button" class="btn btn-primary" onclick="location.href='https://www.seoul.go.kr/coronaV/coronaStatus.do' " style="width: 60px; margin: 1px">서울</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='http://www.busan.go.kr/corona19/index#travelhist' " style="width: 60px; margin: 1px">부산</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='http://www.daegu.go.kr/dgcontent/index.do?menu_id=00936598' " style="width: 60px; margin: 1px">대구</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='https://www.incheon.go.kr/health/HE020409' " style="width: 60px; margin: 1px">인천</button>
+			
+			<button type="button" class="btn btn-primary" onclick="location.href='https://www.gwangju.go.kr/c19/c19/contentsView.do?pageId=coronagj2' " style="width: 60px; margin: 1px">광주</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='https://www.daejeon.go.kr/corona19/index.do?menuId=0002' " style="width: 60px; margin: 1px">대전</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='https://www.ulsan.go.kr/corona.jsp' " style="width: 60px; margin: 1px">울산</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='https://www.sejong.go.kr/bbs/R3391/list.do' " style="width: 60px; margin: 1px">세종</button>
+			
+			<button type="button" class="btn btn-primary" onclick="location.href='https://www.gg.go.kr/bbs/board.do?bsIdx=722&amp;menuId=2903#page=1' " style="width: 60px; margin: 1px">경기</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='https://www.provin.gangwon.kr/covid-19.html' " style="width: 60px; margin: 1px">강원</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='http://www1.chungbuk.go.kr/covid-19/index.do' " style="width: 60px; margin: 1px">충북</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='http://www.chungnam.go.kr/coronaStatus.do' " style="width: 60px; margin: 1px">충남</button>
+			
+			<button type="button" class="btn btn-primary" onclick="location.href='http://www.jeonbuk.go.kr/board/list.jeonbuk?boardId=BBS_0000107&amp;menuCd=DOM_000000110006000000&amp;contentsSid=1224&amp;cpath=' " style="width: 60px; margin: 1px">전북</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='https://www.jeonnam.go.kr/coronaMainPage.do' " style="width: 60px; margin: 1px">전남</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='http://gb.go.kr/corona_main.htm' " style="width: 60px; margin: 1px">경북</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='http://xn--19-q81ii1knc140d892b.kr/main/main.do#close' " style="width: 60px; margin: 1px">경남</button>
+			<button type="button" class="btn btn-primary" onclick="location.href='https://www.jeju.go.kr/wel/healthCare/corona/coronaNotice.htm' " style="width: 60px; margin: 1px">제주</button>
+		</div>
+	</div>
+	
+	
+<section id="section4">
+	<div class="container">
+	
+	<br><br><br><br>													
+	<h1>대한민국 NEWS</h1>											<!-- NEWS -->
+	<br><br>
+	
+	<c:forEach items="${newsList}" var="list" varStatus="status">
+		<div id="news">
+			<a href="${list.link}" target="_blank"><div id="first"><B>${list.title}</B></div>
+			<div style="font-weight:600;">${list.description}</div><br>
+			<div id="last">${list.pubDate}</div></a>
+			<br><br>
+		</div>
+	</c:forEach>
 	
 	</div>
-</div>
+</section>
+	
+	
 
-  
-  <br><br><br><br>
-  
-  
-  <div class="container">
-  <div id="wrapper" style="position: relative; z-index: 0; max-width: 100%; max-height: 100%; width: 100%; height: 100%;">
-  <h1>국내 코로나 현황 리스트</h1>
-  <br><br><br>
-  <table id="keywords" cellspacing="0" cellpadding="0">
-    <thead>
-      <tr>
-        <th><span>&nbsp;&nbsp;지역</span></th>
-        <th><span>&nbsp;&nbsp;확진자</span></th>
-        <th><span>&nbsp;&nbsp;완치자</span></th>
-        <th><span>&nbsp;&nbsp;사망자</span></th>
-        <th><span>&nbsp;&nbsp;발생률%</span></th>
-      </tr>
-    </thead>
-    <tbody>
-    
-    <c:forEach items="${locationList}" var="list" varStatus="status">
-    	<tr>
-	        <td class="lalign">${list.countryName}</td>
-	        <td>${list.totalCase} <br><font color="blue">(+${list.newCase})</font></td>
-	        <td><font color="green">${list.recovered}</font></td>
-	        <td><font color="red">${list.death}</font></td>
-	        <td>${list.percentage}%</td>
-      	</tr>
-    </c:forEach>
-      
-    </tbody>
-  </table>
- </div> 
- </div>
-
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+	<div class="container">
+	<br><br>
+	<h1>YouTube</h1>											<!-- YouTube -->
+	<br><br>
+	
+	<c:forEach items="${youtubeList}" var="list" varStatus="status">   
+		<a href="${list.vedioId}" target="_blank">
+		<div id="youtube" class="d-flex flex-wrap flex-sm-nowrap align-items-stretch border-bottom">
+		
+			<div id="image"><img style="width:93%;" src="${list.imgUrl}"></div>
+			<div id="details">
+			<br><br><div id="title">${list.title}</div><br>
+				<div>${list.channelTitle}ㆍ${list.publishTime}<br>
+					${list.content}</div>
+			</div>
+		
+		</div></a>
+		<br>
+	</c:forEach>
+	
+	</div>
 
 
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 
 </body>
 </html>
+
+
+
 
 <script type="text/javascript">
 
