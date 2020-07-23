@@ -26,12 +26,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
-
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.9.1/jquery.tablesorter.min.js"></script>
-
-
 
 </head>
 
@@ -350,33 +346,7 @@ h1 {
 		</div>
 
 	</div>
-
-<div class="container">
-
-<c:forEach items="${youtubeList}" var="list" varStatus="status">
 	
-	
-	<a href="${list.vedioId}" target="_blank">
-	<div style="clear:both;">
-	
-	<div style="float:left; width:33%; display:inline;"><img src="${list.imgUrl}"></div>
-	<div style="float:right; width:67%; display:inline;">
-	<br><div>${list.title}</div>
-		<div>${list.content}</div>
-		<div>${list.channelTitle}</div>
-		<div>${list.publishTime}</div>
-	</div>
-	
-	</div>
-	
-	</a>
-	
-	<br>
-</c:forEach>
-
-</div>
-
-
 
 <div class="container">
 
@@ -983,8 +953,6 @@ data: ${chartList}
 		        infowindow.close();
 		    };
 		} 
-
-		
 
 
 </script> 
