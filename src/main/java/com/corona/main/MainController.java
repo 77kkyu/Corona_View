@@ -25,13 +25,16 @@ public class MainController {
 		ModelAndView mv = new ModelAndView("main");
 		
 		List<LocationBean> sortedLocations = mainService.coronaLocationApiSortList();
-		
+		String newCase = sortedLocations.get(0).getNewCase();
+		sortedLocations.remove(0);
 		List<LocationBean> coronaMapList = mainService.coronaLocationList();
-	
+		
+		
 		List<LocationBean> coronaChartList = mainService.coronaChartList(mainService.coronaLocationList());
 		
 		KoreaTotalBean coronaTotalList = mainService.coronaTotalList();
 		
+		mv.addObject("newCase", newCase);
 		mv.addObject("TotalMap", coronaTotalList);
 		mv.addObject("locationsMap", coronaMapList);
 		mv.addObject("chartList", coronaChartList); // 차트

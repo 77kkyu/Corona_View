@@ -251,7 +251,7 @@ h1 {
 		<div class="row dashboard world">
 			<div class="col-4 col-sm-4 col-md-3 text-center">
 				<p class="confirmed number">${TotalMap.totalCase}</p>
-				<p class="confirmed diff">(+${TotalMap.newCase})</p>
+				<p class="confirmed diff">(+${newCase})</p>
 				<p>확진자</p>
 			</div>
 
