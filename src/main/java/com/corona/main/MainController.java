@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.corona.mainBean.KoreaTotalBean;
 import com.corona.mainBean.LocationBean;
 
 import Modified.YoutubeBean;
@@ -29,7 +30,9 @@ public class MainController {
 	
 		List<LocationBean> coronaChartList = mainService.coronaChartList(mainService.coronaLocationList());
 		
+		KoreaTotalBean coronaTotalList = mainService.coronaTotalList();
 		
+		mv.addObject("TotalMap", coronaTotalList);
 		mv.addObject("locationsMap", coronaMapList);
 		mv.addObject("chartList", coronaChartList); // 차트
 		mv.addObject("locationList", sortedLocations ); // 지역별 현황판

@@ -250,30 +250,30 @@ h1 {
 		<h2>대한민국</h2>
 		<div class="row dashboard world">
 			<div class="col-4 col-sm-4 col-md-3 text-center">
-				<p class="confirmed number">${TotalCase}</p>
-				<p class="confirmed diff">(+${newCase})</p>
+				<p class="confirmed number">${TotalMap.totalCase}</p>
+				<p class="confirmed diff">(+${TotalMap.newCase})</p>
 				<p>확진자</p>
 			</div>
 
 			<div class="col-4 col-sm-4 col-md-2 text-center">
-				<p class="death red number">${TotalDeath}</p>
-				<p class="death diff">(+${TodayDeath})</p>
+				<p class="death red number">${TotalMap.totalDeath}</p>
+				<p class="death diff">(+${TotalMap.todayDeath})</p>
 				<p>사망자</p>
 			</div>
 
 			<div class="col-4 col-sm-4 col-md-2 text-center">
-				<p class="released number">${TotalRecovered}</p>
-				<p class="released diff">(+${TodayRecovered})</p>
+				<p class="released number">${TotalMap.totalRecovered}</p>
+				<p class="released diff">(+${TotalMap.todayRecovered})</p>
 				<p>격리해제</p>
 			</div>
 
 			<div class="col-6 col-sm-6 col-md-3 text-center">
-				<p class="fatality number">${deathPercentage}%</p>
+				<p class="fatality number">${TotalMap.deathPercentage}%</p>
 				<p>치사율</p>
 			</div>
 
 			<div class="col-6 col-sm-6 col-md-1 text-center">
-				<p class="testing number">${checkingCounter}</p>
+				<p class="testing number">${TotalMap.checkingCounter}</p>
 				<p>검사중</p>
 			</div>
 		</div>

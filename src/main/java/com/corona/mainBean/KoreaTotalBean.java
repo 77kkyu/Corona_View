@@ -5,6 +5,7 @@ import java.util.Map;
 public class KoreaTotalBean {
 	
 	private String caseCount; // 국내 검사 결과 양성
+	private String newCase; // 새로운 확진자
 	private String updateTime; // 업데이트 시간
 	private String notCaseCount; // 국내 검사결과 음성
 	private String totalChecking; // 총검사자 완료수
@@ -19,7 +20,7 @@ public class KoreaTotalBean {
 	
 	public KoreaTotalBean(String caseCount, String updateTime, String notCaseCount, String totalChecking,
 			String nowCase, String totalCase, String totalRecovered, String totalDeath, String todayRecovered,
-			String todayDeath, String checkingCounter, String deathPercentage) {
+			String todayDeath, String checkingCounter, String deathPercentage, String newCase) {
 		super();
 		this.caseCount = caseCount;
 		this.updateTime = updateTime;
@@ -33,6 +34,15 @@ public class KoreaTotalBean {
 		this.todayDeath = todayDeath;
 		this.checkingCounter = checkingCounter;
 		this.deathPercentage = deathPercentage;
+		this.newCase = newCase;
+	}
+
+	public String getNewCase() {
+		return newCase;
+	}
+
+	public void setNewCase(String newCase) {
+		this.newCase = newCase;
 	}
 
 	public String getCaseCount() {
@@ -132,22 +142,28 @@ public class KoreaTotalBean {
 	}
 
 
-	public static KoreaTotalBean jsonToKoreaTotal(Map<String, String> map, String locationName) {
+	public static KoreaTotalBean jsonToKoreaTotal(Map<String, Object> locationMap) {
 		
-		String caseCount = map.get("caseCount");
-		String updateTime = map.get("updateTime");
-		String notCaseCount = map.get("notcaseCount");
-		String totalChecking = map.get("TotalChecking");
-		String nowCase = map.get("NowCase");
-		String totalCase = map.get("TotalCase");
-		String totalRecovered = map.get("TotalRecovered");
-		String totalDeath = map.get("TotalDeath");
-		String todayRecovered = map.get("TodayRecovered");
-		String todayDeath = map.get("TodayDeath");
-		String checkingCounter = map.get("checkingCounter");
-		String deathPercentage = map.get("dd");
+		String caseCount = (String) locationMap.get("caseCount");
+		String updateTime = (String) locationMap.get("updateTime");
+		String notCaseCount = (String) locationMap.get("notcaseCount");
+		String totalChecking = (String) locationMap.get("TotalChecking");
+		String nowCase = (String) locationMap.get("NowCase");
+		String totalCase = (String) locationMap.get("TotalCase");
+		String totalRecovered = (String) locationMap.get("TotalRecovered");
+		String totalDeath = (String) locationMap.get("TotalDeath");
+		String todayRecovered = (String) locationMap.get("TodayRecovered");
+		String todayDeath = (String) locationMap.get("TodayDeath");
+		String checkingCounter = (String) locationMap.get("checkingCounter");
+		String newCase = (String) locationMap.get("newCase");
 		
-		KoreaTotalBean KoreaTotal = new KoreaTotalBean(caseCount, updateTime, notCaseCount, totalChecking, nowCase, totalCase, totalRecovered, totalDeath, todayRecovered, todayDeath, checkingCounter, deathPercentage);
+		String TotalDeath = (String) locationMap.get("TotalDeath");
+		double Case = Integer.parseInt(locationMap.get("TotalCase").toString().replaceAll(",",""));
+		double Death = Integer.parseInt(TotalDeath);
+		String deathPercentage = String.format("%.2f", (Death/Case)*100);
+		
+		KoreaTotalBean KoreaTotal = new KoreaTotalBean(caseCount, updateTime, notCaseCount, totalChecking, nowCase, totalCase, totalRecovered, totalDeath, 
+				todayRecovered, todayDeath, checkingCounter, deathPercentage, newCase);
 		
 		return KoreaTotal;
 		
