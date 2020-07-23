@@ -1,4 +1,4 @@
-package com.corona.main;
+package com.corona.mainBean;
 
 import java.util.Comparator;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class Location implements Comparable<Location> {
+public class LocationBean implements Comparable<LocationBean> {
 
 	private String locationName;
 	private String countryName;
@@ -18,7 +18,7 @@ public class Location implements Comparable<Location> {
 	private String newFcase;
 	private String newCcase;
 	
-	public Location(String newCase, String totalCase, String recovered, String death, String percentage,
+	public LocationBean(String newCase, String totalCase, String recovered, String death, String percentage,
 			String newFcase, String newCcase, String locationName, String countryName) {
 		super();
 		this.newCase = newCase;
@@ -104,7 +104,7 @@ public class Location implements Comparable<Location> {
 		this.newCcase = newCcase;
 	}
 	
-	static Location JsonToLocation(Map<String, String> map, String locationName) { // 받은 json데이터를 꺼내와서 생성자에 반환함
+    public static LocationBean JsonToLocation(Map<String, String> map, String locationName) { // 받은 json데이터를 꺼내와서 생성자에 반환함
 		
 		String newCase = map.get("newCase");
 		String totalCase = map.get("totalCase");
@@ -115,13 +115,13 @@ public class Location implements Comparable<Location> {
 		String newCcase = map.get("newCcase");
 		String countryName = map.get("countryName");
 		
-		Location location = new Location(newCase, totalCase, recovered, death, percentage, newFcase, newCcase, locationName, countryName);
+		LocationBean location = new LocationBean(newCase, totalCase, recovered, death, percentage, newFcase, newCcase, locationName, countryName);
 		
 		return location;
 	}
 
 	@Override
-	public int compareTo(Location o) { // NewCase 재정렬
+	public int compareTo(LocationBean o) { // NewCase 재정렬
 		return stringToInt(o.newCase) - stringToInt(newCase);
 	}
 	
@@ -130,10 +130,10 @@ public class Location implements Comparable<Location> {
 		
 	}
 	
-	public static Comparator<Location> totalCaseComparator = new Comparator<Location>() { // TotalCase 재정렬
+	public static Comparator<LocationBean> totalCaseComparator = new Comparator<LocationBean>() { // TotalCase 재정렬
 		
 		@Override
-		public int compare(Location o1, Location o2) {
+		public int compare(LocationBean o1, LocationBean o2) {
 			
 			return stringToInt(o2.getTotalCase()) - stringToInt(o1.getTotalCase());
 		}

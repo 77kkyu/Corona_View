@@ -1,4 +1,4 @@
-package com.corona.main;
+package com.corona.mainBean;
 
 public class KoreaTotalBean {
 	
