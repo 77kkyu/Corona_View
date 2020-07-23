@@ -18,19 +18,19 @@ import com.corona.mainBean.LocationBean;
 @Service("mainService")
 public class MainServiceImpl implements MainService {
 		
-	private JsonParsing jsonParsing;
+	JsonParsing jsonParsing = new JsonParsing();
 	
-	private OpenApiCall openApiCall;
+	OpenApiCall openApiCall = new OpenApiCall();
 	
-	String url = "http://api.corona-19.kr/korea/country/new/?serviceKey=2f3458c475483f2337f8f4ff7a5af3c66";
+	final static String url = "http://api.corona-19.kr/korea/country/new/?serviceKey=2f3458c475483f2337f8f4ff7a5af3c66";
 
 	@Override
 	public List<LocationBean> coronaLocationApiSortList() throws Exception {
 		
-		
+		System.out.println(openApiCall.coronaApi(url));
 		JSONParser parser = new JSONParser();
-		JSONObject jsonResult  = (JSONObject) parser.parse(openApiCall.coronaApi(url).toString());
-		
+		JSONObject jsonResult  = (JSONObject) parser.parse(openApiCall.coronaApi(url));
+		System.out.println(jsonResult);
 		Map<String, Object> locationMap = jsonParsing.getMapFromJsonObject(jsonResult);
 		ArrayList<LocationBean> locations = new ArrayList<LocationBean>();
 		

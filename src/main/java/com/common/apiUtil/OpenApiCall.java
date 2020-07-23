@@ -11,7 +11,6 @@ public class OpenApiCall {
 	
 	public String coronaApi(String url) throws IOException { // 코로나 현황 API
 		
-		System.out.println(url);
 		String apiurl = url;
 		
 		URL url1 = new URL(apiurl);
@@ -25,7 +24,6 @@ public class OpenApiCall {
 			response.append(inputLine);
 		}
 		br.close();
-		System.out.println(response);
 		
 		return response.toString();
 		
