@@ -1,13 +1,16 @@
 package com.corona.main;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -123,13 +126,7 @@ public class MainController {
 		System.out.println("유튜브API="+youtubeApiResult);
 		
 		Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> youtubeJsonResult = getStringMapFromJsonObject(youtubeApiResult);
-		
-		System.out.println("items="+youtubeJsonResult.get("items").get(0).get("snippet").get("thumbnails").get("medium"));
-		System.out.println(youtubeJsonResult.get("items").get(0));
-		System.out.println(youtubeJsonResult.get("items").get(1));
-		
 		List<Map<String, Object>> youtubeList = new ArrayList<Map<String, Object>>();
-		
 		
 		for(int i=0; i<youtubeJsonResult.get("items").size(); i++)
 		{
@@ -139,6 +136,26 @@ public class MainController {
 			youtubeMap.put("content", youtubeJsonResult.get("items").get(i).get("snippet").get("description"));
 			youtubeMap.put("imgUrl", youtubeJsonResult.get("items").get(i).get("snippet").get("thumbnails").get("medium").get("url"));
 			youtubeMap.put("channelTitle", youtubeJsonResult.get("items").get(i).get("snippet").get("channelTitle"));
+			
+			//요청시간 String
+			Map<String, Map<String, Object>> reqDateStr = youtubeJsonResult.get("items").get(i).get("snippet").get("publishTime");
+			System.out.println("reqDateStr:"+reqDateStr);
+			//현재시간 Date
+			Date curDate = new Date();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("YYYYMMddHHmm");
+			//요청시간을 Date로 parsing 후 time가져오기
+			Date reqDate = dateFormat.parse(reqDateStr);
+			long reqDateTime = reqDate.getTime();
+			//현재시간을 요청시간의 형태로 format 후 time 가져오기
+			curDate = dateFormat.parse(dateFormat.format(curDate));
+			long curDateTime = curDate.getTime();
+			//분으로 표현
+			long minute = (curDateTime - reqDateTime) / 60000;
+			System.out.println("요청시간 : " + reqDate);
+			System.out.println("현재시간 : " + curDate);
+			System.out.println(minute+"분 차이");
+			
+			
 			youtubeMap.put("publishTime", youtubeJsonResult.get("items").get(i).get("snippet").get("publishTime"));
 			
 			youtubeList.add(youtubeMap);		
@@ -146,7 +163,9 @@ public class MainController {
 		
 		
 		
-		//              네이버 지도
+		
+		
+		//              NEWS
 		Map<String, List< Map<String, Object>>> locationMap3 = getMapFromJsonObject3(CoronaJsonResult.response.toString());		
 		List<Map<String, Object>> newsList = new ArrayList<Map<String, Object>>();
 		
@@ -157,7 +176,16 @@ public class MainController {
 			map.put("title", locationMap3.get("items").get(i).get("title") );  //제목
 			map.put("link", locationMap3.get("items").get(i).get("link") );    //링크
 			map.put("description", locationMap3.get("items").get(i).get("description") );  //내용
-			map.put("pubDate", locationMap3.get("items").get(i).get("pubDate") );   //시간
+		
+			String pubDate = (String) (locationMap3.get("items").get(i).get("pubDate"));
+			SimpleDateFormat format = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.US);
+			try{
+				Date date = format.parse(pubDate);
+				pubDate = new SimpleDateFormat("yyyy년 MM월 dd일 HH:mm").format(date);
+			}catch (Exception e){
+				e.printStackTrace();
+			}
+			map.put("pubDate", pubDate );   //시간
 
 			newsList.add(map);
 		}		

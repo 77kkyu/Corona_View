@@ -427,8 +427,8 @@ h1 {
 		
 		<div id="details">
 		<br><br><div id="title">${list.title}</div><br>
-			<div>${list.content}<br>
-			${list.channelTitle}ㆍ${list.publishTime}</div>
+			<div>${list.channelTitle}ㆍ${list.publishTime}<br>
+				${list.content}</div>
 		</div>
 	
 	</div>
