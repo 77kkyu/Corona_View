@@ -14,6 +14,7 @@ import com.common.apiUtil.JsonParsing;
 import com.common.apiUtil.OpenApiCall;
 import com.corona.mainBean.KoreaTotalBean;
 import com.corona.mainBean.LocationBean;
+import com.corona.mainBean.YoutubeBean;
 
 
 @Service("mainService")
@@ -99,16 +100,37 @@ public class MainServiceImpl implements MainService {
 	}
 
 	@Override
-	public KoreaTotalBean coronaTotalList() throws Exception { // 조건문 바꿔야함
-	
+	public KoreaTotalBean coronaTotalList() throws Exception {
 		JSONParser parser = new JSONParser();
 		JSONObject jsonResult  = (JSONObject) parser.parse(openApiCall.coronaApi(KoreaTotalUrl));
-		//Map<String, Object> locationMap = jsonParsing.getMapFromJsonObject(jsonResult);
-		//System.out.println("locationMap="+locationMap);
-		//ArrayList<KoreaTotalBean> locations = new ArrayList<KoreaTotalBean>();
-		//KoreaTotalBean.jsonToKoreaTotal(jsonResult);
 		
 		return KoreaTotalBean.jsonToKoreaTotal(jsonResult);
+	}
+
+	@Override
+	public List<YoutubeBean> youtubeApiList() throws Exception {
+		
+		JSONParser parser = new JSONParser();
+		JSONObject jsonResult  = (JSONObject) parser.parse(openApiCall.youtubeApiSearch("코로나"));
+		Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> locationMap = jsonParsing.getStringMapFromJsonObject(jsonResult);
+		System.out.println(locationMap);
+		ArrayList<YoutubeBean> locations = new ArrayList<YoutubeBean>();
+		List<Map<String, Object>> youtubeList = new ArrayList<Map<String, Object>>();
+	      for(int i=0; i<locationMap.get("items").size(); i++)
+	      {
+	         Map<String, Object> youtubeMap = new HashMap<String, Object>();
+	         youtubeMap.put("vedioId", locationMap.get("items").get(i).get("id").get("videoId"));
+	         youtubeMap.put("title", locationMap.get("items").get(i).get("snippet").get("title"));
+	         youtubeMap.put("content", locationMap.get("items").get(i).get("snippet").get("description"));
+	         youtubeMap.put("imgUrl", locationMap.get("items").get(i).get("snippet").get("thumbnails").get("medium").get("url"));
+	         youtubeMap.put("channelTitle", locationMap.get("items").get(i).get("snippet").get("channelTitle"));
+	         youtubeMap.put("publishTime", locationMap.get("items").get(i).get("snippet").get("publishTime"));
+	         youtubeList.add(youtubeMap);
+	         YoutubeBean data = YoutubeBean.jsonToYoutube(youtubeMap);
+	         locations.add(data);
+	      }  
+	    
+		return locations;
 	}
 
 	

@@ -6,6 +6,8 @@ import java.util.Map;
 
 import com.corona.mainBean.KoreaTotalBean;
 import com.corona.mainBean.LocationBean;
+import com.corona.mainBean.YoutubeBean;
+
 
 public interface MainService {
 	
@@ -16,5 +18,7 @@ public interface MainService {
 	public List<LocationBean> coronaChartList(List<LocationBean> locations) throws Exception;
 	
 	public KoreaTotalBean coronaTotalList() throws Exception;
+	
+	public List<YoutubeBean> youtubeApiList() throws Exception;
 
 }

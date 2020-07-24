@@ -18,12 +18,30 @@ import com.corona.mainBean.LocationBean;
 
 public class JsonParsing {
 	
-	public Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> getStringMapFromJsonObject( String youtubeApiResult ) {// Json -> Object로 변환
+	public Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> getStringMapFromJsonObject( JSONObject jsonResult ) {// Json -> Object로 변환
 		Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> map = null;
         
         try {
             
-            map = new ObjectMapper().readValue(youtubeApiResult.toString(), Map.class);
+            map = new ObjectMapper().readValue(jsonResult.toString(), Map.class);
+            
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+ 
+        return map;
+    }
+	
+	public Map<String, List<Map<String, Object>>> getMapFromNewsJsonObject( JSONObject jsonObj ) {// News Json -> Object로 변환
+		Map<String, List<Map<String, Object>>> map = null;
+        
+        try {
+            
+            map = new ObjectMapper().readValue(jsonObj.toJSONString(), Map.class);
             
         } catch (JsonParseException e) {
             e.printStackTrace();
