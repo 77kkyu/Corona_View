@@ -334,7 +334,7 @@
        <div align="center">
       <p class="pfont">*대한민국 지역별 확진자 수치</p>
 	  </div>
-      <div id="pie-chart" style=" height:300px;"></div>
+      <div id="pie-chart" style="height:300px;"></div>
     </div>
     <br>
     
@@ -410,7 +410,7 @@
    
    <c:forEach items="${newsList}" var="list" varStatus="status">
       <div id="news">
-         <a href="${list.link}" target="_blank"><div id="first"><B>${list.title}</B></div>
+         <a href="${list.link}" target="_blank"><div id="first"><B>${list.title}</B></div><br>
          <div style="font-weight:600;">${list.description}</div><br>
          <div id="last">${list.pubDate}</div></a>
          <br><br>
@@ -455,12 +455,15 @@
    <div class="text-center" style="width:500px; height:300px; float:left; display:inline; font-size:18px;">
    <img style="width:200px; height:200px;" src="<c:url value="/resources/images/icon2.png"/>"/><br><br>
    윤철규<br>
+   BackEnd Developer<br>
    <font color="#4374D9"><B>GitHub  </B></font><a href="https://github.com/77kkyu" target="_blank">https://github.com/77kkyu</a><br>
+   내 머리 속엔 내일,너,로맨틱 그리고 코딩
    </div>
    
    <div class="text-center" style="width:500px; height:300px; float:right; display:inline; font-size:18px;">
    <img style="width:200px; height:200px;" src="<c:url value="/resources/images/icon1.png"/>"/><br><br>
    정소하<br>
+   BackEnd Developer<br>
    <font color="#4374D9"><B>GitHub  </B></font><a href="https://github.com/jeongsoha" target="_blank">https://github.com/jeongsoha</a><br>
    NAVER를 꿈꾸는 개발자
    </div>
