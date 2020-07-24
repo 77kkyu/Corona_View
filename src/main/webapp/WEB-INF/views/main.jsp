@@ -18,7 +18,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <title>Main</title>
-
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 <!-- 차트  -->
@@ -27,259 +26,16 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
 
-
-
+<!-- tablesorter -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.9.1/jquery.tablesorter.min.js"></script>
 
 </head>
-
-<style>
-.home .top {
-   background-color: white;
-   border-radius: 20px;
-   margin-top: 25px;
-   margin-bottom: 10px;
-   padding-top: 10px;
-   padding-bottom: 10px;
-   border: 1px solid #dee2e6;
-}
-
-.home .top h2 {
-   padding-top: 10px;
-   padding-bottom: 10px;
-   font-size: 28px;
-}
-
-.home h1, .home h2, .home h3, .home h4, .home h5 {
-   text-align: center;
-}
-
-.h2, h2 {
-   font-size: 2rem;
-}
-
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-   margin-bottom: .5rem;
-   font-weight: 500;
-   line-height: 1.2;
-}
-
-h1, h2, h3, h4, h5, h6 {
-   margin-top: 0;
-   margin-bottom: .5rem;
-}
-
-.text-center {
-   text-align: center !important;
-}
-
-p {
-   display: block;
-   margin-block-start: 1em;
-   margin-block-end: 1em;
-   margin-inline-start: 0px;
-   margin-inline-end: 0px;
-}
-
-.text-center {
-   text-align: center !important;
-}
-
-p {
-   margin-top: 0;
-   margin-bottom: 1rem;
-   padding: 4px;
-}
-
-.home .top .dashboard p.number {
-   font-size: 22px;
-   font-weight: 500;
-}
-
-.home .top .dashboard .diff {
-   position: absolute;
-   top: 27px;
-   left: 50%;
-   margin-left: -50%;
-   width: 100%;
-   color: red;
-}
-
-.home .top .dashboard p {
-   font-size: 15px;
-}
-
-.home .top .dashboard .negative.diff, .home .top .dashboard .released.diff
-   {
-   color: green;
-}
-
-.home .top .dashboard .diff.minus {
-   color: blue;
-}
-
-.atag {
-   text-align: center;
-}
-
-
-.source {
-    text-align: center;
-    font-size: 15px;
-    padding-bottom: 5px;
-}
-  
-#line-chart, #bar-chart, #pie-chart {
-   min-height: 250px;
-}
-#first{
-   font-size: 18px;
-}
-#last{
-   border-bottom: 1px solid #cccccc;
-}
-a:link {
-   text-decoration:none;
-   color:black;
-}
-a:visited {
-   text-decoration:none;
-   color:black;
-}
-a:active {
-   text-decoration:none;
-   color:black;
-}
-a:hover {
-   text-decoration:none;
-   color:black;
-}
-
-#youtube{
-   clear:both;
-   border-bottom: 1px solid #cccccc;
-}
-#image{
-   float:left;
-   width:33%;
-   display:inline;
-}
-#details{
-   float:left;
-   width:66%;
-   display:inline;
-}
-#title{
-   font-size:20px;
-   font-weight:600;
-}
-
-/* tablesorter */
-@import url('https://fonts.googleapis.com/css?family=Amarante');
-
-html { overflow-y: scroll; }
-
-
-::selection { background: #5f74a0; color: #fff; }
-::-moz-selection { background: #5f74a0; color: #fff; }
-::-webkit-selection { background: #5f74a0; color: #fff; }
-
-br { display: block; line-height: 1.6em; } 
-
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
-ol, ul { list-style: none; }
-
-input, textarea { 
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  outline: none; 
-}
-
-blockquote, q { quotes: none; }
-blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
-strong, b { font-weight: bold; } 
-
-table { border-collapse: collapse; border-spacing: 0; }
-img { border: 0; max-width: 100%; }
-
-h1 { 
-  font-family: 'Amarante', Tahoma, sans-serif;
-  font-weight: bold;
-  font-size: 3.6em;
-  line-height: 1.7em;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-
-/** page structure **/
-#wrapper {
-  display: block;
-  width: 850px;
-  background: #fff;
-  margin: 0 auto;
-  padding: 10px 17px;
-}
-
-#keywords {
-  margin: 0 auto;
-  font-size: 1.2em;
-  margin-bottom: 15px;
-}
-
-
-#keywords thead {
-  cursor: pointer;
-  background: #c9dff0;
-}
-#keywords thead tr th { 
-  font-weight: bold;
-  padding: 12px 30px;
-  padding-left: 42px;
-}
-#keywords thead tr th span { 
-  padding-right: 20px;
-  background-repeat: no-repeat;
-  background-position: 100% 100%;
-}
-
-#keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
-  background: #acc8dd;
-}
-
-#keywords thead tr th.headerSortUp span {
-  background-image: url('https://i.imgur.com/SP99ZPJ.png');
-}
-#keywords thead tr th.headerSortDown span {
-  background-image: url('https://i.imgur.com/RkA9MBo.png');
-}
-
-
-#keywords tbody tr { 
-  color: #555;
-}
-#keywords tbody tr td {
-  text-align: center;
-  padding: 15px 10px;
-}
-#keywords tbody tr td.lalign {
-  text-align: center;
-}
-
-
-</style>
-
-
 <body id="top" class="home">
 
    <div class="top container">
       
-                                                                 <!-- 대한민국 코로나 -->
+      <!-- 대한민국 코로나 -->
       <h3>대한민국</h3>
       <div class="row dashboard world">
          <div class="col-4 col-sm-4 col-md-3 text-center">
@@ -311,8 +67,13 @@ h1 {
          </div>
       </div>
       <br>
-
-                                                <!-- 지역별 확진자 -->
+      
+      <div align="center">
+      <p class="pfont">*대한민국 수치는 질병관리본부 보도자료 기준</p>
+	  <p class="pfont">*대한민국 확진자 증감수치는 전일 발표 대비 변화량</p>
+	  </div>
+      
+      <!-- 지역별 확진자 -->
       <h3>지역별 확진자</h3>
       <div class="row dashboard world">
          <c:forEach items="${locationList}" var="list" varStatus="status">
@@ -349,18 +110,26 @@ h1 {
    </div>
 
    <br><br><br>
-   <h1 class="text-primary text-center">전국 코로나 현황</h1>
-   <br>                                                <!-- 카카오맵 -->
+   <h1 class="text-primary text-center">전국 코로나 현황</h1><br> 
+        
+   <!-- 카카오맵 -->
    <div class="container">
       <div id="map" class="container" style="width:700px;height:700px;align:center;"></div>
    </div>
    
+   <br><br><br>
+   <div class="border"></div>
+   
 <section id=section1>
-
-     <br><br><br><br>                                             <!-- 국내 코로나 현황 리스트 -->
+     <br><br>                                             
+     <!-- 국내 코로나 현황 리스트 -->
      <div class="container">
      <div id="wrapper" style="position: relative; z-index: 0; max-width: 100%; max-height: 100%; width: 100%; height: 100%;">
      <h1 class="text-primary text-center">국내 코로나 현황 리스트</h1>
+     <div align="center">
+     <p class="pfont">*대한민국 지역별 현황</p>
+	 <p class="pfont">*지역 및 확진자 클릭시 값 변경</p>
+	 </div>
      <br>
      <table id="keywords" cellspacing="0" cellpadding="0" class="table">
        <thead>
@@ -391,15 +160,17 @@ h1 {
     
 </section>
    
+   <br><br>
+   <div class="border"></div>
    
 <section id="section2">
    <div class="container">   
-   <br><br><br><br>
+   <br><br>
    <h1 class="text-primary text-center">입국제한조치 현황</h1>         <!-- 입국제한조치 현황 -->
    
    <br>
-   <div class="source"><span>(7/8 17시 기준 자료)</span><br>
-   <a target="_blank" href="http://www.0404.go.kr/dev/newest_list.mofa">출처: [외교부 해외안전여행]</a><br><br>
+   <div class="source"><span class="pfont">(7/8 17시 기준 자료)</span><br>
+   <a target="_blank" href="http://www.0404.go.kr/dev/newest_list.mofa" class="pfont">출처: [외교부 해외안전여행]</a><br><br>
    </div>
    
    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -516,45 +287,54 @@ h1 {
    </div>
 </section>
    
+   <br><br>
+   <div class="border"></div>
    
-   <br><br><br><br>                                                        <!-- 차트 -->
-   <!-- 차트 -->
+   <br><br>                                                     
+    <!-- 차트 -->
    <div class="container">
       <h3 class="text-primary text-center">국내차트🌏</h3>
       <br><br><br>
       <div class="row">
       
-    <div class="text-center">
+     <!-- <div class="text-center">
       <label class="label label-success">Area Chart</label>
       <div id="area-chart" ></div>
-    </div>
+    </div>  -->
     
-    <br><br><br><br><br>
+    
     
     <div class="text-center">
        <label class="label label-success">Line Chart</label>
-      <div id="line-chart"></div>
+       <div align="center">
+      <p class="pfont">*대한민국 월별 차트</p>
+	  </div>
+      <div id="line-chart" style="width:80%; height:370px; margin-left:10%;"></div>
     </div>
     
     <br><br><br><br><br>
     
     <div  class="text-center">
        <label class="label label-success">Bar Chart</label>
-      <div id="bar-chart" ></div>
+       <div align="center">
+      <p class="pfont">*대한민국 지역별 확진자 및 사망자 수치</p>
+	  </div>
+      <div id="bar-chart" style="width:80%; height:370px; margin-left:10%;"></div>
     </div>
     
     <br><br><br><br><br>
     
-    <div class="text-center">
+    <!-- <div class="text-center">
        <label class="">Bar stacked</label>
       <div id="stacked" ></div>
-    </div>
-    
-    <br><br><br><br><br>
+    </div>  -->
     
     <div class="text-center">
        <label class="label label-success">Pie Chart</label>
-      <div id="pie-chart" ></div>
+       <div align="center">
+      <p class="pfont">*대한민국 지역별 확진자 수치</p>
+	  </div>
+      <div id="pie-chart" style=" height:300px;"></div>
     </div>
     <br>
     
@@ -562,31 +342,35 @@ h1 {
 
 </div>
 
+   <br><br>
+   <div class="border"></div>
    
    
 <section id="section3">   
    <div class="container">
-      <br><br><br>
+      <br><br>
       <h1 class="text-primary text-center">예방 행동 수칙</h1>             <!-- 예방 행동 수칙 -->
-      
+      <div align="center">
+      <p class="pfont">*출처 질병관리본부</p>
+	  </div>
       <br>
-      <img style="width:80%; height:1600px; margin-left:10%" src="<c:url value="/resources/images/corona_1.jpeg"/>"/>
-      <img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_2.jpeg"/>"/>
-      <img style="width:80%; height:1000px; margin-left:10%" src="<c:url value="/resources/images/corona_3.jpeg"/>"/>
+      <img style="width:80%;  margin-left:10%" src="<c:url value="/resources/images/prevent.jpg"/>"/>
+
    </div>
 </section>
    
-   
+   <br><br>
+   <div class="border"></div>
       
    <div class="container">
-      <div id="area">                                                  <!-- 확진자 상세 정보 -->
-      <br><br><br><br>
+      <div id="area">                                                  
+      <!-- 확진자 상세 정보 -->
+      <br><br>
       <h1 class="text-primary text-center">확진자 상세 정보</h1>                           
       <br>
-            
          <ul>
-            <li>확진자 동선을 더이상 업데이트 하지 않습니다.
-            <li>지역을 클릭하면 확진자 동선을 확인 할 수 있는 지자체 홈페이지가 새창으로 열립니다.
+            <li class="pfont">*확진자 동선을 더이상 업데이트 하지 않습니다.
+            <li class="pfont">*지역을 클릭하면 확진자 동선을 확인 할 수 있는 지자체 홈페이지가 새창으로 열립니다.
          </ul>
       </div><br>
       
@@ -614,11 +398,13 @@ h1 {
       </div>
    </div>
    
+   <br><br><br>
+   <div class="border"></div>
    
 <section id="section4">
    <div class="container">
    
-   <br><br><br><br>                                       
+   <br><br>                                     
    <h1 class="text-primary text-center">대한민국 NEWS</h1>               <!-- NEWS -->
    <br><br>
    
@@ -634,7 +420,8 @@ h1 {
    </div>
 </section>
    
-   
+   <br><br>
+   <div class="border"></div>
 
    <div class="container">
    <br><br>
@@ -642,7 +429,7 @@ h1 {
    <br>
    
    <c:forEach items="${youtubeList}" var="list" varStatus="status">   
-      <a href="${list.vedioId}" target="_blank">
+      <a href="https://www.youtube.com/watch?v="+${list.vedioId} target="_blank">
       <div id="youtube" class="d-flex flex-wrap flex-sm-nowrap align-items-stretch border-bottom">
       
          <div id="image"><img style="width:93%;" src="${list.imgUrl}"></div>
@@ -658,21 +445,23 @@ h1 {
    
    </div>
    
+   <br><br>
+   <div class="border"></div>
    
-   <br><br><br>
+   <br><br>
    <div class="container" style="clear:both;">
    <h2>만든사람들</h2>
    
    <div class="text-center" style="width:500px; height:300px; float:left; display:inline; font-size:18px;">
    <img style="width:200px; height:200px;" src="<c:url value="/resources/images/icon2.png"/>"/><br><br>
    윤철규<br>
-   <font color="#4374D9"><B>GitHub  </B></font><a href="https://github.com/77kkyu">https://github.com/77kkyu</a><br>
+   <font color="#4374D9"><B>GitHub  </B></font><a href="https://github.com/77kkyu" target="_blank">https://github.com/77kkyu</a><br>
    </div>
    
    <div class="text-center" style="width:500px; height:300px; float:right; display:inline; font-size:18px;">
    <img style="width:200px; height:200px;" src="<c:url value="/resources/images/icon1.png"/>"/><br><br>
    정소하<br>
-   <font color="#4374D9"><B>GitHub  </B></font><a href="https://github.com/jeongsoha">https://github.com/jeongsoha</a><br>
+   <font color="#4374D9"><B>GitHub  </B></font><a href="https://github.com/jeongsoha" target="_blank">https://github.com/jeongsoha</a><br>
    NAVER를 꿈꾸는 개발자
    </div>
    
@@ -758,32 +547,8 @@ var data = [
     lineColors:['gray', 'blue','red']
 };
 
-
-//var myArray1 = new Array();
-//myArray1 = ${locationList[0].totalCase};
-// 도시이름, 확진자 , 사망자 꺼내기
-
-
- 
-//var day_data = [{y: '서울', a: ${TotalCase}, b: ${TotalCase}}]
-
-//var day_data = [{countryName: "+${locationList[0].countryName}+", newCase: ${locationList[0].newCase}}];
-
 var day_data = ${chartList};
 
-/* var day_data = [
-    { y: '서울', a: 50,  b: 90 , c:10},
-    { y: '경기', a: 65,  b: 75},
-    { y: '인천', a: 50,  b: 50},
-    { y: '대구', a: 75,  b: 60},
-    { y: '경북', a: 80,  b: 65},
-    { y: '경남', a: 90,  b: 70},
-    { y: '전북', a: 100, b: 75},
-    { y: '전남', a: 115, b: 75},
-    { y: '충남', a: 120, b: 85},
-    { y: '세종', a: 145, b: 85},
-    { y: '제주', a: 160, b: 95}
-  ]     */
 Morris.Bar({
      element: 'bar-chart',
      data: day_data,
@@ -798,7 +563,7 @@ Morris.Bar({
    });
 
 
-Morris.Bar({
+/* Morris.Bar({
      element: 'stacked',
      data: day_data,
      xkey: 'countryName',
@@ -816,16 +581,16 @@ Morris.Bar({
        }
        else {return '#000';}
      }
-   }); 
-config.element = 'area-chart';
-Morris.Area(config);
+   });  */
+/* config.element = 'area-chart';
+Morris.Area(config); */
 config.element = 'line-chart';
 Morris.Line(config);
-config.element = 'bar-chart';
+/* config.element = 'bar-chart';
 Morris.Bar(config);
 config.element = 'stacked';
 config.stacked = true;
-Morris.Bar(config);
+Morris.Bar(config); */
 
 Morris.Donut({
 element: 'pie-chart',
