@@ -249,19 +249,19 @@ h1 {
 		<h2>대한민국</h2>
 		<div class="row dashboard world">
 			<div class="col-4 col-sm-4 col-md-3 text-center">
-				<p class="confirmed number">${TotalMap.totalCase}</p>
+				<p class="confirmed number count">${TotalMap.totalCase}</p>
 				<p class="confirmed diff">(+${newCase})</p>
 				<p>확진자</p>
 			</div>
 
 			<div class="col-4 col-sm-4 col-md-2 text-center">
-				<p class="death red number">${TotalMap.totalDeath}</p>
+				<p class="death red number count">${TotalMap.totalDeath}</p>
 				<p class="death diff">(+${TotalMap.todayDeath})</p>
 				<p>사망자</p>
 			</div>
 
 			<div class="col-4 col-sm-4 col-md-2 text-center">
-				<p class="released number">${TotalMap.totalRecovered}</p>
+				<p class="released number count">${TotalMap.totalRecovered}</p>
 				<p class="released diff">(+${TotalMap.todayRecovered})</p>
 				<p>격리해제</p>
 			</div>
@@ -272,7 +272,7 @@ h1 {
 			</div>
 
 			<div class="col-6 col-sm-6 col-md-1 text-center">
-				<p class="testing number">${TotalMap.checkingCounter}</p>
+				<p class="testing number count">${TotalMap.checkingCounter}</p>
 				<p>검사중</p>
 			</div>
 		</div>
@@ -319,7 +319,7 @@ h1 {
 
 				<c:if test="${status.index <= 3}">
 					<div class="col-4 col-sm-4 col-md-3 text-center">
-						<p class="confirmed number">${list.totalCase}</p>
+						<p class="confirmed number count">${list.totalCase}</p>
 						<p class="confirmed diff">(+${list.newCase})</p>
 						<p>${list.countryName}</p>
 						<br>
@@ -337,7 +337,7 @@ h1 {
 				<c:if test="${status.index > 3}">
 					<div name="view" class="col-4 col-sm-4 col-md-3 text-center"
 						style="display: none">
-						<p class="confirmed number">${list.totalCase}</p>
+						<p class="confirmed number count">${list.totalCase}</p>
 						<p class="confirmed diff">(+${list.newCase})</p>
 						<p>${list.countryName}</p>
 						<br>
@@ -644,7 +644,7 @@ function numberWithCommas(x) {
 }
 
 jQuery(document).ready(function($) {
-$('.confirmed, .death, .released, .testing').each(function () {
+$('.count').each(function () {
     $(this).prop('Counter',0).animate({
         Counter: $(this).text()
     }, {
