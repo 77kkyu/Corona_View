@@ -14,6 +14,7 @@ import com.common.apiUtil.JsonParsing;
 import com.common.apiUtil.OpenApiCall;
 import com.corona.mainBean.KoreaTotalBean;
 import com.corona.mainBean.LocationBean;
+import com.corona.mainBean.NewsBean;
 import com.corona.mainBean.YoutubeBean;
 
 
@@ -112,25 +113,48 @@ public class MainServiceImpl implements MainService {
 		
 		JSONParser parser = new JSONParser();
 		JSONObject jsonResult  = (JSONObject) parser.parse(openApiCall.youtubeApiSearch("코로나"));
-		Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> locationMap = jsonParsing.getStringMapFromJsonObject(jsonResult);
-		System.out.println(locationMap);
-		ArrayList<YoutubeBean> locations = new ArrayList<YoutubeBean>();
+		Map<String, List<Map<String, Map<String, Map<String, Map<String, Object>>>>>> youtubeDataMap = jsonParsing.getStringMapFromJsonObject(jsonResult);
+		System.out.println(youtubeDataMap);
+		ArrayList<YoutubeBean> list = new ArrayList<YoutubeBean>();
 		List<Map<String, Object>> youtubeList = new ArrayList<Map<String, Object>>();
-	      for(int i=0; i<locationMap.get("items").size(); i++)
+	      for(int i=0; i<youtubeDataMap.get("items").size(); i++)
 	      {
 	         Map<String, Object> youtubeMap = new HashMap<String, Object>();
-	         youtubeMap.put("vedioId", locationMap.get("items").get(i).get("id").get("videoId"));
-	         youtubeMap.put("title", locationMap.get("items").get(i).get("snippet").get("title"));
-	         youtubeMap.put("content", locationMap.get("items").get(i).get("snippet").get("description"));
-	         youtubeMap.put("imgUrl", locationMap.get("items").get(i).get("snippet").get("thumbnails").get("medium").get("url"));
-	         youtubeMap.put("channelTitle", locationMap.get("items").get(i).get("snippet").get("channelTitle"));
-	         youtubeMap.put("publishTime", locationMap.get("items").get(i).get("snippet").get("publishTime"));
+	         youtubeMap.put("vedioId", youtubeDataMap.get("items").get(i).get("id").get("videoId"));
+	         youtubeMap.put("title", youtubeDataMap.get("items").get(i).get("snippet").get("title"));
+	         youtubeMap.put("content", youtubeDataMap.get("items").get(i).get("snippet").get("description"));
+	         youtubeMap.put("imgUrl", youtubeDataMap.get("items").get(i).get("snippet").get("thumbnails").get("medium").get("url"));
+	         youtubeMap.put("channelTitle", youtubeDataMap.get("items").get(i).get("snippet").get("channelTitle"));
+	         youtubeMap.put("publishTime", youtubeDataMap.get("items").get(i).get("snippet").get("publishTime"));
 	         youtubeList.add(youtubeMap);
 	         YoutubeBean data = YoutubeBean.jsonToYoutube(youtubeMap);
-	         locations.add(data);
+	         list.add(data);
 	      }  
 	    
-		return locations;
+		return list;
+	}
+
+	@Override
+	public List<NewsBean> newsApiList() throws Exception {
+		
+		JSONParser parser = new JSONParser();
+		JSONObject jsonResult = (JSONObject) parser.parse(openApiCall.naverNewsApi("코로나 확진"));
+		Map<String, List< Map<String, Object>>> newsDataMap = jsonParsing.getMapFromNewsJsonObject(jsonResult);
+		ArrayList<NewsBean> list = new ArrayList<NewsBean>();
+		List<Map<String, Object>> newsList = new ArrayList<Map<String, Object>>();
+		 for(int i=0; i<newsDataMap.get("items").size(); i++)
+	      {
+	         Map<String, Object> newsMap = new HashMap<String, Object>();
+	         newsMap.put("title", newsDataMap.get("items").get(i).get("title"));
+	         newsMap.put("link", newsDataMap.get("items").get(i).get("link"));
+	         newsMap.put("description", newsDataMap.get("items").get(i).get("description") );
+	         newsMap.put("pubDate", newsDataMap.get("items").get(i).get("pubDate"));
+	         newsList.add(newsMap);
+	         NewsBean data = NewsBean.jsonToNews(newsMap);
+	         list.add(data);
+	      }  
+		
+		return list;
 	}
 
 	
