@@ -37,12 +37,12 @@ public class MainController {
 		
 		KoreaTotalBean coronaTotalList = mainService.coronaTotalList();
 		
-		List<YoutubeBean> youtubeList = mainService.youtubeApiList();
+		//List<YoutubeBean> youtubeList = mainService.youtubeApiList();
 
 		List<NewsBean> newsList = mainService.newsApiList();
 		
 		mv.addObject("newsList", newsList); 
-	    mv.addObject("youtubeList", youtubeList); 
+	    //mv.addObject("youtubeList", youtubeList); 
 		mv.addObject("newCase", newCase);
 		mv.addObject("TotalMap", coronaTotalList);
 		mv.addObject("locationsMap", coronaMapList);
