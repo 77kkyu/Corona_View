@@ -39,7 +39,7 @@
 .home .top {
 	background-color: white;
 	border-radius: 20px;
-	margin-top: 0;
+	margin-top: 25px;
 	margin-bottom: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -351,7 +351,9 @@ h1 {
 		</div>
 	</div>
 
-	<br><br><br><br>											<!-- 카카오맵 -->
+	<br><br><br>
+	<h2>코로나 맵</h2>
+	<br>											<!-- 카카오맵 -->
 	<div class="container">
 		<div id="map" class="container" style="width:700px;height:700px;align:center;"></div>
 	</div>
