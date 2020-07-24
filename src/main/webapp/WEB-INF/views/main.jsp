@@ -10,6 +10,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
 "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <html>
+
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
@@ -30,8 +31,6 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.9.1/jquery.tablesorter.min.js"></script>
-
-
 
 </head>
 
@@ -131,7 +130,7 @@ p {
     padding-bottom: 5px;
 }
   
-#area-chart, #line-chart, #bar-chart, #stacked, #pie-chart {
+#line-chart, #bar-chart, #pie-chart {
 	min-height: 250px;
 }
 #first{
@@ -179,7 +178,6 @@ a:hover {
 /* tablesorter */
 @import url('https://fonts.googleapis.com/css?family=Amarante');
 
-
 html { overflow-y: scroll; }
 
 
@@ -226,7 +224,6 @@ h1 {
   background: #fff;
   margin: 0 auto;
   padding: 10px 17px;
-  -webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
 }
 
 #keywords {
@@ -283,22 +280,22 @@ h1 {
 	<div class="top container">
 		
 		                                                   	 	 <!-- 대한민국 코로나 -->
-		<h2>대한민국</h2>
+		<h3>대한민국</h3>
 		<div class="row dashboard world">
 			<div class="col-4 col-sm-4 col-md-3 text-center">
-				<p class="confirmed number">${TotalCase}</p>
+				<p class="confirmed number count">${TotalCase}</p>
 				<p class="confirmed diff">(+${newCase})</p>
 				<p>확진자</p>
 			</div>
 
 			<div class="col-4 col-sm-4 col-md-2 text-center">
-				<p class="death red number">${TotalDeath}</p>
+				<p class="death red number count">${TotalDeath}</p>
 				<p class="death diff">(+${TodayDeath})</p>
 				<p>사망자</p>
 			</div>
 
 			<div class="col-4 col-sm-4 col-md-2 text-center">
-				<p class="released number">${TotalRecovered}</p>
+				<p class="released number count">${TotalRecovered}</p>
 				<p class="released diff">(+${TodayRecovered})</p>
 				<p>격리해제</p>
 			</div>
@@ -309,20 +306,20 @@ h1 {
 			</div>
 
 			<div class="col-6 col-sm-6 col-md-1 text-center">
-				<p class="testing number">${checkingCounter}</p>
+				<p class="testing number count">${checkingCounter}</p>
 				<p>검사중</p>
 			</div>
 		</div>
 		<br>
 
 																<!-- 지역별 확진자 -->
-		<h2>지역별 확진자</h2>
+		<h3>지역별 확진자</h3>
 		<div class="row dashboard world">
 			<c:forEach items="${locationList}" var="list" varStatus="status">
 
 				<c:if test="${status.index <= 3}">
 					<div class="col-4 col-sm-4 col-md-3 text-center">
-						<p class="confirmed number">${list.totalCase}</p>
+						<p class="confirmed number count">${list.totalCase}</p>
 						<p class="confirmed diff">(+${list.newCase})</p>
 						<p>${list.countryName}</p>
 						<br>
@@ -340,7 +337,7 @@ h1 {
 				<c:if test="${status.index > 3}">
 					<div name="view" class="col-4 col-sm-4 col-md-3 text-center"
 						style="display: none">
-						<p class="confirmed number">${list.totalCase}</p>
+						<p class="confirmed number count">${list.totalCase}</p>
 						<p class="confirmed diff">(+${list.newCase})</p>
 						<p>${list.countryName}</p>
 						<br>
@@ -352,20 +349,20 @@ h1 {
 	</div>
 
 	<br><br><br>
-	<h2>코로나 맵</h2>
-	<br>											<!-- 카카오맵 -->
+	<h1 class="text-primary text-center">전국 코로나 현황</h1>
+	<br>											               <!-- 카카오맵 -->
 	<div class="container">
 		<div id="map" class="container" style="width:700px;height:700px;align:center;"></div>
 	</div>
 	
 <section id=section1>
 
-	  <br><br><br><br>                                              <!-- 국내 코로나 현황 리스트 -->
+	  <br><br><br><br>                                             <!-- 국내 코로나 현황 리스트 -->
 	  <div class="container">
 	  <div id="wrapper" style="position: relative; z-index: 0; max-width: 100%; max-height: 100%; width: 100%; height: 100%;">
-	  <h1>국내 코로나 현황 리스트</h1>
-	  <br><br><br>
-	  <table id="keywords" cellspacing="0" cellpadding="0">
+	  <h1 class="text-primary text-center">국내 코로나 현황 리스트</h1>
+	  <br>
+	  <table id="keywords" cellspacing="0" cellpadding="0" class="table">
 	    <thead>
 	      <tr>
 	        <th><span>&nbsp;&nbsp;지역</span></th>
@@ -398,9 +395,9 @@ h1 {
 <section id="section2">
 	<div class="container">	
 	<br><br><br><br>
-	<h1>입국제한조치 현황</h1>										<!-- 입국제한조치 현황 -->
+	<h1 class="text-primary text-center">입국제한조치 현황</h1>			<!-- 입국제한조치 현황 -->
 	
-	<br><br>
+	<br>
 	<div class="source"><span>(7/8 17시 기준 자료)</span><br>
 	<a target="_blank" href="http://www.0404.go.kr/dev/newest_list.mofa">출처: [외교부 해외안전여행]</a><br><br>
 	</div>
@@ -522,16 +519,9 @@ h1 {
 	
 	<br><br><br>                                                        <!-- 차트 -->
 	<div class="container">
-		<h3 class="text-primary text-center">국내차트🌏</h3>        
-		<br><br>
+		<h1 class="text-primary text-center">국내차트</h1>        
+		<br>
 		<div class="row">
-		
-    <div class="text-center">
-      <label>차트1</label> <br>
-      <div id="area-chart" style="width:80%; height:370px; margin-left:10%;"></div>
-    </div>
-    
-    <br><br><br>
     
     <div class="text-center">
        <label>차트2</label> <br><br>
@@ -540,16 +530,9 @@ h1 {
     
     <br><br><br>
     
-    <div  class="text-center">
+    <div class="text-center">
        <label>차트3</label> <br><br>
       <div id="bar-chart" style="width:80%; height:370px; margin-left:10%;"></div>
-    </div>
-    
-    <br><br><br>
-    
-    <div class="text-center">
-       <label>차트4</label> <br><br>
-      <div id="stacked" style="width:80%; height:370px; margin-left:10%;"></div>
     </div>
     
     <br><br><br>
@@ -558,6 +541,7 @@ h1 {
        <label>차트5</label> <br><br>
       <div id="pie-chart" style="width:350px; height:350px; margin-left:35%"></div>
     </div>
+    
     <br>
     
 	</div>
@@ -567,7 +551,7 @@ h1 {
 <section id="section3">	
 	<div class="container">
 		<br><br><br>
-		<h1>예방 행동 수칙</h1>                                     	<!-- 예방 행동 수칙 -->
+		<h1 class="text-primary text-center">예방 행동 수칙</h1>          	<!-- 예방 행동 수칙 -->
 		
 		<br>
 		<img style="width:80%; height:1600px; margin-left:10%" src="<c:url value="/resources/images/corona_1.jpeg"/>"/>
@@ -579,10 +563,10 @@ h1 {
 	
 		
 	<div class="container">
-		<div id="area">                                         <!-- 확진자 상세 정보 -->
+		<div id="area">                                       			  <!-- 확진자 상세 정보 -->
 		<br><br><br><br>
-		<h1>확진자 상세 정보</h1>									
-		<br><br>
+		<h1 class="text-primary text-center">확진자 상세 정보</h1>									
+		<br>
 				
 			<ul>
 				<li>확진자 동선을 더이상 업데이트 하지 않습니다.
@@ -619,7 +603,7 @@ h1 {
 	<div class="container">
 	
 	<br><br><br><br>													
-	<h1>대한민국 NEWS</h1>											<!-- NEWS -->
+	<h1 class="text-primary text-center">대한민국 NEWS</h1>					<!-- NEWS -->
 	<br><br>
 	
 	<c:forEach items="${newsList}" var="list" varStatus="status">
@@ -638,8 +622,8 @@ h1 {
 
 	<div class="container">
 	<br><br>
-	<h1>YouTube</h1>											<!-- YouTube -->
-	<br><br>
+	<h1 class="text-primary text-center">YouTube</h1>				  <!-- YouTube -->
+	<br>
 	
 	<c:forEach items="${youtubeList}" var="list" varStatus="status">   
 		<a href="${list.vedioId}" target="_blank">
@@ -657,7 +641,27 @@ h1 {
 	</c:forEach>
 	
 	</div>
-
+	
+	
+	<br><br><br>
+	<div class="container" style="clear:both;">
+	<h2>만든사람들</h2>
+	
+	<div class="text-center" style="width:500px; height:300px; float:left; display:inline; font-size:18px;">
+	<img style="width:200px; height:200px;" src="<c:url value="/resources/images/icon2.png"/>"/><br><br>
+	윤철규<br>
+	<font color="#4374D9"><B>GitHub  </B></font><a href="https://github.com/77kkyu">https://github.com/77kkyu</a><br>
+	</div>
+	
+	<div class="text-center" style="width:500px; height:300px; float:right; display:inline; font-size:18px;">
+	<img style="width:200px; height:200px;" src="<c:url value="/resources/images/icon1.png"/>"/><br><br>
+	정소하<br>
+	<font color="#4374D9"><B>GitHub  </B></font><a href="https://github.com/jeongsoha">https://github.com/jeongsoha</a><br>
+	NAVER를 꿈꾸는 개발자
+	</div>
+	
+	</div>
+	
 
 	<br>
 	<br>
@@ -672,6 +676,24 @@ h1 {
 
 
 <script type="text/javascript">
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+jQuery(document).ready(function($) {
+$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 1300,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(numberWithCommas(Math.ceil(now)));
+        }
+    });
+});
+}); 
 
 $(function(){
 	  $('#keywords').tablesorter(); 
@@ -783,11 +805,11 @@ config.element = 'area-chart';
 Morris.Area(config);
 config.element = 'line-chart';
 Morris.Line(config);
-/* config.element = 'bar-chart';
-Morris.Bar(config);   */
-/* config.element = 'stacked';
+config.element = 'bar-chart';
+Morris.Bar(config);
+config.element = 'stacked';
 config.stacked = true;
-Morris.Bar(config); */
+Morris.Bar(config);
 
 Morris.Donut({
 element: 'pie-chart',
