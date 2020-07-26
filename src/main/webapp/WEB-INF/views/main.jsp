@@ -429,7 +429,7 @@
    <br>
    
    <c:forEach items="${youtubeList}" var="list" varStatus="status">   
-      <a href="https://www.youtube.com/watch?v="+${list.vedioId} target="_blank">
+      <a href="https://www.youtube.com/watch?v=${list.vedioId}" target="_blank">
       <div id="youtube" class="d-flex flex-wrap flex-sm-nowrap align-items-stretch border-bottom">
       
          <div id="image"><img style="width:93%;" src="${list.imgUrl}"></div>
