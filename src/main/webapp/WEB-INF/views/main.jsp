@@ -485,11 +485,11 @@
 
 <script type="text/javascript">
 
-function numberWithCommas(x) {
+function numberWithCommas(x) { // 숫자 3자리 콤마 
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function($) { // 숫자 애니메이션 
 $('.count').each(function () {
     $(this).prop('Counter',0).animate({
         Counter: $(this).text()
@@ -503,7 +503,7 @@ $('.count').each(function () {
 });
 }); 
 
-$(function(){
+$(function() { // list tablesorter
      $('#keywords').tablesorter(); 
    });
 
