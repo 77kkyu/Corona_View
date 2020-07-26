@@ -169,8 +169,8 @@
    <h1 class="text-primary text-center">입국제한조치 현황</h1>         <!-- 입국제한조치 현황 -->
    
    <br>
-   <div class="source"><span class="pfont">(7/8 17시 기준 자료)</span><br>
-   <a target="_blank" href="http://www.0404.go.kr/dev/newest_list.mofa" class="pfont">출처: [외교부 해외안전여행]</a><br><br>
+   <div class="source"><p class="pfont">*(7/8 17시 기준 자료)</p>
+   <a target="_blank" href="http://www.0404.go.kr/dev/newest_list.mofa"><p class="pfont">*출처: [외교부 해외안전여행]</p></a><br><br>
    </div>
    
    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
