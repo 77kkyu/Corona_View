@@ -307,6 +307,27 @@
 			<version>2.6.4</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-sheets -->
+		<dependency>
+		    <groupId>com.google.apis</groupId>
+		    <artifactId>google-api-services-sheets</artifactId>
+		    <version>v4-rev1-1.21.0</version>
+		    <exclusions>
+		        <exclusion>
+		            <groupId>com.google.api-client</groupId>
+		            <artifactId>google-api-client</artifactId>
+		        </exclusion>
+		    </exclusions>
+		</dependency>
+		 
+		<!-- https://mvnrepository.com/artifact/com.google.apis/google-api-services-youtube -->
+		<dependency>
+		    <groupId>com.google.apis</groupId>
+		    <artifactId>google-api-services-youtube</artifactId>
+		    <version>v3-rev206-1.25.0</version>
+		</dependency>
+		
+		
 		<!-- Log4j 로그찍기-->
 		<dependency>
 			<groupId>log4j</groupId>
