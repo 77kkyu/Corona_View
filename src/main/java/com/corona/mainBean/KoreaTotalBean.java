@@ -167,9 +167,5 @@ public class KoreaTotalBean {
 		return KoreaTotal;
 		
 	}
-	
-//	double Case = Integer.parseInt(jsonResult.get("TotalCase").toString().replaceAll(",","")); // 형변환 콤마 제거
-//    double Death = Integer.parseInt(TotalDeath); // 형변환
-//    String deathPercentage = String.format("%.2f", (Death/Case)*100); // 치사율 
 
 }
