@@ -69,6 +69,7 @@
       <br>
       
       <div align="center">
+      <p class="pfont">*${TotalMap.updateTime}</p>
       <p class="pfont">*대한민국 수치는 질병관리본부 보도자료 기준</p>
 	  <p class="pfont">*대한민국 확진자 증감수치는 전일 발표 대비 변화량</p>
 	  </div>
