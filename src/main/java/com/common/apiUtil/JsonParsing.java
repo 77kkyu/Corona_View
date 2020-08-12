@@ -42,6 +42,7 @@ public class JsonParsing {
         try {
             
             map = new ObjectMapper().readValue(jsonObj.toJSONString(), Map.class);
+            System.out.println(map);
             
         } catch (JsonParseException e) {
             e.printStackTrace();

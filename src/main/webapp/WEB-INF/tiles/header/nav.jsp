@@ -36,11 +36,11 @@
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <spanb
 						class="icon-bar"></span>
 				</button>
 				<a href="/Corona_View/main"><img
-					style="width: 270px; height: 55px; margin-left: 30%;"
+					style="width: 270px; height: 55px; margin-left: 10px;"
 					src="<c:url value="/resources/images/logo.JPG"/>" /></a>
 
 			</div>

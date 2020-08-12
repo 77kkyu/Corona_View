@@ -376,7 +376,7 @@
       </div><br>
       
       <div id="location-tag" class="d-flex flex-wrap align-content-center">
-         <button type="button" class="btn btn-primary" onclick="location.href='https://www.seoul.go.kr/coronaV/coronaStatus.do' " style="width: 60px; margin: 1px">서울</button>
+         <button type="button" class="btn btn-primary" onclick="window.open('https://www.seoul.go.kr/coronaV/coronaStatus.do')" style="width: 60px; margin: 1px">서울</button>
          <button type="button" class="btn btn-primary" onclick="location.href='http://www.busan.go.kr/corona19/index#travelhist' " style="width: 60px; margin: 1px">부산</button>
          <button type="button" class="btn btn-primary" onclick="location.href='http://www.daegu.go.kr/dgcontent/index.do?menu_id=00936598' " style="width: 60px; margin: 1px">대구</button>
          <button type="button" class="btn btn-primary" onclick="location.href='https://www.incheon.go.kr/health/HE020409' " style="width: 60px; margin: 1px">인천</button>
@@ -458,7 +458,6 @@
    윤철규<br>
    BackEnd Developer<br>
    <font color="#4374D9"><B>GitHub  </B></font><a href="https://github.com/77kkyu" target="_blank">https://github.com/77kkyu</a><br>
-   내 머리 속엔 내일,너,로맨틱 그리고 코딩
    </div>
    
    <div class="text-center" style="width:500px; height:300px; float:right; display:inline; font-size:18px;">
@@ -466,7 +465,6 @@
    정소하<br>
    BackEnd Developer<br>
    <font color="#4374D9"><B>GitHub  </B></font><a href="https://github.com/jeongsoha" target="_blank">https://github.com/jeongsoha</a><br>
-   NAVER를 꿈꾸는 개발자
    </div>
    
    </div>
