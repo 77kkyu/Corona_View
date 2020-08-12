@@ -35,7 +35,7 @@ public class MainController {
 
 		//List<YoutubeBean> youtubeList = mainService.youtubeApiList();
 		//System.out.println(youtubeList.get(0).getVedioId());
-
+ 
 		List<NewsBean> newsList = mainService.newsApiList();
 
 		mv.addObject("newsList", newsList); // 뉴스 리스트

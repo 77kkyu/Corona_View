@@ -335,7 +335,7 @@
        <div align="center">
       <p class="pfont">*대한민국 지역별 확진자 수치</p>
 	  </div>
-      <div id="pie-chart" style="height:300px;"></div>
+      <div id="pie-chart" style="width:100%; height:300px;"></div>
     </div>
     <br>
     
