@@ -606,6 +606,11 @@ data: ${chartList}
 <!-- 카카오맵 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c5c08d7664bc1f1677e82a267f0462f8"></script>
 <script>
+
+  
+
+
+
        var container = document.getElementById('map');
       var options = {
          center: new kakao.maps.LatLng(36.1284249157748, 127.89893833794618),
@@ -613,6 +618,7 @@ data: ${chartList}
       };
 
       var map = new kakao.maps.Map(container, options);
+
 
       // 마커를 표시할 위치와 title 객체 배열입니다 
       var positions = [
@@ -798,8 +804,7 @@ data: ${chartList}
           };
       } 
 
-      
-
+   
 
 </script> 
 
