@@ -31,23 +31,25 @@
 
 
 
-![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web2.png?raw=true)
+​                                                      ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web2.png?raw=true)  
 
 
 
-![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web3.png?raw=true)
+​                                                                         ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web3.png?raw=true) 
 
 
 
-![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web4.png?raw=true)
+​                                                                         ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web4.png?raw=true)
 
 
 
-![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web5.png?raw=true)
+​                                ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web5.png?raw=true)
 
 
 
-![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web6.png?raw=true)
+​                               ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web6.png?raw=true)
+
+
 
 
 
