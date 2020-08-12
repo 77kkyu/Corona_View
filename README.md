@@ -29,9 +29,33 @@
 
   ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web1.png?raw=true)
 
+
+
+![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web2.png?raw=true)
+
+
+
+![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web3.png?raw=true)
+
+
+
+![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web4.png?raw=true)
+
+
+
+![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web5.png?raw=true)
+
+
+
+![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web6.png?raw=true)
+
+
+
 - 반응형(폰 스크린샷)
 
-  
+
+
+​     
 
 ​                                                    
 
@@ -44,7 +68,7 @@
 ## Collaboration
 
 - GitHub
-  - Project board 를 통한 일정 관리![image-20200812155701495](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20200812155701495.png) 
 
+  - Project board 를 통한 일정 관리
 
-
+    ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/project_board.png?raw=true)
