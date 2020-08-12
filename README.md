@@ -27,15 +27,13 @@
 
   
 
-
+  ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web1.png?raw=true)
 
 - 반응형(폰 스크린샷)
 
   
 
 ​                                                    
-
-​                                 
 
 
 
