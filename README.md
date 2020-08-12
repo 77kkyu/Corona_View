@@ -27,27 +27,15 @@
 
   
 
-<img src="C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20200812160850230.png" alt="image-20200812160850230" style="zoom:80%;" />
-
-![image-20200812160924841](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20200812160924841.png)
-
-<img src="C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20200812160932554.png" alt="image-20200812160932554" style="zoom: 80%;" />
-
-![image-20200812160942334](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20200812160942334.png)
-
-![image-20200812160950921](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20200812160950921.png)
-
-![image-20200812161014051](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20200812161014051.png)
-
 
 
 - 반응형(폰 스크린샷)
 
   
 
-​     <img src="C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20200812162536114.png" alt="image-20200812162536114" style="zoom: 33%;" />                       <img src="C:\Users\user\Desktop\포폴이미지\2.jpg" alt="2" style="zoom:33%;" />               <img src="C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20200812162028913.png" alt="image-20200812162028913" style="zoom: 33%;" />         
+​                                                    
 
-​     <img src="C:\Users\user\Desktop\포폴이미지\5.jpg" alt="5" style="zoom:33%;" />                         <img src="C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20200812162323646.png" alt="image-20200812162323646" style="zoom: 33%;" />   
+​                                 
 
 
 
