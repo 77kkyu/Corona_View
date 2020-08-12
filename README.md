@@ -37,15 +37,25 @@
 
  
 
-​                                                                         <img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web3.png?raw=true"  /> 
+​                                                                         
+
+<p align="center"><img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web3.png?raw=true"  /></p>
+
+ 
 
 
 
-​                                                                             <img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web4.png?raw=true"  />   
+​                                                                             
+
+<p align="center"><img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web4.png?raw=true"  /></p>
+
+   
 
 
 
-​                                ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web5.png?raw=true)
+​                                
+
+![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web5.png?raw=true)
 
 
 
