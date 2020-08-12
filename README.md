@@ -55,7 +55,11 @@
 
 
 
-​     
+​     <img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/app1.jpg?raw=true" style="zoom:25%;" />     <img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/app2.png?raw=true" style="zoom:25%;" />     <img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/app3.png?raw=true" style="zoom:25%;" />
+
+
+
+​     <img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/app4.png?raw=true" style="zoom:25%;" />      <img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/app5.png?raw=true" style="zoom:25%;" />
 
 ​                                                    
 
