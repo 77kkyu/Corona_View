@@ -64,6 +64,8 @@
 
 
 
+
+
 - Json Parsing 모듈
 
   ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/JsonParsing.png?raw=true)  
@@ -83,6 +85,8 @@
     함수를 호출해 Json형태를 Map형태로 바꾸어 데이터를 재 정렬했습니다.
 
     [Service Codes 클릭](https://github.com/77kkyu/Corona_View/blob/master/src/main/java/com/corona/main/MainServiceImpl.java)
+
+
 
 
 
@@ -113,6 +117,8 @@
     - Script로 숫자가 3자리마다 콤마를 적용하는 함수를 사용해 애니메이션이 동작하면서 
 
       확진자 수가 3자리를 넘어가면 자동으로 콤마가 적용됩니다.
+
+
 
 
 
@@ -147,6 +153,8 @@
     - **차트**
       1. Morris 차트를 사용하여 차트를 구성했고 마우스를 올렸을 때 데이터 수치가 나타납니다.
       2. Morris 차트에 맞게 Json Pasing후 데이터 타입을 맞춰서 표기했습니다. 
+
+
 
 
 
