@@ -64,7 +64,7 @@
 
 
 
-
+------
 
 
 
@@ -89,6 +89,8 @@
     [Service Codes 클릭](https://github.com/77kkyu/Corona_View/blob/master/src/main/java/com/corona/main/MainServiceImpl.java)
 
 
+
+------
 
 
 
@@ -121,6 +123,8 @@
       확진자 수가 3자리를 넘어가면 자동으로 콤마가 적용됩니다.
 
 
+
+------
 
 
 
@@ -157,6 +161,8 @@
       2. Morris 차트에 맞게 Json Pasing후 데이터 타입을 맞춰서 표기했습니다. 
 
 
+
+------
 
 
 
