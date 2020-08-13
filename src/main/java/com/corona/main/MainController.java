@@ -33,13 +33,13 @@ public class MainController {
 
 		KoreaTotalBean coronaTotalList = mainService.coronaTotalList();
 
-		//List<YoutubeBean> youtubeList = mainService.youtubeApiList();
+		List<YoutubeBean> youtubeList = mainService.youtubeApiList();
 		//System.out.println(youtubeList.get(0).getVedioId());
  
 		List<NewsBean> newsList = mainService.newsApiList();
 
 		mv.addObject("newsList", newsList); // 뉴스 리스트
-		//mv.addObject("youtubeList", youtubeList); // 유튜브 리스트
+		mv.addObject("youtubeList", youtubeList); // 유튜브 리스트
 		mv.addObject("newCase", newCase); // 새로운 확진자 리스트
 		mv.addObject("TotalMap", coronaTotalList); 
 		mv.addObject("locationsMap", coronaMapList);  
