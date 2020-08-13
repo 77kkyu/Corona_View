@@ -42,7 +42,7 @@
 
 ## Implementation
 
-- Open-API 모듈 및 Package구조
+- ### Open-API 모듈 및 Package구조
 
   ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/API.png?raw=true)  
 
@@ -66,7 +66,9 @@
 
 
 
-- Json Parsing 모듈
+
+
+- ###  Json Parsing 모듈
 
   ![](https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/JsonParsing.png?raw=true)  
 
@@ -90,7 +92,7 @@
 
 
 
-- 코로나 현황판
+- ### 코로나 현황판
 
   <img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web1.png?raw=true" width="400" height="400"> 
 
@@ -122,7 +124,7 @@
 
 
 
-- 코로나 맵, 리스트, 차트
+- ### 코로나 맵, 리스트, 차트
 
   - <img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web2.png?raw=true" width="400" height="400"> 
 
@@ -158,7 +160,7 @@
 
 
 
-- News, Youtube
+- ### News, Youtube
 
   - <img src="https://github.com/77kkyu/Corona_View/blob/master/src/main/webapp/img/web5.png?raw=true" width="400" height="400"> 
 
