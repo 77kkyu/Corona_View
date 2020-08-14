@@ -190,7 +190,7 @@
 
 # Collaboration
 
-- GitHub
+- **GitHub**
 
   - Project board 를 통한 일정 관리
 
