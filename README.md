@@ -4,7 +4,7 @@
 
 사용자에게 코로나 관련 편의를 제공하고 다양한 Open API를 사용해 보기 위해 제작하였습니다.
 
-## Description
+# Description
 
 - 개발 기간: 2020.07.08 ~ 2020.07.24 (약 2주)
 - 참여 인원: Backend 2명
@@ -21,9 +21,9 @@
   - Json Pasing 관련 모듈, Open-API 관련 모듈 제공
   - Bootstrap을 사용한 반응형
 
-## Views
+# Views
 
-- Web
+- **Web**
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-- 반응형(폰 스크린샷)
+- **반응형(폰 스크린샷)**
 
 
 
@@ -40,7 +40,7 @@
 
 
 
-## Implementation
+# Implementation
 
 - ### Open-API 모듈 및 Package구조
 
@@ -188,7 +188,7 @@
 
     
 
-## Collaboration
+# Collaboration
 
 - GitHub
 
