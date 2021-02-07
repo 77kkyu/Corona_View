@@ -1,4 +1,4 @@
-#  CoronaView
+#  CoronaView 
 
 이젠 아카데미에서 진행한 팀 프로젝트 입니다.
 
